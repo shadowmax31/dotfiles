@@ -19,6 +19,7 @@ Plug 'leafgarland/typescript-vim'
 Plug 'mhinz/vim-startify'
 Plug 'justinmk/vim-sneak'
 Plug 'kien/rainbow_parentheses.vim'
+Plug 'ap/vim-buftabline'
 
 Plug 'gregsexton/MatchTag'
 
