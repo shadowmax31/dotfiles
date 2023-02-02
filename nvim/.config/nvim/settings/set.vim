@@ -22,6 +22,8 @@ set guioptions-=L
 set guioptions-=T
 set guioptions-=m
 
+set wrap!
+
 " Git commits
 autocmd FileType gitcommit set textwidth=72
 autocmd FileType gitcommit set colorcolumn+=73
