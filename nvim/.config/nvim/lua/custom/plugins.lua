@@ -8,5 +8,6 @@ return function(use)
     'airblade/vim-rooter',
     'jiangmiao/auto-pairs',
     'tpope/vim-commentary',
+    'nvim-tree/nvim-tree.lua',
   })
 end
