@@ -6,6 +6,7 @@ return function(use)
     'ap/vim-buftabline',
     'gregsexton/MatchTag',
     'airblade/vim-rooter',
-    'jiangmiao/auto-pairs'
+    'jiangmiao/auto-pairs',
+    'tpope/vim-commentary',
   })
 end

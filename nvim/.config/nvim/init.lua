@@ -87,6 +87,7 @@ vim.cmd('source '..base_path..'/map.vim')
 vim.cmd('source '..base_path..'/plug/rainbow.vim')
 vim.cmd('source '..base_path..'/plug/sneak.vim')
 vim.cmd('source '..base_path..'/plug/nuuid.vim')
+vim.cmd('source '..base_path..'/plug/commentary.vim')
 
 -- When we are bootstrapping a configuration, it doesn't
 -- make sense to execute the rest of the init.lua.
