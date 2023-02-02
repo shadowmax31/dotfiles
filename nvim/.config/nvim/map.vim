@@ -26,6 +26,8 @@ noremap <Leader>Y "*Y
 noremap <Leader>p "*p
 noremap <Leader>P "*P
 
+noremap Y yy
+
 nnoremap <C-z> :bprev<CR>
 nnoremap <C-x> :bnext<CR>
 nnoremap <Leader><Backspace> :bd<CR>
