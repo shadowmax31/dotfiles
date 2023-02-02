@@ -356,7 +356,8 @@ local on_attach = function(_, bufnr)
 
 
   -- See `:help K` for why this keymap
-  nmap('<leader><leader>', vim.lsp.buf.hover, 'Hover Documentation')
+  -- nmap('<leader><leader>', vim.lsp.buf.hover, 'Hover Documentation')
+  nmap('K', vim.lsp.buf.hover, 'Hover Documentation')
   -- nmap('<C-k>', vim.lsp.buf.signature_help, 'Signature Documentation')
 
 
