@@ -28,12 +28,7 @@ autocmd VimEnter * silent !echo -ne "\e[2 q"
 augroup END
 
 
-if has("nvim-0.6")
-  color tokyonight-storm
-elseif has("termguicolors")
-  set termguicolors
-  colo nord
-endif
+color tokyonight-storm
 
 " Transparent - As to be after color scheme
 highlight Normal guibg=none

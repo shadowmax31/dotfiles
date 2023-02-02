@@ -22,6 +22,8 @@ set guioptions-=L
 set guioptions-=T
 set guioptions-=m
 
+set termguicolors
+
 set wrap!
 
 " Git commits
