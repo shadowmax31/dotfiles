@@ -89,7 +89,7 @@ vim.cmd('source '..base_path..'/plug/sneak.vim')
 vim.cmd('source '..base_path..'/plug/nuuid.vim')
 vim.cmd('source '..base_path..'/plug/commentary.vim')
 
-require('tree')
+
 
 -- When we are bootstrapping a configuration, it doesn't
 -- make sense to execute the rest of the init.lua.
@@ -228,6 +228,9 @@ require('telescope').setup {
     },
   },
 }
+
+require("telescope").load_extension "file_browser"
+vim.keymap.set('n', '<C-n>', ':Telescope file_browser<CR>')
 
 -- Enable telescope fzf native, if installed
 pcall(require('telescope').load_extension, 'fzf')
