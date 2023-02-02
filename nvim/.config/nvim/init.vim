@@ -28,7 +28,9 @@ autocmd VimEnter * silent !echo -ne "\e[2 q"
 augroup END
 
 
-if has("termguicolors")
+if has("nvim-0.6")
+  color tokyonight-storm
+elseif has("termguicolors")
   set termguicolors
   colo nord
 endif

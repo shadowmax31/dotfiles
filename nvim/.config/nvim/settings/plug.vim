@@ -7,6 +7,7 @@ Plug 'jnurmine/Zenburn'
 Plug 'joshdick/onedark.vim'
 Plug 'savq/melange'
 Plug 'shaunsingh/nord.nvim'
+Plug 'folke/tokyonight.nvim', { 'branch': 'main' }
 
 Plug 'vimwiki/vimwiki'
 Plug 'itchyny/lightline.vim'
