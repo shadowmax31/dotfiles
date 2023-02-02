@@ -7,8 +7,6 @@ exec "source " . base_path . "/settings/run_sql.vim"
 
 exec "source " . base_path . "/settings/plug/wiki.vim"
 exec "source " . base_path . "/settings/plug/nerd.vim"
-exec "source " . base_path . "/settings/plug/coc.vim"
-exec "source " . base_path . "/settings/plug/fzf.vim"
 exec "source " . base_path . "/settings/plug/light_line.vim"
 exec "source " . base_path . "/settings/plug/sneak.vim"
 exec "source " . base_path . "/settings/plug/rainbow.vim"
@@ -17,9 +15,8 @@ exec "source " . base_path . "/settings/plug/nuuid.vim"
 exec "source " . base_path . "/settings/plug/vimspector.vim"
 exec "source " . base_path . "/settings/plug/yank_highlight.vim"
 
-if has("nvim-0.5") && !empty($treesitter)
-  exec "luafile " . base_path . "/settings/plug/tree.lua"
-endif
+" exec "luafile " . base_path . "/settings/plug/tree.lua"
+exec "luafile " . base_path . "/settings/plug/telescope.lua"
 
 " reset cursor on start:
 augroup myCmds

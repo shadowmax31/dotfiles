@@ -14,7 +14,6 @@ Plug 'itchyny/lightline.vim'
 Plug 'preservim/nerdtree'
 Plug 'preservim/nerdcommenter'
 Plug 'ryanoasis/vim-devicons'
-Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'leafgarland/typescript-vim'
 Plug 'mhinz/vim-startify'
 Plug 'justinmk/vim-sneak'
@@ -23,8 +22,6 @@ Plug 'ap/vim-buftabline'
 
 Plug 'gregsexton/MatchTag'
 
-Plug 'junegunn/fzf'
-Plug 'junegunn/fzf.vim'
 Plug 'airblade/vim-rooter'
 
 Plug 'jiangmiao/auto-pairs'
@@ -32,9 +29,11 @@ Plug 'tomlion/vim-solidity'
 
 Plug 'puremourning/vimspector'
 
-if has("nvim-0.5")
-  Plug 'nvim-treesitter/nvim-treesitter'
-endif
+Plug 'nvim-treesitter/nvim-treesitter'
+
+" Telescope
+Plug 'nvim-lua/plenary.nvim'
+Plug 'nvim-telescope/telescope.nvim', { 'tag': '0.1.x' }
 
 call plug#end()
 
