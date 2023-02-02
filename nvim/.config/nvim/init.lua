@@ -222,8 +222,10 @@ require('telescope').setup {
     mappings = {
 
       i = {
-        ['<C-u>'] = false,
-        ['<C-d>'] = false,
+        ["<C-p>"] = false,
+        ["<C-n>"] = false,
+        ["<C-j>"] = require('telescope.actions').move_selection_next,
+        ["<C-k>"] = require('telescope.actions').move_selection_previous,
       },
     },
   },
