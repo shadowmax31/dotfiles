@@ -7,7 +7,6 @@ return function(use)
     'gregsexton/MatchTag',
     'airblade/vim-rooter',
     'jiangmiao/auto-pairs',
-    'tpope/vim-commentary',
     'nvim-telescope/telescope-file-browser.nvim',
   })
 end

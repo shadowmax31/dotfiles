@@ -87,7 +87,6 @@ vim.cmd('source '..base_path..'/map.vim')
 vim.cmd('source '..base_path..'/plug/rainbow.vim')
 vim.cmd('source '..base_path..'/plug/sneak.vim')
 vim.cmd('source '..base_path..'/plug/nuuid.vim')
-vim.cmd('source '..base_path..'/plug/commentary.vim')
 
 
 
@@ -192,7 +191,14 @@ require('lualine').setup {
 }
 
 -- Enable Comment.nvim
-require('Comment').setup()
+require('Comment').setup({
+  toggler = {
+    line = '<C-m>',
+  },
+  opleader = {
+    block = '<C-m>',
+  },
+})
 
 -- Enable `lukas-reineke/indent-blankline.nvim`
 -- See `:help indent_blankline.txt`
