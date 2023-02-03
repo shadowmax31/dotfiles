@@ -191,14 +191,7 @@ require('lualine').setup {
 }
 
 -- Enable Comment.nvim
-require('Comment').setup({
-  toggler = {
-    line = '<C-m>',
-  },
-  opleader = {
-    block = '<C-m>',
-  },
-})
+require('Comment').setup()
 
 -- Enable `lukas-reineke/indent-blankline.nvim`
 -- See `:help indent_blankline.txt`
