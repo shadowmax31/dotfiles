@@ -34,4 +34,4 @@ nnoremap <Leader><Backspace> :bd<CR>
 
 nnoremap QQ :qa<CR>
 
-nnoremap <leader><leader> :Git 
+nnoremap git<space> :Git 

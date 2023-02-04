@@ -21,6 +21,7 @@ require('packer').startup(function(use)
       -- Automatically install LSPs to stdpath for neovim
       'williamboman/mason.nvim',
       'williamboman/mason-lspconfig.nvim',
+      'mfussenegger/nvim-jdtls',
 
       -- Useful status updates for LSP
       'j-hui/fidget.nvim',
@@ -398,6 +399,7 @@ local servers = {
   -- rust_analyzer = {},
   tsserver = {},
   angularls = {},
+  jdtls = {},
 
   sumneko_lua = {
     Lua = {
