@@ -241,6 +241,9 @@ vim.keymap.set('n', '<C-n>', ':Telescope file_browser path=%:p:h<CR>')
 -- Enable telescope fzf native, if installed
 pcall(require('telescope').load_extension, 'fzf')
 
+-- Goto init.lua
+vim.keymap.set('n', '<leader>cd', ':e '..config..'/init.lua<CR>')
+
 -- See `:help telescope.builtin`
 vim.keymap.set('n', '<leader>?', require('telescope.builtin').oldfiles, { desc = '[?] Find recently opened files' })
 vim.keymap.set('n', '<leader>b', require('telescope.builtin').buffers, { desc = '[ ] Find existing buffers' })
