@@ -9,6 +9,10 @@ if vim.fn.empty(vim.fn.glob(install_path)) > 0 then
 
 end
 
+local home = os.getenv('HOME')
+local config = vim.fn.stdpath('config')
+local data = vim.fn.stdpath('data')
+
 require('packer').startup(function(use)
 
   -- Package manager
@@ -221,7 +225,6 @@ require('gitsigns').setup {
 require('telescope').setup {
   defaults = {
     mappings = {
-
       i = {
         ["<C-p>"] = false,
         ["<C-n>"] = false,
@@ -438,6 +441,21 @@ mason_lspconfig.setup_handlers {
       settings = servers[server_name],
     }
   end,
+  ['jdtls'] = function()
+    local lombok = data..'/mason/packages/jdtls/lombok.jar'
+    require('lspconfig')['jdtls'].setup {
+      cmd = { 
+        'jdtls',
+        '--jvm-arg=-javaagent:'..lombok,
+        '-configuration',
+        home..'/.cache/jdtls/config',
+        '-data',
+        home..'/.cache/jdtls/workspace'
+        -- home..'/repos/workspace/coreapi'
+      },
+      on_attach = on_attach,
+    }
+  end
 }
 
 -- Turn on lsp status information
@@ -487,12 +505,11 @@ cmp.setup {
   },
 }
 
-local base_path = vim.fn.stdpath('config')
-vim.cmd('source '..base_path..'/set.vim')
-vim.cmd('source '..base_path..'/map.vim')
-vim.cmd('source '..base_path..'/plug/rainbow.vim')
-vim.cmd('source '..base_path..'/plug/sneak.vim')
-vim.cmd('source '..base_path..'/plug/nuuid.vim')
+vim.cmd('source '..config..'/set.vim')
+vim.cmd('source '..config..'/map.vim')
+vim.cmd('source '..config..'/plug/rainbow.vim')
+vim.cmd('source '..config..'/plug/sneak.vim')
+vim.cmd('source '..config..'/plug/nuuid.vim')
 
 -- The line beneath this is called `modeline`. See `:help modeline`
 -- vim: ts=2 sts=2 sw=2 et
