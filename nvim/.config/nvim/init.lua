@@ -81,14 +81,6 @@ require('packer').startup(function(use)
   end
 end)
 
-local base_path = vim.fn.stdpath('config')
-vim.cmd('source '..base_path..'/set.vim')
-vim.cmd('source '..base_path..'/map.vim')
-vim.cmd('source '..base_path..'/plug/rainbow.vim')
-vim.cmd('source '..base_path..'/plug/sneak.vim')
-vim.cmd('source '..base_path..'/plug/nuuid.vim')
-
-
 
 -- When we are bootstrapping a configuration, it doesn't
 -- make sense to execute the rest of the init.lua.
@@ -191,7 +183,16 @@ require('lualine').setup {
 }
 
 -- Enable Comment.nvim
-require('Comment').setup()
+require('Comment').setup({
+  toggler = {
+    line = "gc"
+  },
+  mappings = {
+    extra = false
+  }
+
+
+})
 
 -- Enable `lukas-reineke/indent-blankline.nvim`
 -- See `:help indent_blankline.txt`
@@ -483,6 +484,13 @@ cmp.setup {
     { name = 'luasnip' },
   },
 }
+
+local base_path = vim.fn.stdpath('config')
+vim.cmd('source '..base_path..'/set.vim')
+vim.cmd('source '..base_path..'/map.vim')
+vim.cmd('source '..base_path..'/plug/rainbow.vim')
+vim.cmd('source '..base_path..'/plug/sneak.vim')
+vim.cmd('source '..base_path..'/plug/nuuid.vim')
 
 -- The line beneath this is called `modeline`. See `:help modeline`
 -- vim: ts=2 sts=2 sw=2 et
