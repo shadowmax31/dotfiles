@@ -275,7 +275,7 @@ vim.keymap.set('n', '<leader>f', require('telescope.builtin').live_grep, { desc 
 -- See `:help nvim-treesitter`
 require('nvim-treesitter.configs').setup {
   -- Add languages to be installed here that you want installed for treesitter
-  ensure_installed = { 'c', 'cpp', 'go', 'lua', 'python', 'rust', 'typescript', 'help', 'vim', 'java' },
+  ensure_installed = { 'c', 'cpp', 'go', 'lua', 'python', 'rust', 'typescript', 'help', 'vim', 'java', 'bash' },
 
   highlight = { enable = true },
   indent = { enable = true, disable = { 'python' } },
@@ -416,6 +416,7 @@ local servers = {
   tsserver = {},
   angularls = {},
   jdtls = {},
+  bashls = {},
 
   sumneko_lua = {
     Lua = {
