@@ -8,5 +8,6 @@ return function(use)
     'airblade/vim-rooter',
     'jiangmiao/auto-pairs',
     'nvim-telescope/telescope-file-browser.nvim',
+    'ThePrimeagen/harpoon'
   })
 end
