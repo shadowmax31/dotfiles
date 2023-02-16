@@ -31,10 +31,9 @@ client.focused #d8dee9 #d8dee9 #d8dee9 #d8dee9 #d8dee9
 client.unfocused #4c566a #4c566a #4c566a #4c566a #4c566a
 
 # Remove title bar
-for_window [class="^.*"] border pixel 3
+for_window [class="^.*"] border pixel 1
 
-gaps inner 10
-gaps outer 15
+gaps inner 8
 
 bar {
     swaybar_command waybar
