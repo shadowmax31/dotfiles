@@ -3,7 +3,7 @@
     "height": 24, // Waybar height
     "modules-left": ["sway/workspaces", "sway/mode"],
     "modules-center": ["clock"],
-    "modules-right": ["pulseaudio", "network", "cpu", "memory", "temperature"],
+    "modules-right": ["sway/language", "pulseaudio", "network", "cpu", "memory", "temperature"],
     "sway/workspaces": {
         "disable-scroll": true,
         "all-outputs": false,
@@ -18,6 +18,9 @@
             "focused": "",
             "default": ""
         }
+    },
+    "sway/language": {
+      "format": "{}"
     },
     "sway/mode": {
         "format": "<span style=\"italic\">{}</span>"

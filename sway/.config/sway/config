@@ -156,7 +156,8 @@ bindsym $mod+Shift+a exec swaylock --clock --indicator -i ~/.image --effect-blur
 
 output "*" bg ~/.image fill
 input "type:keyboard" {
- xkb_layout "us"
- xkb_options "caps:escape"
+ xkb_layout "us,ca(multix)"
+ # xkb_options "caps:escape,grp:alt_shift_toggle"
+ xkb_options "caps:escape,grp:switch"
 }
 
