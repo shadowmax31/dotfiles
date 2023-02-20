@@ -97,7 +97,7 @@ bindsym $mod+d mode "resize"
 assign [app_id="Thunderbird"] workspace 8
 
 # Lock Screen 
-bindsym $mod+Shift+a exec swaylock --clock --indicator -i ~/.image --effect-blur 25x1
+bindsym $mod+Shift+a exec swaylock --clock --indicator -i `ls --color=never -d ~/Images/wallpapers/* | sort -R | tail -1` --effect-blur 25x1
 
 output "*" bg `ls --color=never -d ~/Images/wallpapers/* | sort -R | tail -1` fill #282a36
 
