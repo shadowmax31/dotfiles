@@ -142,7 +142,7 @@ vim.wo.signcolumn = 'yes'
 
 -- Set colorscheme
 vim.o.termguicolors = true
-vim.cmd[[colorscheme tokyonight]]
+vim.cmd[[colorscheme dracula]]
 
 
 -- Set completeopt to have a better completion experience
@@ -181,7 +181,7 @@ vim.api.nvim_create_autocmd('TextYankPost', {
 require('lualine').setup {
   options = {
     icons_enabled = false,
-    theme = 'tokyonight',
+    theme = 'dracula',
     component_separators = '|',
     section_separators = '',
   },

@@ -9,7 +9,7 @@
 
 window#waybar {
     background: transparent;
-    color: white;
+    color: #f8f8f2;
 }
 
 #window {
@@ -19,13 +19,13 @@ window#waybar {
 #workspaces button {
     padding: 0 5px;
     background: transparent;
-    color: white;
+    color: #f8f8f2;
     border-top: 2px solid transparent;
 }
 
 #workspaces button.focused {
-    color: #c9545d;
-    border-top: 2px solid #c9545d;
+    color: #ffb86c;
+    border-top: 2px solid #ffb86c;
 }
 
 #mode {

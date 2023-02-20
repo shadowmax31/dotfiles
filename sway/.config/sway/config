@@ -30,9 +30,8 @@ bindsym $mod+z exec pavucontrol
 
 bindsym $mod+Shift+q kill
 
-bindsym $mod+r exec --no-startup-id dmenu-wl_run -nb '#2e3440' -sb '#d8dee9' -sf '#4c566a'
-bindsym $mod+p exec --no-startup-id passmenu -nb '#2e3440' -sb '#d8dee9' -sf '#4c566a'
-
+bindsym $mod+r exec --no-startup-id dmenu-wl_run -nf '#ff79c6' -nb '#282a36' -sf '#ffb86c' -sb '#44475a'
+bindsym $mod+p exec --no-startup-id passmenu -nf '#ff79c6' -nb '#282a36' -sf '#ffb86c' -sb '#44475a'
 
 # change focus
 bindsym $mod+h focus left
@@ -99,7 +98,9 @@ bindsym $mod+d mode "resize"
 # Lock Screen 
 bindsym $mod+Shift+a exec swaylock --clock --indicator -i ~/.image --effect-blur 25x1
 
+exec_always ls --color=never -d ~/Images/wallpapers/* | sort -R | tail -1 | xargs cat > ~/.image
 output "*" bg ~/.image fill
+
 input "type:keyboard" {
  xkb_layout "us,ca(multix)"
  # xkb_options "caps:escape,grp:alt_shift_toggle"
