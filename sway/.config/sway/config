@@ -1,6 +1,7 @@
 # Screen sharing on VoidLinux #
 exec dbus-update-activation-environment DISPLAY I3SOCK SWAYSOCK WAYLAND_DISPLAY XDG_CURRENT_DESKTOP=sway
-exec pipewire
+exec pipewire 
+exec pipewire-pulse
 exec /usr/libexec/xdg-desktop-portal -r
 # Screen sharing on VoidLinux #
 
