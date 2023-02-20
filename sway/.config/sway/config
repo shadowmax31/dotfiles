@@ -95,6 +95,8 @@ mode "resize" {
 
 bindsym $mod+d mode "resize"
 
+assign [app_id="Thunderbird"] workspace 8
+
 # Lock Screen 
 bindsym $mod+Shift+a exec swaylock --clock --indicator -i ~/.image --effect-blur 25x1
 
