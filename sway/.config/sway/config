@@ -8,7 +8,6 @@ set $mod Mod4
 
 font pango:DejaVu Sans Mono 11
 
-
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
 
@@ -100,8 +99,7 @@ assign [app_id="Thunderbird"] workspace 8
 # Lock Screen 
 bindsym $mod+Shift+a exec swaylock --clock --indicator -i ~/.image --effect-blur 25x1
 
-exec_always ls --color=never -d ~/Images/wallpapers/* | sort -R | tail -1 | xargs cat > ~/.image
-output "*" bg ~/.image fill
+output "*" bg `ls --color=never -d ~/Images/wallpapers/* | sort -R | tail -1` fill #282a36
 
 input "type:keyboard" {
  xkb_layout "us,ca(multix)"
