@@ -94,6 +94,13 @@ mode "resize" {
 }
 
 bindsym $mod+d mode "resize"
+bindsym Print exec grimshot copy area
+
+# Audio control
+bindsym XF86AudioMute exec pactl set-sink-mute @DEFAULT_SINK@ toggle
+bindsym XF86AudioRaiseVolume exec pactl set-sink-volume @DEFAULT_SINK@ +5%
+bindsym XF86AudioLowerVolume exec pactl set-sink-volume @DEFAULT_SINK@ -5%
+
 
 assign [app_id="Thunderbird"] workspace 8
 
@@ -104,7 +111,7 @@ output "*" bg `ls --color=never -d ~/Images/wallpapers/* | sort -R | tail -1` fi
 
 input "type:keyboard" {
  xkb_layout "us,ca(multix)"
- # xkb_options "caps:escape,grp:alt_shift_toggle"
- xkb_options "caps:escape,grp:switch"
+ # xkb_options "caps:escape,grp:switch"
+ xkb_options "caps:escape,grp:toggle"
 }
 
