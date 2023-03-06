@@ -107,6 +107,15 @@ assign [app_id="Thunderbird"] workspace 8
 # Lock Screen 
 bindsym $mod+Shift+a exec swaylock --clock --indicator -i `ls --color=never -d ~/Images/wallpapers/* | sort -R | tail -1` --effect-blur 25x1
 
+# Idle
+exec swayidle -w \
+	timeout 1800 'swaymsg "output * power off"' \
+	resume 'swaymsg "output * power on"'
+
+exec swayidle -w \
+	timeout 30 'if pgrep -x swaylock; then swaymsg "output * power off"; fi' \
+	resume 'swaymsg "output * power on"'
+
 output "*" bg `ls --color=never -d ~/Images/wallpapers/* | sort -R | tail -1` fill #282a36
 
 input "type:keyboard" {
