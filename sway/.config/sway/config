@@ -118,7 +118,6 @@ output "*" bg `ls --color=never -d ~/Images/wallpapers/* | sort -R | tail -1` fi
 
 input "type:keyboard" {
  xkb_layout "us,ca(multix)"
- # xkb_options "caps:escape,grp:switch"
- xkb_options "caps:escape,grp:toggle"
+ xkb_options "grp:sclk_toggle"
 }
 
