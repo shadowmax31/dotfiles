@@ -1,7 +1,9 @@
-# Screen sharing #
-exec dbus-sway-environment
-exec configure-gtk
-# Screen sharing #
+# Screen sharing on VoidLinux #
+exec dbus-update-activation-environment DISPLAY I3SOCK SWAYSOCK WAYLAND_DISPLAY XDG_CURRENT_DESKTOP=sway
+exec pipewire 
+exec pipewire-pulse
+exec /usr/libexec/xdg-desktop-portal -r
+# Screen sharing on VoidLinux #
 
 set $mod Mod4
 
@@ -28,7 +30,7 @@ bindsym $mod+z exec pavucontrol
 
 bindsym $mod+Shift+q kill
 
-bindsym $mod+r exec --no-startup-id dmenu_run -nf '#ff79c6' -nb '#282a36' -sf '#ffb86c' -sb '#44475a'
+bindsym $mod+r exec --no-startup-id dmenu-wl_run -nf '#ff79c6' -nb '#282a36' -sf '#ffb86c' -sb '#44475a'
 bindsym $mod+p exec --no-startup-id passmenu -nf '#ff79c6' -nb '#282a36' -sf '#ffb86c' -sb '#44475a'
 
 # change focus
@@ -103,7 +105,7 @@ bindsym XF86AudioLowerVolume exec pactl set-sink-volume @DEFAULT_SINK@ -5%
 assign [app_id="Thunderbird"] workspace 8
 
 # Lock Screen 
-bindsym $mod+Shift+a exec swaylock --clock --indicator -i `ls --color=never -d ~/Images/wallpapers/* | sort -R | tail -1` --effect-blur 25x1
+bindsym $mod+Shift+a exec swaylock -i `ls --color=never -d ~/Images/wallpapers/* | sort -R | tail -1` 
 
 # Idle
 exec swayidle -w \
@@ -118,7 +120,6 @@ output "*" bg `ls --color=never -d ~/Images/wallpapers/* | sort -R | tail -1` fi
 
 input "type:keyboard" {
  xkb_layout "us,ca(multix)"
- # xkb_options "caps:escape,grp:switch"
- xkb_options "caps:escape,grp:toggle"
+ xkb_options "grp:sclk_toggle"
 }
 
