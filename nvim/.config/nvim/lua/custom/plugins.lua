@@ -10,6 +10,7 @@ return function(use)
     'jiangmiao/auto-pairs',
     'nvim-telescope/telescope-file-browser.nvim',
     'ThePrimeagen/harpoon',
-    'christoomey/vim-tmux-navigator'
+    'christoomey/vim-tmux-navigator',
+    'norcalli/nvim-colorizer.lua'
   })
 end
