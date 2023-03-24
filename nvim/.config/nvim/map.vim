@@ -21,10 +21,10 @@ nnoremap <C-w>l <nop>
 noremap <Leader>x :call RunSQL(0)<CR>
 noremap <Leader>X :call RunSQL(1)<CR>
 
-noremap <Leader>y "*y
-noremap <Leader>Y "*Y
-noremap <Leader>p "*p
-noremap <Leader>P "*P
+noremap <Leader>y "+y
+noremap <Leader>Y "+Y
+noremap <Leader>p "+p
+noremap <Leader>P "+P
 
 noremap Y yy
 
