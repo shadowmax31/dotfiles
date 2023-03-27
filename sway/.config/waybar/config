@@ -30,7 +30,9 @@
         "format": "<span style=\"italic\">{}</span>"
     },
      "temperature": {
-      "format": "{temperatureC}°C  "
+      "format": "{temperatureC}°C  ",
+      "hwmon-path-abs": "/sys/devices/pci0000:00/0000:00:18.3/hwmon",
+      "input-filename": "temp1_input"
     },
     "clock": {
         "format": "{:%Y-%m-%d %H:%M:%S}",
