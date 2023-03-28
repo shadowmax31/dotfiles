@@ -19,6 +19,7 @@ bindkey -v
 # ************ Custom Config ************
 #
 source ~/.config/zsh/prompt
+source "$HOME/.nix-profile/etc/profile.d/hm-session-vars.sh"
 alias n="nvim ~/.notes"
 
 export user_color="blue"
