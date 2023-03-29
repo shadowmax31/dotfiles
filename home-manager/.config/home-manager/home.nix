@@ -1,10 +1,14 @@
 { config, pkgs, ... }:
 
+let 
+  username = "etienne";
+  gaming = import ./gaming.nix { pkgs = pkgs; username = username; };
+in
 {
   # Home Manager needs a bit of information about you and the paths it should
   # manage.
-  home.username = "etienne";
-  home.homeDirectory = "/home/etienne";
+  home.username = "$username";
+  home.homeDirectory = "/home/$username";
 
   # This value determines the Home Manager release that your configuration is
   # compatible with. This helps avoid breakage when a new Home Manager release
@@ -18,6 +22,8 @@
   # The home.packages option allows you to install Nix packages into your
   # environment.
   home.packages = [
+    gaming 
+
     pkgs.azuredatastudio
     pkgs.brave
     pkgs.librewolf
