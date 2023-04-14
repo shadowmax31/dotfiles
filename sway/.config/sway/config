@@ -7,7 +7,7 @@ exec /usr/libexec/xdg-desktop-portal -r
 
 set $mod Mod4
 
-font pango:DejaVu Sans Mono 11
+font pango:monospace 0
 
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
@@ -17,6 +17,8 @@ client.unfocused #4c566a #4c566a #4c566a #4c566a #4c566a
 
 # Remove title bar
 default_border pixel 1
+default_floating_border none
+titlebar_padding 2
 
 gaps inner 8
 
@@ -47,6 +49,8 @@ bindsym $mod+Shift+l move right
 
 bindsym $mod+s split v
 bindsym $mod+v split h
+bindsym $mod+w layout toggle split tabbed
+bindsym $mod+e layout toggle split
 bindsym $mod+f fullscreen
 
 bindsym $mod+Shift+space floating toggle
