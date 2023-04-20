@@ -108,6 +108,7 @@ bindsym XF86AudioLowerVolume exec pactl set-sink-volume @DEFAULT_SINK@ -5%
 assign [class="Brave-browser"] workspace 6
 assign [class="Thunderbird"] workspace 8
 assign [class="krita"] workspace 9
+for_window [app_id="galculator"] floating enable
 
 # Lock Screen 
 bindsym $mod+Shift+a exec swaylock -i `ls --color=never -d ~/Images/wallpapers/* | sort -R | tail -1` 
