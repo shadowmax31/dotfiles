@@ -1,0 +1,79 @@
+# [Created by task 2.5.1 11/20/2020 19:49:47]
+# Taskwarrior program configuration file.
+# For more documentation, see http://taskwarrior.org or try 'man task', 'man task-color',
+# 'man task-sync' or 'man taskrc'
+
+# Here is an example of entries that use the default, override and blank values
+#   variable=foo   -- By specifying a value, this overrides the default
+#   variable=      -- By specifying no value, this means no default
+#   #variable=foo  -- By commenting out the line, or deleting it, this uses the default
+
+# Use the command 'task show' to see all defaults and overrides
+
+# Files
+data.location=~/.task
+
+default.project=Inbox
+
+urgency.annotations.coefficient=0
+urgency.project.coefficient=0
+urgency.tags.coefficient=0
+urgency.user.tag.fun.coefficient=0.25
+urgency.user.tag.boost.coefficient=1
+urgency.blocking.coefficient=4
+
+urgency.uda.priority.values=H,M,,L
+urgency.uda.priority.L.coefficient=-2.5
+
+# Time UDA
+uda.time.type=string
+uda.time.label=Time
+urgency.uda.time.values=D,HD,H,HH
+urgency.uda.time.HH.coefficient=-1
+urgency.uda.time.H.coefficient=0
+urgency.uda.time.HD.coefficient=1
+urgency.uda.time.D.coefficient=2
+# Time UDA - END
+
+#Backlog
+urgency.user.tag.backlog.coefficient=-15
+color.tag.backlog=color240
+#Backlog - END
+
+# Colors
+color.tagged=
+color.project.Inbox=bold blue
+color.uda.priority.H=bold rgb551
+color.uda.priority.M=
+color.tag.highlight=black on green
+color.tag.bug=bold white on red
+
+# Color theme (uncomment one to use)
+#include /usr/share/doc/task/rc/light-16.theme
+#include /usr/share/doc/task/rc/light-256.theme
+#include /usr/share/doc/task/rc/dark-16.theme
+#include /usr/share/doc/task/rc/dark-256.theme
+#include /usr/share/doc/task/rc/dark-red-256.theme
+#include /usr/share/doc/task/rc/dark-green-256.theme
+#include /usr/share/doc/task/rc/dark-blue-256.theme
+#include /usr/share/doc/task/rc/dark-violets-256.theme
+#include /usr/share/doc/task/rc/dark-yellow-green.theme
+#include /usr/share/doc/task/rc/dark-gray-256.theme
+#include /usr/share/doc/task/rc/dark-gray-blue-256.theme
+#include /usr/share/doc/task/rc/solarized-dark-256.theme
+#include /usr/share/doc/task/rc/solarized-light-256.theme
+#include /usr/share/doc/task/rc/no-color.theme
+
+report.completed.filter=status:completed end:yesterday
+
+report.completed-all.columns=id,uuid.short,entry,end,entry.age,depends,priority,project,tags,recur.indicator,due,description
+report.completed-all.description=Completed tasks (All)
+report.completed-all.filter=status:completed
+report.completed-all.labels=ID,UUID,Created,Completed,Age,Deps,P,Project,Tags,R,Due,Description
+report.completed-all.sort=end+
+
+report.next.labels=ID,Active,Age,Deps,P,T,Project,Epic,Tag,Recur,S,Due,Until,Description,Urg
+report.next.columns=id,start.age,entry.age,depends,priority,time,project,epic,tags,recur,scheduled.countdown,due.relative,until.remaining,description,urgency
+uda.epic.type=string
+uda.epic.label=Epic
+news.version=2.6.0
