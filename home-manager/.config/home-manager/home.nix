@@ -40,6 +40,8 @@ in
     pkgs.tmux
     pkgs.stow
 
+    pkgs.tmate
+
     pkgs.ripgrep
     pkgs.fzf
     pkgs.fd
