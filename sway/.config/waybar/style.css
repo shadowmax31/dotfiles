@@ -47,22 +47,6 @@ window#waybar {
     border-bottom: 2px solid #f8f8f2;
 }
 
-@keyframes blink {
-    to {
-        background-color: #ffffff;
-        color: black;
-    }
-}
-
-#battery.warning:not(.charging) {
-    color: white;
-    animation-name: blink;
-    animation-duration: 0.5s;
-    animation-timing-function: linear;
-    animation-iteration-count: infinite;
-    animation-direction: alternate;
-}
-
 #network.disconnected {
     background: #f53c3c;
 }
