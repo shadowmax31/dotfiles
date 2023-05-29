@@ -41,6 +41,10 @@ window#waybar {
     margin: 0 5px;
 }
 
+.modules-right {
+    margin-right: 3px;
+}
+
 #language, #pulseaudio, #network, #cpu, #memory, #temperature {
     padding: 0 2px;
     margin: 0 5px;
