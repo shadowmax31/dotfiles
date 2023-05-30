@@ -42,7 +42,7 @@ antigen bundle zsh-users/zsh-autosuggestions
 antigen bundle jeffreytse/zsh-vi-mode
 
 # This has to be the last line
-antigen bundle zsh-users/zsh-syntax-highlighting
+antigen bundle z-shell/F-Sy-H --branch=main
 # ************ ******* ************
 
 
