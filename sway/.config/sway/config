@@ -108,6 +108,7 @@ bindsym XF86AudioLowerVolume exec pactl set-sink-volume @DEFAULT_SINK@ -5%
 
 # swaymsg -t get_tree
 assign [class="StarUML"] workspace 3
+assign [class="azuredatastudio"] workspace 5
 assign [class="Brave-browser"] workspace 6
 assign [class="Thunderbird"] workspace 8
 assign [class="krita"] workspace 9
