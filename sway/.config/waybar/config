@@ -3,7 +3,7 @@
     "height": 24, // Waybar height
     "modules-left": ["sway/workspaces", "sway/mode"],
     "modules-center": ["clock"],
-    "modules-right": ["sway/language", "pulseaudio", "network", "cpu", "memory", "temperature"],
+    "modules-right": ["sway/language", "custom/timew", "pulseaudio", "network", "cpu", "memory", "temperature"],
     "sway/workspaces": {
         "disable-scroll": true,
         "all-outputs": false,
@@ -49,6 +49,12 @@
         "format-wifi": "{ifname}.{essid} ({signalStrength}%) ",
         "format-ethernet": "{ipaddr}/{cidr} ",
         "format-disconnected": "Disconnected ⚠"
+    },
+    "custom/timew": {
+      "exec": "~/.config/waybar/timew.sh",
+      "return-type": "json",
+      "interval": 30,
+      "format": "{} "
     },
     "pulseaudio": {
         //"scroll-step": 1,
