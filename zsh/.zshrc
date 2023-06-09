@@ -25,6 +25,7 @@ alias n="nvim ~/.notes"
 export user_color="blue"
 export EDITOR="nvim"
 
+alias cat="bat"
 alias ls="ls --color"
 alias ll="ls -lh"
 alias la="ls -a"

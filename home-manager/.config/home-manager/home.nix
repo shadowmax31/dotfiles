@@ -39,6 +39,7 @@ in
     pkgs.htop
     pkgs.tmux
     pkgs.stow
+    pkgs.bat
 
     pkgs.tmate
 
