@@ -35,8 +35,7 @@
       "input-filename": "temp1_input"
     },
     "clock": {
-        "format": "{:%a, %B %d %H:%M:%S}",
-        "format-alt": "{:%H:%M:%S}",
+        "format": "{:%Y-%m-%d %H:%M:%S}",
         "interval": 1,
         "tooltip-format": "<tt><small>{calendar}</small></tt>",
         "calendar": {
