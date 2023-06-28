@@ -31,6 +31,7 @@ alias ll="ls -lh"
 alias la="ls -a"
 alias rm="rm -i"
 alias sudo="echo Use doas! "
+alias u="date '+%s' | wl-copy"
 
 [ -f ~/.config/zsh/custom.zsh ] && source ~/.config/zsh/custom.zsh
 #

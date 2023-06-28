@@ -35,8 +35,24 @@
       "input-filename": "temp1_input"
     },
     "clock": {
-        "format": "{:%Y-%m-%d %H:%M:%S}",
-        "interval": 1
+        "format": "{:%a, %B %d %H:%M:%S}",
+        "format-alt": "{:%H:%M:%S}",
+        "interval": 1,
+        "tooltip-format": "<tt><small>{calendar}</small></tt>",
+        "calendar": {
+          "mode"          : "year",
+          "mode-mon-col"  : 3,
+          "on-scroll"     : 1,
+          "format": {
+            "months":     "<span color='#ffb86c'><b>{}</b></span>",
+            "days":   "<span color='#f8f8f2'><b>{}</b></span>",
+            "weekdays":       "<span color='#ff5555'><b>{}</b></span>",
+            "today":      "<span color='#ff79c6'><b><u>{}</u></b></span>"
+          }
+        },
+        "actions":  {
+          "on-click-right": "mode",
+        }
     },
     "cpu": {
         "format": "{usage}% "
