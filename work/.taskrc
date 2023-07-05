@@ -21,7 +21,8 @@ urgency.user.project.Inbox.coefficient=20
 urgency.tags.coefficient=0
 urgency.user.tag.fun.coefficient=0.25
 urgency.user.tag.boost.coefficient=1
-urgency.blocking.coefficient=4
+urgency.blocking.coefficient=1
+urgency.blocked.coefficient=-8
 
 urgency.uda.priority.values=H,M,,L
 urgency.uda.priority.L.coefficient=-2.5
@@ -48,6 +49,7 @@ color.uda.priority.H=bold rgb551
 color.uda.priority.M=
 color.tag.highlight=black on green
 color.tag.bug=bold white on red
+color.blocking=
 
 # Color theme (uncomment one to use)
 #include /usr/share/doc/task/rc/light-16.theme
