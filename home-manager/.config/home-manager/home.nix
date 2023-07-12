@@ -40,6 +40,8 @@ in
     pkgs.tmux
     pkgs.stow
     pkgs.bat
+    pkgs.sxiv
+    pkgs.shotwell
 
     pkgs.tmate
 
