@@ -49,6 +49,10 @@ in
     pkgs.fzf
     pkgs.fd
 
+    # BTRFS tools
+    pkgs.compsize
+    pkgs.btdu
+
     pkgs.galculator
   ];
 
