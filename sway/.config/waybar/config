@@ -38,7 +38,7 @@
         "interval": 1,
         "tooltip-format": "<tt><small>{calendar}</small></tt>",
         "calendar": {
-          "mode"          : "year",
+          "mode"          : "month",
           "mode-mon-col"  : 3,
           "on-scroll"     : 1,
           "format": {
