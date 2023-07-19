@@ -112,6 +112,7 @@ assign [class="azuredatastudio"] workspace 5
 assign [class="Brave-browser"] workspace 6
 assign [class="Thunderbird"] workspace 8
 assign [class="krita"] workspace 9
+assign [app_id="librewolf"] workspace 1
 for_window [app_id="galculator"] floating enable
 
 # Lock Screen 
