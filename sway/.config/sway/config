@@ -98,7 +98,7 @@ mode "resize" {
 }
 
 bindsym $mod+d mode "resize"
-bindsym Print exec grimshot copy area
+bindsym Print exec grim -g "$(slurp)" - | swappy -f -
 
 # Audio control
 bindsym XF86AudioMute exec pactl set-sink-mute @DEFAULT_SINK@ toggle

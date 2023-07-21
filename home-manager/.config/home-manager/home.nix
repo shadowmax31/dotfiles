@@ -45,6 +45,10 @@ in
 
     pkgs.tmate
 
+    # Screenshot
+    pkgs.grim
+    pkgs.swappy
+
     pkgs.ripgrep
     pkgs.fzf
     pkgs.fd
