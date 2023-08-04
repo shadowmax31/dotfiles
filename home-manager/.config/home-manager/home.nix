@@ -26,6 +26,7 @@ in
 
     pkgs.azuredatastudio
     pkgs.brave
+    pkgs.libreoffice
     pkgs.librewolf
     pkgs.lm_sensors
     pkgs.nb
