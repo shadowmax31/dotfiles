@@ -38,6 +38,7 @@ in
     pkgs.taskwarrior
     pkgs.timewarrior
     pkgs.htop
+    pkgs.neovim
     pkgs.tmux
     pkgs.stow
     pkgs.bat
