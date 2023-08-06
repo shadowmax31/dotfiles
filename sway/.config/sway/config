@@ -34,7 +34,9 @@ bindsym $mod+z exec pavucontrol
 bindsym $mod+Shift+q kill
 
 bindsym $mod+r exec --no-startup-id dmenu-wl_run -nf '#ff79c6' -nb '#282a36' -sf '#ffb86c' -sb '#44475a'
+
 bindsym $mod+p exec --no-startup-id passmenu -nf '#ff79c6' -nb '#282a36' -sf '#ffb86c' -sb '#44475a'
+bindsym $mod+o exec --no-startup-id passmenulogin -nf '#ff79c6' -nb '#282a36' -sf '#ffb86c' -sb '#44475a'
 
 # change focus
 bindsym $mod+h focus left

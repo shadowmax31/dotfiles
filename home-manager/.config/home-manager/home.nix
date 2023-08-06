@@ -3,6 +3,7 @@
 let 
   username = "etienne";
   gaming = import ./gaming.nix { pkgs = pkgs; username = username; };
+  passmenulogin = import ./passmenulogin.nix { pkgs = pkgs; };
 in
 {
   # Home Manager needs a bit of information about you and the paths it should
@@ -23,6 +24,7 @@ in
   # environment.
   home.packages = [
     gaming 
+    passmenulogin
 
     pkgs.azuredatastudio
     pkgs.brave
@@ -38,7 +40,6 @@ in
     pkgs.taskwarrior
     pkgs.timewarrior
     pkgs.htop
-    pkgs.neovim
     pkgs.tmux
     pkgs.stow
     pkgs.bat
