@@ -3,7 +3,7 @@
 let 
   username = "etienne";
   gaming = import ./gaming.nix { pkgs = pkgs; username = username; };
-  passmenulogin = import ./passmenulogin.nix { pkgs = pkgs; };
+  passmenumore = import ./passmenumore.nix { pkgs = pkgs; };
 in
 {
   # Home Manager needs a bit of information about you and the paths it should
@@ -24,7 +24,7 @@ in
   # environment.
   home.packages = [
     gaming 
-    passmenulogin
+    passmenumore
 
     pkgs.azuredatastudio
     pkgs.brave

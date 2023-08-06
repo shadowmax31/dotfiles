@@ -1,8 +1,8 @@
 { pkgs }:
 
 pkgs.writeTextFile {
-  name = "passmenulogin";
-  destination = "/bin/passmenulogin";
+  name = "passmenumore";
+  destination = "/bin/passmenumore";
   executable = true;
 
   text = ''
@@ -10,9 +10,9 @@ pkgs.writeTextFile {
   
   shopt -s nullglob globstar
   
-  typeit=0
-  if [[ $1 == "--type" ]]; then
-      typeit=1
+  otp=0
+  if [[ $1 == "--otp" ]]; then
+      otp=1
       shift
   fi
   
@@ -36,10 +36,10 @@ pkgs.writeTextFile {
   
   [[ -n $password ]] || exit
   
-  if [[ $typeit -eq 0 ]]; then
-      pass login -c "$password" 2>/dev/null
+  if [[ $otp -eq 0 ]]; then
+    pass login -c "$password" 2>/dev/null
   else
-      pass login "$password" | { IFS= read -r pass; printf %s "$pass"; } | $xdotool
+    pass otp -c "$password" 2>/dev/null
   fi
   '';
 
