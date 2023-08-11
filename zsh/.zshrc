@@ -25,6 +25,9 @@ alias n="nvim ~/.notes"
 export user_color="blue"
 export EDITOR="nvim"
 
+export PASSWORD_STORE_ENABLE_EXTENSIONS="true"
+export PASSWORD_STORE_LOGIN_PREFIX="user|email"
+
 alias cat="bat"
 alias ls="ls --color"
 alias ll="ls -lh"
@@ -32,6 +35,36 @@ alias la="ls -a"
 alias rm="rm -i"
 alias sudo="echo Use doas! "
 alias u="date '+%s' | wl-copy"
+
+alias t="task"
+
+alias tm="timew start \"Meeting\""
+alias ts="timew sum"
+alias tp="timew stop"
+alias tw="timew week"
+alias tk="timew continue"
+alias ty="timew sum :yest"
+
+alias c="code ."
+
+gsource() {
+  if [ -n "$1" ]; then
+    source <(gpg -d "$1" 2> /dev/null)
+  else
+    echo "Missing file path"
+  fi
+}
+
+# Restart Task
+tr() {
+  if [ -n "$1" ]
+  then
+    task $1 stop
+    task $1 start
+  else
+      echo "Missing task id"
+  fi
+}
 
 [ -f ~/.config/zsh/custom.zsh ] && source ~/.config/zsh/custom.zsh
 #
