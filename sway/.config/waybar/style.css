@@ -38,7 +38,7 @@ window#waybar {
     margin-right: 8px;
 }
 
-#clock, #custom-timew, #language, #wireplumber, #network, #cpu, #memory, #temperature {
+#clock, #custom-timew, #language, #pulseaudio, #network, #cpu, #memory, #temperature {
     font-weight: bold;
     text-shadow: none;
 
@@ -52,7 +52,7 @@ window#waybar {
     color: #282a36;
 }
 
-#custom-timew, #language, #wireplumber, #network, #cpu, #memory, #temperature {
+#custom-timew, #language, #pulseaudio, #network, #cpu, #memory, #temperature {
     margin-left: 12px;
 
     background: #bd93f9;
@@ -66,6 +66,6 @@ window#waybar {
 	background: #ffb86c;
 }
 
-#network.disconnected, #wireplumber.muted {
+#network.disconnected {
     background: #f53c3c;
 }
