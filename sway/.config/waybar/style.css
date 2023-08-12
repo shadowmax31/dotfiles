@@ -52,7 +52,7 @@ window#waybar {
     padding: 0px 20px;
     margin: 3px 5px;
 
-    border: 2px solid #ff79c6;
+    border: 2px solid #f8f8f2;
     background-color: #282a36;
     border-top: none;
     border-left: none;
@@ -61,8 +61,14 @@ window#waybar {
 
 #language.ca, #custom-timew.inactive {
     color: #ff79c6;
+    border: 2px solid #ff79c6;
+    border-top: none;
+    border-left: none;
 }
 
 #network.disconnected {
     color: #f53c3c;
+    border: 2px solid #f53c3c;
+    border-top: none;
+    border-left: none;
 }
