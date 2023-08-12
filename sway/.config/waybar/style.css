@@ -1,71 +1,61 @@
 * {
-    border: none;
-    border-radius: 0;
     font-family: "Fira Code";
-    font-size: 13px;
-    min-height: 0;
-    text-shadow: 2px 2px 2px black;
+    font-size: 12px;
 }
 
 window#waybar {
-    background: transparent;
-    color: #f8f8f2;
+    background-color: #44475a;
+    border-radius: 5px;
 }
 
 #workspaces button {
     padding: 0 5px;
-    background: transparent;
-    color: #f8f8f2;
+    color: #ff79c6;
     border-bottom: 2px solid transparent;
 }
 
 #workspaces button.focused {
     color: #ffb86c;
+
+    border-radius: 5px;
     border-bottom: 2px solid #ffb86c;
 }
 
 #mode {
     background: #64727D;
+    color: #f8f8f2;
+
     margin-top: 3px;
     margin-bottom: 3px;
-    margin-left: 4px;
 
     padding-left: 5px;
     padding-right: 5px;
 }
 
 .modules-right {
-    margin-right: 8px;
+    margin-right: 2px;
+}
+
+.modules-left { 
+    margin-left: 2px;
 }
 
 #clock, #custom-timew, #language, #pulseaudio, #network, #cpu, #memory, #temperature {
     font-weight: bold;
-    text-shadow: none;
+    color: #f8f8f2;
 
-    border-width: 0;
-    border-radius: 10px;
+    margin: 3px 6px;
+    padding: 2px 25px;
 
-    padding: 2px 9px;
-    margin-top: 4px;
-    margin-bottom: 0px;
-
-    color: #282a36;
-}
-
-#custom-timew, #language, #pulseaudio, #network, #cpu, #memory, #temperature {
-    margin-left: 12px;
-
-    background: #bd93f9;
-}
-
-#clock {
-    background: #ff79c6;
+    border-radius: 5px;
+    border: 1px solid #bd93f9;
+    border-top: none;
 }
 
 #language.ca, #custom-timew.inactive {
-	background: #ffb86c;
+    color: #ffb86c;
 }
 
 #network.disconnected {
-    background: #f53c3c;
+    color: #f53c3c;
 }

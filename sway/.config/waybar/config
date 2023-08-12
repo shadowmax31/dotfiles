@@ -1,9 +1,11 @@
 {
     "position": "top",
-    "height": 24, // Waybar height
-    "modules-left": ["sway/workspaces", "sway/mode"],
-    "modules-center": ["clock"],
-    "modules-right": ["sway/language", "custom/timew", "pulseaudio", "network", "cpu", "memory", "temperature"],
+    "margin-top": 4,
+    "margin-left": 4,
+    "margin-right": 4,
+    "modules-left": ["cpu", "memory", "temperature", "sway/language", "network",  "sway/mode"],
+    "modules-center": ["sway/workspaces"],
+    "modules-right": ["custom/timew", "pulseaudio", "clock"],
     "sway/workspaces": {
         "disable-scroll": true,
         "all-outputs": false,
@@ -23,18 +25,18 @@
         }
     },
     "sway/language": {
-      "format": "{}"
+      "format": " {}"
     },
     "sway/mode": {
         "format": "<span style=\"italic\">{}</span>"
     },
      "temperature": {
-      "format": "{temperatureC}°C  ",
+      "format": " {temperatureC}°C",
       "hwmon-path-abs": "/sys/devices/pci0000:00/0000:00:18.3/hwmon",
       "input-filename": "temp1_input"
     },
     "clock": {
-        "format": "{:%Y-%m-%d %H:%M:%S}",
+        "format": " {:%Y-%m-%d %H:%M:%S}",
         "interval": 1,
         "tooltip-format": "<tt><small>{calendar}</small></tt>",
         "calendar": {
@@ -53,27 +55,25 @@
         }
     },
     "cpu": {
-        "format": "{usage}% "
+        "format": " {usage}%"
     },
     "memory": {
-        "format": "{avail}G "
+        "format": " {avail}G"
     },
     "network": {
-        // "interface": "wlp2s0", // (Optional) To force the use of this interface
-        "format-wifi": "{ifname}.{essid} ({signalStrength}%) ",
-        "format-ethernet": "{ipaddr}/{cidr} ",
-        "format-disconnected": "Disconnected ⚠"
+        "format-wifi": " {ifname}.{essid} ({signalStrength}%)",
+        "format-ethernet": " {ipaddr}/{cidr}",
+        "format-disconnected": "⚠ Disconnected"
     },
     "custom/timew": {
       "exec": "~/.config/waybar/timew.sh",
       "return-type": "json",
       "interval": 30,
-      "format": "{} "
+      "format": " {}"
     },
     "pulseaudio": {
-        //"scroll-step": 1,
-        "format": "{volume}% {icon}",
-        "format-bluetooth": "{volume}% {icon}",
+        "format": "{icon} {volume}%",
+        "format-bluetooth": "{icon} {volume}%",
         "format-muted": "",
         "format-icons": {
             "headphones": "",

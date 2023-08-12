@@ -21,7 +21,7 @@ default_border pixel 1
 default_floating_border none
 titlebar_padding 2
 
-gaps inner 8
+gaps inner 4
 
 bar {
     swaybar_command waybar
