@@ -34,10 +34,10 @@ bindsym $mod+z exec pavucontrol
 bindsym $mod+Shift+q kill
 
 
-bindsym $mod+r exec --no-startup-id bemenu-run           -W 0.3 -l 15 --fn 'Fira Code' -c --tf '#f8f8f2' --ff '#f8f8f2' --nf '#bd93f9' --nb '#282a36' --af '#bd93f9' --ab '#282a36' --hf '#ffb86c' --hb '#44475a' -p 'Run:' -s
-bindsym $mod+p exec --no-startup-id passmenumore         -W 0.3 -l 15 --fn 'Fira Code' -c --tf '#f8f8f2' --ff '#f8f8f2' --nf '#ff79c6' --nb '#282a36' --af '#ff79c6' --ab '#282a36' --hf '#ffb86c' --hb '#44475a' -p 'Password:' -s
-bindsym $mod+o exec --no-startup-id passmenumore --login -W 0.3 -l 15 --fn 'Fira Code' -c --tf '#f8f8f2' --ff '#f8f8f2' --nf '#ff5555' --nb '#282a36' --af '#ff5555' --ab '#282a36' --hf '#ffb86c' --hb '#44475a' -p 'Login:' -s
-bindsym $mod+i exec --no-startup-id passmenumore --otp   -W 0.3 -l 15 --fn 'Fira Code' -c --tf '#f8f8f2' --ff '#f8f8f2' --nf '#50fa7b' --nb '#282a36' --af '#50fa7b' --ab '#282a36' --hf '#ffb86c' --hb '#44475a' -p 'OTP:' -s
+bindsym $mod+r exec --no-startup-id bemenu-run -p 'Run:'
+bindsym $mod+p exec --no-startup-id passmenumore -p 'Password:' --hf '#ff79c6'
+bindsym $mod+o exec --no-startup-id passmenumore --login -p 'Login:' --hf '#ffb86c'
+bindsym $mod+i exec --no-startup-id passmenumore --otp -p 'OTP:' --hf '#ff5555'
 
 # change focus
 bindsym $mod+h focus left
