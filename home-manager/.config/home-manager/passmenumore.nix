@@ -11,13 +11,18 @@ pkgs.writeTextFile {
   shopt -s nullglob globstar
   
   otp=0
+  login=0
   if [[ $1 == "--otp" ]]; then
       otp=1
       shift
+  elif [[ $1 == "--login" ]]; then
+      login=1
+      shift
   fi
+
   
   if [[ -n $WAYLAND_DISPLAY ]]; then
-      dmenu=dmenu-wl
+      dmenu=bemenu
       xdotool="ydotool type --file -"
   elif [[ -n $DISPLAY ]]; then
       dmenu=dmenu
@@ -36,10 +41,12 @@ pkgs.writeTextFile {
   
   [[ -n $password ]] || exit
   
-  if [[ $otp -eq 0 ]]; then
+  if [[ $otp -eq 1 ]]; then
+    pass otp -c "$password" 2>/dev/null
+  elif [[ $login -eq 1 ]]; then
     pass login -c "$password" 2>/dev/null
   else
-    pass otp -c "$password" 2>/dev/null
+    pass -c "$password" 2>/dev/null
   fi
   '';
 

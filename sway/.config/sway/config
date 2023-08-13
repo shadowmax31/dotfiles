@@ -33,11 +33,12 @@ bindsym $mod+z exec pavucontrol
 
 bindsym $mod+Shift+q kill
 
-bindsym $mod+r exec --no-startup-id dmenu-wl_run -nf '#ff79c6' -nb '#282a36' -sf '#ffb86c' -sb '#44475a'
 
-bindsym $mod+p exec --no-startup-id passmenu -nf '#ff79c6' -nb '#282a36' -sf '#ffb86c' -sb '#44475a'
-bindsym $mod+o exec --no-startup-id passmenumore -nf '#ff5555' -nb '#282a36' -sf '#ffb86c' -sb '#44475a'
-bindsym $mod+i exec --no-startup-id passmenumore --otp -nf '#50fa7b' -nb '#282a36' -sf '#ffb86c' -sb '#44475a'
+bindsym $mod+r exec --no-startup-id bemenu-run -p '' -W 0.3 -l 20 --fn 'Fira Code' -c --nf '#ff79c6' --nb '#282a36' --af '#ff79c6' --ab '#282a36' --hf '#ffb86c' --hb '#44475a'
+
+bindsym $mod+p exec --no-startup-id passmenumore -p '' -W 0.3 -l 20 --fn 'Fira Code' -c --nf '#ff79c6' --nb '#282a36' --af '#ff79c6' --ab '#282a36' --hf '#ffb86c' --hb '#44475a'
+bindsym $mod+o exec --no-startup-id passmenumore --login -p '' -W 0.3 -l 20 --fn 'Fira Code' -c --nf '#ff5555' --nb '#282a36' --af '#ff5555' --ab '#282a36' --hf '#ffb86c' --hb '#44475a'
+bindsym $mod+i exec --no-startup-id passmenumore --otp -p '' -W 0.3 -l 20 --fn 'Fira Code' -c --nf '#50fa7b' --nb '#282a36' --af '#50fa7b' --ab '#282a36' --hf '#ffb86c' --hb '#44475a'
 
 # change focus
 bindsym $mod+h focus left
