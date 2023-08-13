@@ -119,7 +119,7 @@ assign [app_id="librewolf"] workspace 1
 for_window [app_id="galculator"] floating enable
 
 # Lock Screen 
-bindsym $mod+Shift+a exec swaylock -i `ls --color=never -d ~/Images/wallpapers/* | sort -R | tail -1` 
+bindsym $mod+Shift+a exec swaylock -i `ls --color=never -d ~/.config/sway/wallpapers/_* | sort -R | tail -1` 
 
 # Idle
 exec swayidle -w \
