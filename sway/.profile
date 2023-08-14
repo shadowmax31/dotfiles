@@ -1,5 +1,6 @@
 export BEMENU_OPTS="
   -c \
+  -i \
   -s \
   -W 0.3 \
   -l 15 \
