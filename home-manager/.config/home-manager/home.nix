@@ -47,6 +47,7 @@ in
     pkgs.shotwell
 
     pkgs.tmate
+    pkgs.jq
 
     # Screenshot
     pkgs.grim
