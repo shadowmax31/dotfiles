@@ -6,6 +6,15 @@ let
   passmenumore = import ./passmenumore.nix { pkgs = pkgs; };
 in
 {
+  nixpkgs.overlays = [ (final: prev: {
+      jmeter = prev.jmeter.overrideAttrs (old: {
+        installPhase = old.installPhase + ''
+          sed -i '2 i export _JAVA_AWT_WM_NONREPARENTING=1' $out/bin/jmeter
+        '';
+      });
+    })
+  ];
+
   # Home Manager needs a bit of information about you and the paths it should
   # manage.
   home.username = "${username}";
@@ -20,12 +29,14 @@ in
   # release notes.
   home.stateVersion = "22.11"; # Please read the comment before changing.
 
+
   # The home.packages option allows you to install Nix packages into your
   # environment.
   home.packages = [
     gaming 
     passmenumore
 
+    pkgs.jmeter
     pkgs.azuredatastudio
     pkgs.brave
     pkgs.libreoffice
