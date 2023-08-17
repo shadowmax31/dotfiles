@@ -49,7 +49,7 @@ alias c="code ."
 
 gsource() {
   if [ -n "$1" ]; then
-    source <(gpg -d "$1" 2> /dev/null)
+    source <(gpg -d "$1" 2> /dev/null) ${@:2}
   else
     echo "Missing file path"
   fi
