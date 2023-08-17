@@ -10,6 +10,7 @@ in
       jmeter = prev.jmeter.overrideAttrs (old: {
         installPhase = old.installPhase + ''
           sed -i '2 i export _JAVA_AWT_WM_NONREPARENTING=1' $out/bin/jmeter
+          sed -i '$s/^/JVM_ARGS="-Xms10g -Xmx10g" /' $out/bin/jmeter
         '';
       });
     })
