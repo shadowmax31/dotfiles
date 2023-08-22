@@ -37,6 +37,7 @@ in
     gaming 
     passmenumore
 
+    pkgs.nodejs
     pkgs.jmeter
     pkgs.azuredatastudio
     pkgs.brave
