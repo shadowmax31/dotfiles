@@ -2,8 +2,11 @@
 
 let 
   username = "etienne";
-  gaming = import ./gaming.nix { pkgs = pkgs; username = username; };
+  flatpakHelper = import ./flatpak-helper.nix;
   passmenumore = import ./passmenumore.nix { pkgs = pkgs; };
+
+  steam = flatpakHelper { pkgs = pkgs; filename = "steam"; flatpakid = "com.valvesoftware.Steam"; };
+  discord = flatpakHelper { pkgs = pkgs; filename = "discord"; flatpakid = "com.discordapp.Discord"; };
 in
 {
   nixpkgs.overlays = [ (final: prev: {
@@ -34,8 +37,9 @@ in
   # The home.packages option allows you to install Nix packages into your
   # environment.
   home.packages = [
-    gaming 
     passmenumore
+    steam
+    discord
 
     pkgs.nodejs
     pkgs.jmeter
