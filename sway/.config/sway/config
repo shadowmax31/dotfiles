@@ -6,6 +6,8 @@ exec wireplumber
 exec /usr/libexec/xdg-desktop-portal -r
 # Screen sharing on VoidLinux #
 
+exec corectrl
+
 set $mod Mod4
 
 font pango:monospace 0

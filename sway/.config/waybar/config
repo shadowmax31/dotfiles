@@ -2,7 +2,7 @@
     "position": "top",
     "modules-left": ["cpu", "memory", "temperature", "sway/language", "network",  "sway/mode"],
     "modules-center": ["sway/workspaces"],
-    "modules-right": ["custom/timew", "pulseaudio", "clock"],
+    "modules-right": ["tray", "custom/timew", "pulseaudio", "clock"],
     "sway/workspaces": {
         "disable-scroll": true,
         "all-outputs": false,
@@ -34,6 +34,10 @@
     },
     "sway/language": {
       "format": " {}"
+    },
+    "tray": {
+        "icon-size": 20,
+        "spacing": 10
     },
     "sway/mode": {
         "format": "<span style=\"italic\">{}</span>"
