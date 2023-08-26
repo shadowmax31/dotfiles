@@ -1,4 +1,5 @@
-{
+[{
+    "output": "DP-4",
     "position": "top",
     "modules-left": ["cpu", "memory", "temperature", "sway/language", "network",  "sway/mode"],
     "modules-center": ["sway/workspaces"],
@@ -98,4 +99,30 @@
         },
         "on-click": "pavucontrol"
     }
-}
+},
+{
+    "output": "HDMI-A-2",
+    "position": "bottom",
+    "modules-center": ["sway/workspaces"],
+    "sway/workspaces": {
+        "disable-scroll": true,
+        "all-outputs": false,
+        "format": "{icon}",
+        "persistent-workspace": {
+            "10": [],
+        },
+        "format-icons": {
+            "1": "",
+            "2": "",
+            "3": "",
+            "4": "",
+            "5": "",
+            "6": "",
+            "7": "",
+            "8": "",
+            "9": "",
+            "urgent": "",
+            "default": ""
+        }
+    },
+}]

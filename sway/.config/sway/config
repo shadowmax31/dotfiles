@@ -9,6 +9,9 @@ exec /usr/libexec/xdg-desktop-portal -r
 exec corectrl
 
 set $mod Mod4
+set $alt Mod1
+set $main_output "DP-4"
+set $side_output "HDMI-A-2"
 
 font pango:monospace 0
 
@@ -62,6 +65,8 @@ bindsym $mod+Shift+c sticky toggle
 # change focus between tiling / floating windows
 bindsym $mod+space focus mode_toggle
 
+workspace 10 output $side_output
+
 # switch to workspace
 bindsym $mod+1 workspace 1
 bindsym $mod+2 workspace 2
@@ -72,7 +77,7 @@ bindsym $mod+6 workspace 6
 bindsym $mod+7 workspace 7
 bindsym $mod+8 workspace 8
 bindsym $mod+9 workspace 9
-# bindsym $mod+0 workspace 10
+bindsym $mod+0 workspace 10
 
 # move focused container to workspace
 bindsym $mod+Shift+1 move container to workspace 1
@@ -84,7 +89,11 @@ bindsym $mod+Shift+6 move container to workspace 6
 bindsym $mod+Shift+7 move container to workspace 7
 bindsym $mod+Shift+8 move container to workspace 8
 bindsym $mod+Shift+9 move container to workspace 9
-# bindsym $mod+Shift+0 move container to workspace 10
+bindsym $mod+Shift+0 move container to workspace 10
+
+# Move workspace
+bindsym $alt+l move workspace to right
+bindsym $alt+h move workspace to left
 
 # reload the configuration file
 bindsym $mod+Shift+r reload
@@ -132,10 +141,9 @@ exec swayidle -w \
 
 output "*" bg `ls --color=never -d ~/.config/sway/wallpapers/_* | sort -R | tail -1` fill #282a36
 
-output DP-4 position 1080 780 
-output HDMI-A-2 transform 270 
-output HDMI-A-2 position 0 0
-
+output $main_output position 1080 780 
+output $side_output transform 270 
+output $side_output position 0 0
 
 input "type:keyboard" {
  xkb_layout "us,ca(multix)"
