@@ -22,7 +22,7 @@ client.focused #d8dee9 #d8dee9 #d8dee9 #d8dee9 #d8dee9
 client.unfocused #4c566a #4c566a #4c566a #4c566a #4c566a
 
 # Remove title bar
-default_border pixel 1
+default_border pixel 3
 default_floating_border none
 titlebar_padding 2
 
