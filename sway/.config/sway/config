@@ -35,8 +35,7 @@ bindsym $mod+z exec pavucontrol
 
 bindsym $mod+Shift+q kill
 
-
-bindsym $mod+r exec --no-startup-id bemenu-run -p 'Run:'
+bindsym $mod+r exec --no-startup-id bemenu-run -p 'Run:' 
 bindsym $mod+p exec --no-startup-id passmenumore -p 'Password:' --hf '#ff79c6'
 bindsym $mod+o exec --no-startup-id passmenumore --login -p 'Login:' --hf '#ffb86c'
 bindsym $mod+i exec --no-startup-id passmenumore --otp -p 'OTP:' --hf '#ff5555'
@@ -132,6 +131,11 @@ exec swayidle -w \
 	resume 'swaymsg "output * power on"'
 
 output "*" bg `ls --color=never -d ~/.config/sway/wallpapers/_* | sort -R | tail -1` fill #282a36
+
+output DP-4 position 1080 780 
+output HDMI-A-2 transform 270 
+output HDMI-A-2 position 0 0
+
 
 input "type:keyboard" {
  xkb_layout "us,ca(multix)"

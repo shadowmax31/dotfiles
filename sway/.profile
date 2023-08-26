@@ -1,7 +1,6 @@
 export BEMENU_OPTS="
-  -c \
-  -i \
   -s \
+  -i \
   -W 0.3 \
   -l 15 \
   --fn 'Fira Code' \
