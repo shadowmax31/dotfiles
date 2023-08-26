@@ -143,7 +143,7 @@ output "*" bg `ls --color=never -d ~/.config/sway/wallpapers/_* | sort -R | tail
 
 output $main_output position 1080 780 
 output $side_output transform 270 
-output $side_output position 0 0
+output $side_output position 0 2560
 
 input "type:keyboard" {
  xkb_layout "us,ca(multix)"
