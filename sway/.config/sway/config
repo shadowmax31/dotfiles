@@ -139,7 +139,8 @@ exec swayidle -w \
 	timeout 30 'if pgrep -x swaylock; then swaymsg "output * power off"; fi' \
 	resume 'swaymsg "output * power on"'
 
-output "*" bg `ls --color=never -d ~/.config/sway/wallpapers/_* | sort -R | tail -1` fill #282a36
+output $main_output bg `ls --color=never -d ~/.config/sway/wallpapers/horizontal/_* | sort -R | tail -1` fill #282a36
+output $side_output bg `ls --color=never -d ~/.config/sway/wallpapers/vertical/_* | sort -R | tail -1` fill #282a36
 
 output $main_output position 1080 780 
 output $side_output transform 270 
