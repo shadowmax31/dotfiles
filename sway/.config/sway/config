@@ -132,7 +132,6 @@ exec swayidle -w \
 	resume 'swaymsg "output * power on"'
 
 output "*" bg `ls --color=never -d ~/.config/sway/wallpapers/_* | sort -R | tail -1` fill #282a36
-output "*" adaptive_sync on
 
 input "type:keyboard" {
  xkb_layout "us,ca(multix)"
