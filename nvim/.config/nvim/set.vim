@@ -28,6 +28,8 @@ set termguicolors
 autocmd FileType gitcommit set textwidth=72
 autocmd FileType gitcommit set colorcolumn+=73
 
+autocmd BufNewFile,BufRead *.sw set syntax=swayconfig
+
 highlight Normal guibg=none
 highlight NonText guibg=none
 highlight Normal ctermbg=none
