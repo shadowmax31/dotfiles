@@ -27,3 +27,8 @@ set termguicolors
 " Git commits
 autocmd FileType gitcommit set textwidth=72
 autocmd FileType gitcommit set colorcolumn+=73
+
+highlight Normal guibg=none
+highlight NonText guibg=none
+highlight Normal ctermbg=none
+highlight NonText ctermbg=none
