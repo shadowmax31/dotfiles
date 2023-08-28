@@ -3,9 +3,9 @@ exec corectrl
 
 # Spawn Apps 
 bindsym $mod+Return exec $terminal
-bindsym $mod+s exec alacritty --class my_notes -e nb edit notes.md;
-bindsym $mod+z exec alacritty --class my_pulsemixer -e pulsemixer
-bindsym $mod+e exec alacritty --class my_ranger -e ranger
+bindsym $mod+s exec $terminal --class my_notes -e nb edit notes.md;
+bindsym $mod+z exec $terminal --class my_pulsemixer -e pulsemixer
+bindsym $mod+e exec $terminal --class my_ranger -e ranger
 
 bindsym Print exec grim -g "$(slurp)" - | swappy -f -
 
