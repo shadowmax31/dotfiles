@@ -7,5 +7,5 @@ set $terminal "alacritty"
 include system.sw
 include app.sw
 include workspaces.sw
-include screen-share.sw
+include pipewire.sw
 include fx.sw
