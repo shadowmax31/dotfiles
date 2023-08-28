@@ -1,55 +1,53 @@
-# Screen sharing on VoidLinux #
-exec dbus-update-activation-environment DISPLAY I3SOCK SWAYSOCK WAYLAND_DISPLAY XDG_CURRENT_DESKTOP=sway
-exec pipewire 
-exec pipewire-pulse
-exec wireplumber
-exec /usr/libexec/xdg-desktop-portal -r
-# Screen sharing on VoidLinux #
-
-exec corectrl
-
 set $mod Mod4
 set $alt Mod1
 set $main_output "DP-4"
 set $side_output "HDMI-A-2"
+set $terminal "alacritty"
 
-font pango:monospace 0
+# Auto start
+exec corectrl
 
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
 
-client.focused #d8dee9 #d8dee9 #d8dee9 #d8dee9 #d8dee9
-client.unfocused #4c566a #4c566a #4c566a #4c566a #4c566a
-
-# Remove title bar
 default_border pixel 3
 default_floating_border none
 titlebar_padding 2
-
 gaps inner 4
+font pango:monospace 0
+
+client.focused #d8dee9 #d8dee9 #d8dee9 #d8dee9 #d8dee9
+client.unfocused #4c566a #4c566a #4c566a #4c566a #4c566a
 
 bar {
     swaybar_command waybar
 }
 
+# Spawn Apps 
+bindsym $mod+Return exec $terminal
+bindsym $mod+s exec alacritty --class my_notes -e nb edit notes.md;
+bindsym $mod+z exec alacritty --class my_pulsemixer -e pulsemixer
 
-bindsym $mod+Return exec alacritty
-bindsym $mod+z exec pavucontrol
+bindsym Print exec grim -g "$(slurp)" - | swappy -f -
 
-bindsym $mod+q kill
 
+# Password Store
 bindsym $mod+r exec --no-startup-id bemenu-run -p 'Run:' 
 bindsym $mod+p exec --no-startup-id passmenumore -p 'Password:' --hf '#ff79c6'
 bindsym $mod+o exec --no-startup-id passmenumore --login -p 'Login:' --hf '#ffb86c'
 bindsym $mod+i exec --no-startup-id passmenumore --otp -p 'OTP:' --hf '#ff5555'
 
-# change focus
+
+# System
+bindsym $mod+q kill
+bindsym $mod+Shift+r reload
+bindsym $mod+Shift+e exec "swaynag -t warning -m 'You pressed the exit shortcut. Do you really want to exit sway?' -b 'Yes, exit sway' 'swaymsg exit'"
+
 bindsym $mod+h focus left
 bindsym $mod+j focus down
 bindsym $mod+k focus up
 bindsym $mod+l focus right
 
-# move focused window
 bindsym $mod+Shift+h move left
 bindsym $mod+Shift+j move down
 bindsym $mod+Shift+k move up
@@ -62,9 +60,9 @@ bindsym $mod+f fullscreen
 bindsym $mod+Shift+space floating toggle
 bindsym $mod+Shift+c sticky toggle
 
-# change focus between tiling / floating windows
 bindsym $mod+space focus mode_toggle
 
+# Define workspace
 workspace 10 output $side_output
 
 # switch to workspace
@@ -95,11 +93,6 @@ bindsym $mod+Shift+grave move container to workspace 10; workspace 10
 bindsym $alt+l move workspace to right
 bindsym $alt+h move workspace to left
 
-# reload the configuration file
-bindsym $mod+Shift+r reload
-
-bindsym $mod+Shift+e exec "swaynag -t warning -m 'You pressed the exit shortcut. Do you really want to exit sway?' -b 'Yes, exit sway' 'swaymsg exit'"
-
 mode "resize" {
         bindsym h resize shrink width 10 px or 10 ppt
         bindsym j resize grow height 10 px or 10 ppt
@@ -111,7 +104,6 @@ mode "resize" {
 }
 
 bindsym $mod+d mode "resize"
-bindsym Print exec grim -g "$(slurp)" - | swappy -f -
 
 # Audio control
 bindsym XF86AudioMute exec pactl set-sink-mute @DEFAULT_SINK@ toggle
@@ -125,6 +117,8 @@ assign [class="Brave-browser"] workspace 6
 assign [class="Thunderbird"] workspace 8
 assign [class="krita"] workspace 9
 for_window [app_id="galculator"] floating enable
+for_window [app_id="my_pulsemixer"] floating enable; move position center
+for_window [app_id="my_notes"] floating enable; move position center
 
 # Lock Screen 
 bindsym $mod+Shift+a exec swaylock \
@@ -161,3 +155,11 @@ blur_passes 3
 
 default_dim_inactive 0.2
 # SwayFX
+
+# Screen sharing on VoidLinux #
+exec dbus-update-activation-environment DISPLAY I3SOCK SWAYSOCK WAYLAND_DISPLAY XDG_CURRENT_DESKTOP=sway
+exec pipewire 
+exec pipewire-pulse
+exec wireplumber
+exec /usr/libexec/xdg-desktop-portal -r
+# Screen sharing on VoidLinux #
