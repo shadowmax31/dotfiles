@@ -22,6 +22,12 @@ bindsym $mod+8 workspace 8
 bindsym $mod+9 workspace 9
 bindsym $mod+grave workspace 10
 
+# One handed
+bindsym $alt+Control+Shift+1 workspace 6
+bindsym $alt+Control+Shift+2 workspace 7
+bindsym $alt+Control+Shift+3 workspace 8
+bindsym $alt+Control+Shift+4 workspace 9
+
 # move focused container to workspace
 bindsym $mod+Shift+1 move container to workspace 1
 bindsym $mod+Shift+2 move container to workspace 2

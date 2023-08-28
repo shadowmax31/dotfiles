@@ -2,7 +2,7 @@ set $mod Mod4
 set $alt Mod1
 set $main_output "DP-4"
 set $side_output "HDMI-A-2"
-set $terminal "alacritty"
+set $terminal "kitty"
 
 include system.sw
 include app.sw

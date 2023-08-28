@@ -5,6 +5,7 @@ exec corectrl
 bindsym $mod+Return exec $terminal
 bindsym $mod+s exec alacritty --class my_notes -e nb edit notes.md;
 bindsym $mod+z exec alacritty --class my_pulsemixer -e pulsemixer
+bindsym $mod+e exec alacritty --class my_ranger -e ranger
 
 bindsym Print exec grim -g "$(slurp)" - | swappy -f -
 
@@ -23,3 +24,4 @@ assign [class="krita"] workspace 9
 for_window [app_id="galculator"] floating enable
 for_window [app_id="my_pulsemixer"] floating enable; move position center
 for_window [app_id="my_notes"] floating enable; move position center
+for_window [app_id="my_ranger"] floating enable; move position center

@@ -17,7 +17,7 @@ bar {
 # System
 bindsym $mod+q kill
 bindsym $mod+Shift+r reload
-bindsym $mod+Shift+e exec "swaynag -t warning -m 'You pressed the exit shortcut. Do you really want to exit sway?' -b 'Yes, exit sway' 'swaymsg exit'"
+bindsym $mod+Shift+q exec "swaynag -t warning -m 'You pressed the exit shortcut. Do you really want to exit sway?' -b 'Yes, exit sway' 'swaymsg exit'"
 
 bindsym $mod+h focus left
 bindsym $mod+j focus down
@@ -30,7 +30,7 @@ bindsym $mod+Shift+k move up
 bindsym $mod+Shift+l move right
 
 bindsym $mod+w layout toggle split tabbed
-bindsym $mod+e layout toggle split
+bindsym $mod+t layout toggle split
 bindsym $mod+f fullscreen
 
 bindsym $mod+Shift+space floating toggle
