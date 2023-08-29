@@ -1,6 +1,7 @@
 [{
     "output": "DP-4",
     "position": "top",
+    "layer": "top",
     "modules-left": ["cpu", "memory", "temperature", "hyprland/language", "network", "hyprland/submap"],
     "modules-center": ["hyprland/workspaces"],
     "modules-right": ["tray", "custom/timew", "pulseaudio", "clock"],
