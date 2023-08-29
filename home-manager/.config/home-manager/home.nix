@@ -61,7 +61,6 @@ in
     pkgs.stow
     pkgs.bat
     pkgs.sxiv
-    pkgs.shotwell
 
     pkgs.tmate
     pkgs.jq
