@@ -28,7 +28,7 @@ window#waybar {
     text-shadow: none;
 }
 
-#workspaces button.focused {
+#workspaces button.focused, #workspaces button.active {
     color: #8be9fd;
     border: 2px solid #8be9fd;
 }
@@ -37,7 +37,7 @@ window#waybar {
     color: #44475a;
 }
 
-#mode {
+#submap {
     background: #64727D;
     color: #f8f8f2;
 
