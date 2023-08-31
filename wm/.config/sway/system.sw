@@ -55,10 +55,6 @@ bindsym XF86AudioMute exec pactl set-sink-mute @DEFAULT_SINK@ toggle
 bindsym XF86AudioRaiseVolume exec pactl set-sink-volume @DEFAULT_SINK@ +5%
 bindsym XF86AudioLowerVolume exec pactl set-sink-volume @DEFAULT_SINK@ -5%
 
-# Lock Screen 
-bindsym $mod+Shift+a exec swaylock \
-        -i $main_output:~/.config/sway/wallpapers/w2.jpg \
-        -i $side_output:~/.config/sway/wallpapers/w1.jpg
 
 # Idle
 exec swayidle -w \
@@ -68,9 +64,6 @@ exec swayidle -w \
 exec swayidle -w \
 	timeout 30 'if pgrep -x swaylock; then swaymsg "output * power off"; fi' \
 	resume 'swaymsg "output * power on"'
-
-output $main_output bg ~/.config/sway/wallpapers/w2.jpg fill #282a36
-output $side_output bg ~/.config/sway/wallpapers/w1.jpg fill #282a36
 
 output $main_output position 1080 780 
 output $side_output transform 270 

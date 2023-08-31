@@ -7,5 +7,4 @@ set $terminal "kitty"
 include system.sw
 include app.sw
 include workspaces.sw
-include pipewire.sw
 include fx.sw
