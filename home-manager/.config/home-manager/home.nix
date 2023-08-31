@@ -4,6 +4,7 @@ let
   username = "etienne";
   flatpakHelper = import ./flatpak-helper.nix;
   passmenumore = import ./passmenumore.nix { pkgs = pkgs; };
+  pwolf = import ./librewolf-private.nix { pkgs = pkgs; };
 
   steam = flatpakHelper { pkgs = pkgs; filename = "steam"; flatpakid = "com.valvesoftware.Steam"; };
   discord = flatpakHelper { pkgs = pkgs; filename = "discord"; flatpakid = "com.discordapp.Discord"; };
@@ -37,6 +38,7 @@ in
   # The home.packages option allows you to install Nix packages into your
   # environment.
   home.packages = [
+    pwolf
     passmenumore
     steam
     discord
