@@ -41,5 +41,5 @@ let g:mkdp_browser = 'librewolf'
 let g:mkdp_theme = 'dark'
 let g:mkdp_preview_options = {
     \ 'disable_sync_scroll': 0,
-    \ 'sync_scroll_type': 'top',
+    \ 'sync_scroll_type': 'relative',
     \ }
