@@ -11,6 +11,7 @@ return function(use)
     'nvim-telescope/telescope-file-browser.nvim',
     'ThePrimeagen/harpoon',
     'christoomey/vim-tmux-navigator',
-    'norcalli/nvim-colorizer.lua'
+    'norcalli/nvim-colorizer.lua',
+    { "iamcco/markdown-preview.nvim", run = function() vim.fn["mkdp#util#install"]() end }
   })
 end

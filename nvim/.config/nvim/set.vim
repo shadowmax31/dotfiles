@@ -34,3 +34,12 @@ highlight Normal guibg=none
 highlight NonText guibg=none
 highlight Normal ctermbg=none
 highlight NonText ctermbg=none
+
+" MarkdownPreview
+let g:mkdp_auto_start = 1
+let g:mkdp_browser = 'librewolf'
+let g:mkdp_theme = 'dark'
+let g:mkdp_preview_options = {
+    \ 'disable_sync_scroll': 0,
+    \ 'sync_scroll_type': 'top',
+    \ }
