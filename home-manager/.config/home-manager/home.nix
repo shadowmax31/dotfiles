@@ -43,6 +43,7 @@ in
     steam
     discord
 
+    pkgs.clang-tools
     pkgs.nodejs
     pkgs.jmeter
     pkgs.azuredatastudio
