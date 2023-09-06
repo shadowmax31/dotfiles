@@ -1,3 +1,5 @@
+export LD_LIBRARY_PATH="/opt/gcc/lib64"
+
 export BEMENU_OPTS="
   -s \
   -i \
