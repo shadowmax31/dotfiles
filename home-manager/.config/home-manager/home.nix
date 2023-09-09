@@ -45,6 +45,7 @@ in
 
     pkgs.clang-tools
     pkgs.nodejs
+    pkgs.unzip
     pkgs.jmeter
     pkgs.azuredatastudio
     pkgs.brave
