@@ -418,7 +418,7 @@ end
 --  Add any additional override configuration in the following tables. They will be passed to
 --  the `settings` field of the server config. You must look up that documentation yourself.
 local servers = {
-  -- clangd = {},
+  clangd = {},
   -- gopls = {},
   -- pyright = {},
   -- rust_analyzer = {},
@@ -462,6 +462,12 @@ mason_lspconfig.setup_handlers {
       capabilities = capabilities,
       on_attach = on_attach,
       settings = servers[server_name],
+    }
+  end,
+  ['clangd'] = function()
+    require('lspconfig')['clangd'].setup {
+      cmd = { 'clangd', "--query-driver='/usr/local/bin/g++'" },
+      on_attach = on_attach
     }
   end,
   ['jdtls'] = function()
@@ -526,6 +532,16 @@ cmp.setup {
     { name = 'luasnip' },
   },
 }
+
+local guardFt = require('guard.filetype')
+guardFt("c,cpp"):fmt("clang-format")
+
+require("guard").setup({
+  -- the only options for the setup function
+  fmt_on_save = true,
+  -- Use lsp if no formatter was defined for this filetype
+  lsp_as_default_formatter = false,
+})
 
 vim.cmd('source '..config..'/set.vim')
 vim.cmd('source '..config..'/map.vim')
