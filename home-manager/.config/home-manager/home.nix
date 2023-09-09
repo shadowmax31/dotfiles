@@ -44,6 +44,7 @@ in
     discord
 
     pkgs.clang-tools
+    pkgs.vscode
     pkgs.nodejs
     pkgs.unzip
     pkgs.jmeter
