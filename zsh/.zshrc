@@ -36,6 +36,7 @@ alias sudo="echo Use doas! "
 alias u="date '+%s' | wl-copy"
 
 alias t="task"
+alias tt="task context"
 alias ssh="TERM='xterm-256color' ssh"
 
 alias tm="timew start \"Meeting\""

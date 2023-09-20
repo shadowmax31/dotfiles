@@ -80,3 +80,7 @@ report.next.columns=id,start.age,entry.age,depends,priority,time,project,epic,ta
 uda.epic.type=string
 uda.epic.label=Epic
 news.version=2.6.0
+context.home.read=+home
+context.home.write=+home
+context.work.read=-home
+context=work
