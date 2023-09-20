@@ -1,4 +1,4 @@
-export LD_LIBRARY_PATH="/usr/local/lib64"
+export LD_LIBRARY_PATH="$HOME/.build/gcc13/lib64"
 
 export BEMENU_OPTS="
   -s \
