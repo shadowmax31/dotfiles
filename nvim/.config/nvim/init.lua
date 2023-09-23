@@ -28,7 +28,7 @@ require('packer').startup(function(use)
       'mfussenegger/nvim-jdtls',
 
       -- Useful status updates for LSP
-      'j-hui/fidget.nvim',
+      {'j-hui/fidget.nvim', branch = 'legacy'},
 
       -- Additional lua configuration, makes nvim stuff amazing
       'folke/neodev.nvim',
@@ -532,16 +532,6 @@ cmp.setup {
     { name = 'luasnip' },
   },
 }
-
-local guardFt = require('guard.filetype')
-guardFt("c,cpp"):fmt("clang-format")
-
-require("guard").setup({
-  -- the only options for the setup function
-  fmt_on_save = true,
-  -- Use lsp if no formatter was defined for this filetype
-  lsp_as_default_formatter = false,
-})
 
 vim.cmd('source '..config..'/set.vim')
 vim.cmd('source '..config..'/map.vim')
