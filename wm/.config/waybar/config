@@ -1,7 +1,6 @@
 [{
     "output": "DP-3",
     "position": "top",
-    "height": 32,
     "layer": "top",
     "modules-left": ["cpu", "memory", "temperature", "network", "river/mode"],
     "modules-center": ["river/tags"],
