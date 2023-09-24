@@ -42,7 +42,7 @@ rules() {
     riverctl rule-add no-float -app-id $nf
   done
   
-  riverctl rule-add tag -app-id StarUML $((1 << 2))
+  riverctl rule-add tag -app-id StarUML $((1 << 3))
   riverctl rule-add tag -app-id azuredatastudio $((1 << 4))
   riverctl rule-add tag -app-id Brave-browser $((1 << 5))
   riverctl rule-add tag -app-id Thunderbird $((1 << 7))
