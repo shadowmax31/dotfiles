@@ -10,7 +10,7 @@ sideOutput="HDMI-A-1"
 terminal="alacritty"
 
 inGaps="6"
-outGaps="6"
+outGaps="0"
 defMasterRatio="0.7"
 
 autostart="true"

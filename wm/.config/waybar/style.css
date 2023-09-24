@@ -1,77 +1,62 @@
 * {
     font-family: "Fira Code";
     font-size: 12px;
-
-    border-radius: 5px;
 }
 
 window#waybar {
     background-color: transparent;
 }
-
-#tags button {
-    background-color: #282a36;
-    border: 2px solid transparent;
-
-    margin: 3px 3px;
-    padding: 1px 10px;
+.modules-left {
+    margin-left: 6px;
 }
 
-#tags button.occupied {
+.modules-right {
+    margin-right: 6px;
+}
+
+.modules-left, .modules-center, .modules-right {
+    background-color: alpha(#282a36, 0.8);
+    border: 2px solid #bd93f9;
+    border-radius: 10px;
+
+    padding: 2px 4px;
+    margin-top: 2px;
+}
+
+#language.ca, #custom-timew.inactive, #mode:not(.normal), #tags button.occupied {
     color: #ff79c6;
 }
 
-#tags button:hover {
-    background: #44474a;
+#tags button {
+    border-radius: 50px;
+    color: #6272a4;
 
-    border: 2px solid #ff79c6;
-    border-bottom: 2px solid #ff79c6;
+    padding: 0px 5px;
+    margin: 0px 1px
+}
+
+#tags button:hover {
+    background: transparent;
+    border: 1px solid transparent;
+    color: #8be9fd;
 
     box-shadow: none;
     text-shadow: none;
 }
 
 #tags button.focused {
-    color: #8be9fd;
-    border: 2px solid #8be9fd;
+    color: #44475a;
+    background: #bd93f9;
 }
 
-#mode {
-    background: #64727D;
-    color: #f8f8f2;
-
-    margin: 6px 3px;
-    padding: 0 5px;
-}
-
-#mode.normal {
-    opacity: 0;
-}
-
-#clock, #custom-timew, #language, #pulseaudio, #network, #cpu, #memory, #temperature {
+#clock, #custom-timew, #language, #pulseaudio, #network, #cpu, #memory, #temperature, #mode {
     font-weight: bold;
     color: #f8f8f2;
 
-    padding: 0px 20px;
-    margin: 3px 5px;
-
-    border: 2px solid #f8f8f2;
-    background-color: #282a36;
-    border-top: none;
-    border-left: none;
-}
-
-
-#language.ca, #custom-timew.inactive {
-    color: #ff79c6;
-    border: 2px solid #ff79c6;
-    border-top: none;
-    border-left: none;
+    padding: 0px 10px;
+    margin: 0px 2px
 }
 
 #network.disconnected {
     color: #f53c3c;
-    border: 2px solid #f53c3c;
-    border-top: none;
-    border-left: none;
 }
