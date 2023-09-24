@@ -68,8 +68,8 @@ bindings() {
   riverctl map normal $mod+Shift grave send-to-previous-tags
 
   # Layout
-  riverctl map normal $meh H focus-output left
-  riverctl map normal $meh L focus-output right
+  riverctl map normal $mod+Shift H focus-output left
+  riverctl map normal $mod+Shift L focus-output right
   riverctl map normal $alt H spawn "riverctl send-to-output left; riverctl focus-output left"
   riverctl map normal $alt L spawn "riverctl send-to-output right; riverctl focus-output right"
   riverctl map normal $mod H send-layout-cmd rivertile "main-ratio 0.5"
