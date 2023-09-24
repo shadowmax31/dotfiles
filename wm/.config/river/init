@@ -141,6 +141,7 @@ if [ "$autostart" = "true" ]; then
   riverctl spawn "runsvdir ~/.services/"
   riverctl spawn "corectrl"
   
+  riverctl spawn "pkill swayidle"
   riverctl spawn "swayidle -w timeout 1800 'wlopm --off \"*\"' resume 'wlopm --on \"*\"' "
   riverctl spawn "swayidle -w timeout 30 'if pgrep -x swaylock; then wlopm --off \"*\"; fi' resume 'wlopm --on \"*\"'"
   
