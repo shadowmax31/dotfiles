@@ -1,0 +1,153 @@
+#!/bin/sh
+
+mod="Super"
+alt="Mod1"
+meh="$alt+Control+Shift"
+
+mainOutput="DP-3"
+sideOutput="HDMI-A-1"
+
+terminal="alacritty"
+
+inGaps="6"
+outGaps="6"
+defMasterRatio="0.7"
+
+autostart="true"
+if [ ! -z "$1" ]; then
+  autostart="false"
+fi
+
+config() {
+  riverctl focus-follows-cursor normal
+  
+  riverctl keyboard-layout -options "grp:sclk_toggle" "us,ca(multix)"
+  riverctl border-color-focused 0xbd93f9 
+  riverctl border-color-unfocused 0x44475aaa
+  
+  riverctl border-width 3
+
+  riverctl attach-mode bottom
+  riverctl default-layout rivertile
+}
+
+rules() {
+  for f in my_pulsemixer my_ranger my_notes galculator swappy floating_terminal
+  do
+    riverctl rule-add float -app-id $f
+  done
+  
+  for nf in StarUML
+  do
+    riverctl rule-add no-float -app-id $nf
+  done
+  
+  riverctl rule-add tag -app-id StarUML $((1 << 2))
+  riverctl rule-add tag -app-id azuredatastudio $((1 << 4))
+  riverctl rule-add tag -app-id Brave-browser $((1 << 5))
+  riverctl rule-add tag -app-id Thunderbird $((1 << 7))
+  riverctl rule-add tag -app-id krita $((1 << 8))
+
+  riverctl rule-add ssd -app-id '*'
+}
+
+
+bindings() {
+  # Sounds
+  riverctl map normal None XF86AudioMute spawn "pactl set-sink-mute @DEFAULT_SINK@ toggle"
+  riverctl map normal None XF86AudioRaiseVolume spawn "pactl set-sink-volume @DEFAULT_SINK@ +5%"
+  riverctl map normal None XF86AudioLowerVolume spawn "pactl set-sink-volume @DEFAULT_SINK@ -5%"
+
+  # Windows
+  riverctl map normal $mod A toggle-float
+  riverctl map normal $mod F toggle-fullscreen
+  riverctl map normal $mod K focus-view previous
+  riverctl map normal $mod J focus-view next
+  riverctl map normal $mod W zoom
+  riverctl map normal $mod grave focus-previous-tags
+  riverctl map normal $mod+Shift grave send-to-previous-tags
+
+  # Layout
+  riverctl map normal $meh H focus-output left
+  riverctl map normal $meh L focus-output right
+  riverctl map normal $alt H spawn "riverctl send-to-output left; riverctl focus-output left"
+  riverctl map normal $alt L spawn "riverctl send-to-output right; riverctl focus-output right"
+  riverctl map normal $mod H send-layout-cmd rivertile "main-ratio 0.5"
+  riverctl map normal $mod L send-layout-cmd rivertile "main-ratio $defMasterRatio"
+
+  # System
+  riverctl map normal $mod Q close
+  riverctl map normal $mod+Shift A spawn "swaylock -f -i $mainOutput:~/.config/wallpapers/w2.jpg -i $sideOutput:~/.config/wallpapers/w1.jpg"
+
+  # Mouse 
+  riverctl map-pointer normal $mod BTN_LEFT move-view
+  riverctl map-pointer normal $mod BTN_RIGHT resize-view
+  
+  ## Launch apps
+  riverctl map normal $mod R spawn "bemenu-run -p 'Run:'"
+  riverctl map normal $mod Return spawn $terminal
+  riverctl map normal $mod E spawn "$terminal --class my_ranger -e ranger"
+  riverctl map normal None Print spawn 'grim -g "$(slurp)" - | swappy -f -'
+  
+  # Password Store
+  riverctl map normal $mod P spawn 'passmenumore -p "Password:" --hf "#ff79c6"'
+  riverctl map normal $mod O spawn 'passmenumore --login -p "Login:" --hf "#ffb86c"'
+  riverctl map normal $mod I spawn 'passmenumore --otp -p "OTP:" --hf "#ff5555"'
+  
+  # Position
+  riverctl declare-mode position
+  riverctl map position None H spawn "`exit_mode` riverctl send-layout-cmd rivertile 'main-location left'"
+  riverctl map position None L spawn "`exit_mode` riverctl send-layout-cmd rivertile 'main-location right'"
+  riverctl map position None K spawn "`exit_mode` riverctl send-layout-cmd rivertile 'main-location top'"
+  riverctl map position None J spawn "`exit_mode` riverctl send-layout-cmd rivertile 'main-location bottom'"
+  riverctl map position None Escape enter-mode normal
+  riverctl map normal $mod D enter-mode position
+
+  # Quick 
+  riverctl declare-mode quick
+  riverctl map quick None Return spawn "`exit_mode` $terminal --class floating_terminal"
+  riverctl map quick None S spawn "`exit_mode` export EDITOR="nvim"; $terminal --class my_notes -e nb edit notes.md"
+  riverctl map quick None A spawn "`exit_mode` $terminal --class my_pulsemixer -e pulsemixer"
+  riverctl map quick None Escape enter-mode normal
+  riverctl map normal $mod S enter-mode quick
+}
+
+exit_mode() {
+  echo "riverctl enter-mode normal;"
+}
+
+workspace() {
+  bind="$1"
+  tag="$((1 << ($2 - 1)))"
+  
+  riverctl map normal $mod $bind set-focused-tags $tag
+  riverctl map normal $mod+Shift $bind set-view-tags $tag
+
+  riverctl map normal Control $bind toggle-focused-tags $tag
+  riverctl map normal $meh $bind toggle-view-tags $tag
+}
+
+bindings
+rules
+
+for w in 1 2 3 4 5 6 7 8 9
+do
+  workspace $w $w
+done
+
+config
+
+if [ "$autostart" = "true" ]; then
+  riverctl spawn "runsvdir ~/.services/"
+  riverctl spawn "corectrl"
+  
+  riverctl spawn "swayidle -w timeout 1800 'wlopm --off \"*\"' resume 'wlopm --on \"*\"' "
+  riverctl spawn "swayidle -w timeout 30 'if pgrep -x swaylock; then wlopm --off \"*\"; fi' resume 'wlopm --on \"*\"'"
+  
+  riverctl spawn "dbus-update-activation-environment DISPLAY WAYLAND_DISPLAY XDG_CURRENT_DESKTOP=river"
+  riverctl spawn "wlr-randr --output 'DP-3' --preferred --pos 1080,780"
+  riverctl spawn "wlr-randr --output 'HDMI-A-1' --preferred --pos 0,0 --transform 90"
+fi
+
+# Start rivertile
+rivertile -view-padding $inGaps -outer-padding $outGaps -main-ratio $defMasterRatio &

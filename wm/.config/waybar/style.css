@@ -9,8 +9,7 @@ window#waybar {
     background-color: transparent;
 }
 
-#workspaces button {
-    color: #ff79c6;
+#tags button {
     background-color: #282a36;
     border: 2px solid transparent;
 
@@ -18,7 +17,11 @@ window#waybar {
     padding: 1px 10px;
 }
 
-#workspaces button:hover {
+#tags button.occupied {
+    color: #ff79c6;
+}
+
+#tags button:hover {
     background: #44474a;
 
     border: 2px solid #ff79c6;
@@ -28,21 +31,21 @@ window#waybar {
     text-shadow: none;
 }
 
-#workspaces button.focused, #workspaces button.active {
+#tags button.focused {
     color: #8be9fd;
     border: 2px solid #8be9fd;
 }
 
-#workspaces button.persistent {
-    color: #44475a;
-}
-
-#submap {
+#mode {
     background: #64727D;
     color: #f8f8f2;
 
     margin: 6px 3px;
     padding: 0 5px;
+}
+
+#mode.normal {
+    opacity: 0;
 }
 
 #clock, #custom-timew, #language, #pulseaudio, #network, #cpu, #memory, #temperature {
