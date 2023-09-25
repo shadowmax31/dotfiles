@@ -18,6 +18,9 @@ if [ ! -z "$1" ]; then
   autostart="false"
 fi
 
+# Start a layout manager
+kile &
+
 config() {
   riverctl focus-follows-cursor normal
   
@@ -28,7 +31,10 @@ config() {
   riverctl border-width 3
 
   riverctl attach-mode bottom
-  riverctl default-layout rivertile
+  riverctl default-layout kile
+
+  # It might fail depending on if kile is fully started or not...
+  riverctl send-layout-cmd kile "default-padding 6"
 }
 
 rules() {
@@ -72,8 +78,8 @@ bindings() {
   riverctl map normal $mod+Shift L focus-output right
   riverctl map normal $alt H spawn "riverctl send-to-output left; riverctl focus-output left"
   riverctl map normal $alt L spawn "riverctl send-to-output right; riverctl focus-output right"
-  riverctl map normal $mod H send-layout-cmd rivertile "main-ratio 0.5"
-  riverctl map normal $mod L send-layout-cmd rivertile "main-ratio $defMasterRatio"
+  riverctl map normal $mod H send-layout-cmd kile "main-ratio 0.5"
+  riverctl map normal $mod L send-layout-cmd kile "main-ratio $defMasterRatio"
 
   # System
   riverctl map normal $mod Q close
@@ -95,11 +101,13 @@ bindings() {
   riverctl map normal $mod I spawn 'passmenumore --otp -p "OTP:" --hf "#ff5555"'
   
   # Position
+  riverctl map normal $mod T spawn "riverctl send-layout-cmd kile 'layout tab'"
+
   riverctl declare-mode position
-  riverctl map position None H spawn "`exit_mode` riverctl send-layout-cmd rivertile 'main-location left'"
-  riverctl map position None L spawn "`exit_mode` riverctl send-layout-cmd rivertile 'main-location right'"
-  riverctl map position None K spawn "`exit_mode` riverctl send-layout-cmd rivertile 'main-location top'"
-  riverctl map position None J spawn "`exit_mode` riverctl send-layout-cmd rivertile 'main-location bottom'"
+  riverctl map position None H spawn "`exit_mode` riverctl send-layout-cmd kile 'layout left'"
+  riverctl map position None L spawn "`exit_mode` riverctl send-layout-cmd kile 'layout right'"
+  riverctl map position None K spawn "`exit_mode` riverctl send-layout-cmd kile 'layout top'"
+  riverctl map position None J spawn "`exit_mode` riverctl send-layout-cmd kile 'layout bottom'"
   riverctl map position None Escape enter-mode normal
   riverctl map normal $mod D enter-mode position
 
@@ -150,5 +158,3 @@ if [ "$autostart" = "true" ]; then
   riverctl spawn "wlr-randr --output 'HDMI-A-1' --preferred --pos 0,0 --transform 90"
 fi
 
-# Start rivertile
-rivertile -view-padding $inGaps -outer-padding $outGaps -main-ratio $defMasterRatio &

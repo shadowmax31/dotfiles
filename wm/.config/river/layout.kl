@@ -1,0 +1,14 @@
+const masterV ( Vertical | Horizontal Horizontal )
+const stackingV (Vertical | Deck Deck)
+
+const masterH ( Horizontal | Vertical Vertical )
+const stackingH (Horizontal | Deck Deck)
+const tab Full
+
+const left ( 5 > stackingV ? masterV )
+const right ( [ - 1 - ] left )
+
+const top ( 5 > stackingH ? masterH )
+const bottom ([ - 1 - ] top)
+
+const default left
