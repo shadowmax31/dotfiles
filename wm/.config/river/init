@@ -9,8 +9,6 @@ sideOutput="HDMI-A-1"
 
 terminal="alacritty"
 
-inGaps="6"
-outGaps="0"
 defMasterRatio="0.7"
 
 autostart="true"
@@ -35,6 +33,7 @@ config() {
 
   # It might fail depending on if kile is fully started or not...
   riverctl send-layout-cmd kile "default-padding 6"
+  riverctl send-layout-cmd kile "main-ratio $defMasterRatio"
 }
 
 rules() {
