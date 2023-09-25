@@ -89,7 +89,7 @@ bindings() {
   riverctl map-pointer normal $mod BTN_RIGHT resize-view
   
   ## Launch apps
-  riverctl map normal $mod R spawn "bemenu-run -p 'Run:'"
+  riverctl map normal $mod R spawn "bemenu-run -p 'Run:' --hf '#bd93f9'"
   riverctl map normal $mod Return spawn $terminal
   riverctl map normal $mod E spawn "$terminal --class my_ranger -e ranger"
   riverctl map normal None Print spawn 'grim -g "$(slurp)" - | swappy -f -'
