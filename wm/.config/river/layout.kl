@@ -3,7 +3,7 @@ const stackingV (Vertical | Deck Deck)
 
 const masterH ( Horizontal | Vertical Vertical )
 const stackingH (Horizontal | Deck Deck)
-const tab Full
+const tab Deck
 
 const left ( 5 > stackingV ? masterV )
 const right ( [ - 1 - ] left )

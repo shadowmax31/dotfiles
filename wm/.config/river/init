@@ -20,7 +20,8 @@ fi
 kile &
 
 config() {
-  riverctl focus-follows-cursor normal
+  riverctl focus-follows-cursor disabled
+  riverctl set-cursor-warp on-output-change
   
   riverctl keyboard-layout -options "grp:sclk_toggle" "us,ca(multix)"
   riverctl border-color-focused 0xbd93f9 
@@ -69,8 +70,6 @@ bindings() {
   riverctl map normal $mod K focus-view previous
   riverctl map normal $mod J focus-view next
   riverctl map normal $mod W zoom
-  riverctl map normal $mod grave focus-previous-tags
-  riverctl map normal $mod+Shift grave send-to-previous-tags
 
   # Layout
   riverctl map normal $mod+Shift H focus-output left
@@ -125,7 +124,11 @@ exit_mode() {
 
 workspace() {
   bind="$1"
-  tag="$((1 << ($2 - 1)))"
+  tag="$2"
+  if [ -z "$tag" ]; then
+    tag=$bind
+  fi
+  tag="$((1 << ($tag - 1)))"
   
   riverctl map normal $mod $bind set-focused-tags $tag
   riverctl map normal $mod+Shift $bind set-view-tags $tag
@@ -137,9 +140,9 @@ workspace() {
 bindings
 rules
 
-for w in 1 2 3 4 5 6 7 8 9
+for w in "1" "2" "3" "4" "5" "6" "7" "8" "9" "grave 10"
 do
-  workspace $w $w
+  workspace $w
 done
 
 config
