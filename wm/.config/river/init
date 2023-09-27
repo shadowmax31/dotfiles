@@ -2,7 +2,8 @@
 
 mod="Super"
 alt="Mod1"
-meh="$alt+Control+Shift"
+ctrl="Control"
+meh="$alt+$ctrl+Shift"
 
 mainOutput="DP-3"
 sideOutput="HDMI-A-1"
@@ -133,8 +134,8 @@ workspace() {
   riverctl map normal $mod $bind set-focused-tags $tag
   riverctl map normal $mod+Shift $bind set-view-tags $tag
 
-  riverctl map normal Control $bind toggle-focused-tags $tag
-  riverctl map normal $meh $bind toggle-view-tags $tag
+  riverctl map normal $ctrl $bind toggle-focused-tags $tag
+  riverctl map normal $mod+$ctrl $bind toggle-view-tags $tag
 }
 
 bindings
