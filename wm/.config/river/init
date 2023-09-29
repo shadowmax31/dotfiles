@@ -20,6 +20,11 @@ fi
 # Start a layout manager
 kile &
 
+toTag() {
+  s=$(($1 - 1))
+  echo $((1 << $s))
+}
+
 config() {
   riverctl focus-follows-cursor disabled
   riverctl set-cursor-warp on-output-change
@@ -49,11 +54,12 @@ rules() {
     riverctl rule-add no-float -app-id $nf
   done
   
-  riverctl rule-add tag -app-id StarUML $((1 << 3))
-  riverctl rule-add tag -app-id azuredatastudio $((1 << 4))
-  riverctl rule-add tag -app-id Brave-browser $((1 << 5))
-  riverctl rule-add tag -app-id Thunderbird $((1 << 7))
-  riverctl rule-add tag -app-id krita $((1 << 8))
+  riverctl rule-add tag -app-id StarUML `toTag 4`
+  riverctl rule-add tag -app-id azuredatastudio `toTag 5`
+  riverctl rule-add tag -app-id Brave-browser `toTag 6`
+  riverctl rule-add tag -app-id Thunderbird `toTag 8`
+  riverctl rule-add tag -app-id krita `toTag 9`
+  riverctl rule-add tag -app-id Code `toTag 3`
 
   riverctl rule-add ssd -app-id '*'
 }
@@ -129,7 +135,7 @@ workspace() {
   if [ -z "$tag" ]; then
     tag=$bind
   fi
-  tag="$((1 << ($tag - 1)))"
+  tag=`toTag $tag`
   
   riverctl map normal $mod $bind set-focused-tags $tag
   riverctl map normal $mod+Shift $bind set-view-tags $tag
