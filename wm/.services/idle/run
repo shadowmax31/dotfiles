@@ -1,0 +1,5 @@
+#!/bin/sh
+
+pkill swayidle
+swayidle -w timeout 1800 'wlopm --off "*"' resume 'wlopm --on "*"' &
+swayidle -w timeout 30 'if pgrep -x swaylock; then wlopm --off "*"; fi' resume 'wlopm --on "*"'
