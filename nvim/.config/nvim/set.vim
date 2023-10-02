@@ -21,12 +21,12 @@ set guioptions-=r
 set guioptions-=L
 set guioptions-=T
 set guioptions-=m
-
 set termguicolors
 
-" Git commits
-autocmd FileType gitcommit set textwidth=72
-autocmd FileType gitcommit set colorcolumn+=73
+" Force line return when reaching limit
+autocmd FileType gitcommit set textwidth=80
+
+set colorcolumn+=81
 
 autocmd BufNewFile,BufRead *.sw set syntax=swayconfig
 
