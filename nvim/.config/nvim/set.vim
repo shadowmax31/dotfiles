@@ -27,14 +27,11 @@ set termguicolors
 autocmd FileType gitcommit set textwidth=80
 
 set colorcolumn+=81
+let g:goyo_width = 120
+let g:goyo_height = "100%"
 
 autocmd BufNewFile,BufRead *.sw set syntax=swayconfig
 autocmd BufNewFile,BufRead *.hbs set syntax=html
-
-highlight Normal guibg=none
-highlight NonText guibg=none
-highlight Normal ctermbg=none
-highlight NonText ctermbg=none
 
 " MarkdownPreview
 let g:mkdp_auto_start = 1
@@ -44,3 +41,18 @@ let g:mkdp_preview_options = {
     \ 'disable_sync_scroll': 0,
     \ 'sync_scroll_type': 'relative',
     \ }
+
+" Color scheme
+
+"" This callback is mainly here because of goyo
+autocmd! ColorScheme * call s:set_transparent_bg()
+function! s:set_transparent_bg()
+    highlight Normal guibg=none
+    highlight NonText guibg=none
+    highlight Normal ctermbg=none
+    highlight NonText ctermbg=none
+
+    set termguicolors
+endfunction
+
+colorscheme dracula

@@ -8,6 +8,7 @@ return function(use)
     'gregsexton/MatchTag',
     'airblade/vim-rooter',
     'jiangmiao/auto-pairs',
+    'junegunn/goyo.vim',
     'nvim-telescope/telescope-file-browser.nvim',
     'ThePrimeagen/harpoon',
     'christoomey/vim-tmux-navigator',
