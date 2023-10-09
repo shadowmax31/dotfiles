@@ -29,6 +29,7 @@ autocmd FileType gitcommit set textwidth=80
 set colorcolumn+=81
 
 autocmd BufNewFile,BufRead *.sw set syntax=swayconfig
+autocmd BufNewFile,BufRead *.hbs set syntax=html
 
 highlight Normal guibg=none
 highlight NonText guibg=none

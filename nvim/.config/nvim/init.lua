@@ -421,6 +421,7 @@ local servers = {
   clangd = {},
   -- gopls = {},
   -- pyright = {},
+  tailwindcss = {},
   rust_analyzer = {},
   tsserver = {},
   angularls = {},
