@@ -27,8 +27,6 @@ set termguicolors
 autocmd FileType gitcommit set textwidth=80
 
 set colorcolumn+=81
-let g:goyo_width = 120
-let g:goyo_height = "100%"
 
 autocmd BufNewFile,BufRead *.sw set syntax=swayconfig
 autocmd BufNewFile,BufRead *.hbs set syntax=html
@@ -44,7 +42,6 @@ let g:mkdp_preview_options = {
 
 " Color scheme
 
-"" This callback is mainly here because of goyo
 autocmd! ColorScheme * call s:set_transparent_bg()
 function! s:set_transparent_bg()
     highlight Normal guibg=none

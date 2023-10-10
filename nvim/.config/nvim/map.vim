@@ -31,7 +31,6 @@ noremap Y yy
 nnoremap <C-z> :bprev<CR>
 nnoremap <C-x> :bnext<CR>
 nnoremap <Leader><Backspace> :bd<CR>
-nnoremap <Leader>j :Goyo<CR>
 
 nnoremap QQ :qa<CR>
 
