@@ -268,7 +268,7 @@ vim.keymap.set('n', '<leader>a', require('telescope.builtin').diagnostics, { des
 -- See `:help nvim-treesitter`
 require('nvim-treesitter.configs').setup {
   -- Add languages to be installed here that you want installed for treesitter
-  ensure_installed = { 'c', 'cpp', 'go', 'lua', 'python', 'rust', 'typescript', 'help', 'vim', 'java', 'scss', 'bash' },
+  ensure_installed = { 'c', 'cpp', 'go', 'lua', 'python', 'rust', 'typescript', 'help', 'vim', 'java', 'scss', 'bash', 'html' },
 
   highlight = { enable = true },
   indent = { enable = true, disable = { 'python' } },
@@ -532,6 +532,8 @@ cmp.setup {
 require("no-neck-pain").setup({
   width = 140,
 })
+
+require('nvim-ts-autotag').setup()
 
 vim.cmd('source '..config..'/set.vim')
 vim.cmd('source '..config..'/map.vim')
