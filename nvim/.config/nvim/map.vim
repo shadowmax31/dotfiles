@@ -32,6 +32,8 @@ nnoremap <C-z> :bprev<CR>
 nnoremap <C-x> :bnext<CR>
 nnoremap <Leader><Backspace> :bd<CR>
 
+nnoremap <Leader>w :NoNeckPain<CR>
+
 nnoremap QQ :qa<CR>
 
 nnoremap git<space> :Git 

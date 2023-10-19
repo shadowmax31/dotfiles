@@ -12,6 +12,7 @@ return function(use)
     'ThePrimeagen/harpoon',
     'christoomey/vim-tmux-navigator',
     'norcalli/nvim-colorizer.lua',
-    { "iamcco/markdown-preview.nvim", run = function() vim.fn["mkdp#util#install"]() end }
+    { 'shortcuts/no-neck-pain.nvim', tag = '*' },
+    { 'iamcco/markdown-preview.nvim', run = function() vim.fn["mkdp#util#install"]() end }
   })
 end

@@ -56,7 +56,6 @@ require('packer').startup(function(use)
     after = 'nvim-treesitter',
   }
 
-
   -- Git related plugins
   use 'tpope/vim-fugitive'
   use 'tpope/vim-rhubarb'
@@ -262,7 +261,7 @@ vim.keymap.set('n', '<C-p>', function ()
   })
 end, { desc = '[S]earch [F]iles' })
 vim.keymap.set('n', '<leader>sh', require('telescope.builtin').help_tags, { desc = '[S]earch [H]elp' })
--- vim.keymap.set('n', '<leader>sw', require('telescope.builtin').grep_string, { desc = '[S]earch current [W]ord' })
+-- vim.keymap.set('n', '<leader>sw', require('telescope.builtig').grep_string, { desc = '[S]earch current [W]ord' })
 vim.keymap.set('n', '<leader>f', require('telescope.builtin').live_grep, { desc = '[S]earch by [G]rep' })
 vim.keymap.set('n', '<leader>a', require('telescope.builtin').diagnostics, { desc = '[S]earch [D]iagnostics' })
 
@@ -347,7 +346,7 @@ vim.keymap.set('n', '<leader>l', function () harpoon_ui.nav_file(4) end)
 vim.keymap.set('n', '[d', vim.diagnostic.goto_prev)
 vim.keymap.set('n', ']d', vim.diagnostic.goto_next)
 
-vim.keymap.set('n', '<leader>e', vim.diagnostic.open_float)
+vim.keymap.set('n', 'J', vim.diagnostic.open_float)
 vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist)
 
 
@@ -370,6 +369,8 @@ local on_attach = function(_, bufnr)
     vim.keymap.set('n', keys, func, { buffer = bufnr, desc = desc })
 
   end
+
+  vim.lsp.inlay_hint(0)
 
   nmap('<leader>rn', vim.lsp.buf.rename, '[R]e[n]ame')
   -- nmap('<leader>ca', vim.lsp.buf.code_action, '[C]ode [A]ction')
@@ -405,8 +406,6 @@ local on_attach = function(_, bufnr)
 
   end, { desc = 'Format current buffer with LSP' })
 end
-
-vim.lsp.inlay_hint(0)
 
 -- Enable the following language servers
 --  Feel free to add/remove any LSPs that you want here. They will automatically be installed.
@@ -530,6 +529,10 @@ cmp.setup {
     { name = 'luasnip' },
   },
 }
+
+require("no-neck-pain").setup({
+  width = 140,
+})
 
 vim.cmd('source '..config..'/set.vim')
 vim.cmd('source '..config..'/map.vim')

@@ -23,6 +23,8 @@ set guioptions-=T
 set guioptions-=m
 set termguicolors
 
+let g:rustfmt_autosave = 1
+
 " Force line return when reaching limit
 autocmd FileType gitcommit set textwidth=80
 
