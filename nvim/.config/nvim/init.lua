@@ -249,7 +249,7 @@ vim.keymap.set('n', '<leader>/', function()
   })
 end, { desc = '[/] Fuzzily search in current buffer]' })
 
-vim.keymap.set('n', '<C-p>', function () 
+vim.keymap.set('n', '<C-p>', function ()
   require('telescope.builtin').find_files({
     find_command = {
       'rg',
@@ -268,7 +268,7 @@ vim.keymap.set('n', '<leader>a', require('telescope.builtin').diagnostics, { des
 -- See `:help nvim-treesitter`
 require('nvim-treesitter.configs').setup {
   -- Add languages to be installed here that you want installed for treesitter
-  ensure_installed = { 'c', 'cpp', 'go', 'lua', 'python', 'rust', 'typescript', 'help', 'vim', 'java', 'scss', 'bash', 'html' },
+  ensure_installed = { 'c', 'cpp', 'lua', 'rust', 'typescript', 'help', 'vim', 'java', 'scss', 'bash', 'html' },
 
   highlight = { enable = true },
   indent = { enable = true, disable = { 'python' } },
