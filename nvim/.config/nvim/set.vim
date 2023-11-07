@@ -12,7 +12,7 @@ set cursorline
 set encoding=utf-8
 set hidden
 
-set tabstop=4
+set tabstop=2
 set shiftwidth=2
 set expandtab
 

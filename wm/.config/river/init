@@ -159,7 +159,7 @@ if [ "$autostart" = "true" ]; then
   riverctl spawn "corectrl"
   
   riverctl spawn "dbus-update-activation-environment DISPLAY WAYLAND_DISPLAY XDG_CURRENT_DESKTOP=river"
-  riverctl spawn "wlr-randr --output 'DP-3' --preferred --pos 1080,780"
-  riverctl spawn "wlr-randr --output 'HDMI-A-1' --preferred --pos 0,0 --transform 90"
+  riverctl spawn "wlr-randr --output '$mainOutput' --preferred --pos 1080,780"
+  riverctl spawn "wlr-randr --output '$sideOutput' --preferred --pos 0,0 --transform 90"
 fi
 
