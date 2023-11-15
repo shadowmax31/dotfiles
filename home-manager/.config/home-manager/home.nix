@@ -57,7 +57,7 @@ in
     pkgs.direnv
     pkgs.nix-direnv
     #pkgs.postman
-    pkgs.ranger
+    pkgs.yazi
     pkgs.remmina
     pkgs.taskwarrior
     pkgs.timewarrior
@@ -67,6 +67,7 @@ in
     pkgs.bat
     pkgs.sxiv
     pkgs.rust-script
+    pkgs.zoxide
 
     pkgs.tmate
     pkgs.jq

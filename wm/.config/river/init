@@ -44,7 +44,7 @@ config() {
 }
 
 rules() {
-  for f in my_pulsemixer my_ranger my_notes galculator swappy floating_terminal
+  for f in my_pulsemixer my_yazi my_notes galculator swappy floating_terminal
   do
     riverctl rule-add float -app-id $f
   done
@@ -97,7 +97,7 @@ bindings() {
   ## Launch apps
   riverctl map normal $mod R spawn "bemenu-run -p 'Run:' --hf '#bd93f9'"
   riverctl map normal $mod Return spawn $terminal
-  riverctl map normal $mod E spawn "$terminal --class my_ranger -e ranger"
+  riverctl map normal $mod E spawn "$terminal --class my_yazi -e yazi"
   riverctl map normal None Print spawn 'grim -g "$(slurp)" - | swappy -f -'
   
   # Password Store

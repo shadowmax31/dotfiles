@@ -49,6 +49,8 @@ alias ty="timew sum :yest"
 
 alias c="code ."
 
+eval "$(zoxide init zsh)"
+
 gsource() {
   if [ -n "$1" ]; then
     source <(gpg -d "$1" 2> /dev/null) ${@:2}
