@@ -54,6 +54,7 @@ in
     pkgs.librewolf
     pkgs.lm_sensors
     pkgs.nb
+    pkgs.lsof
     pkgs.direnv
     pkgs.nix-direnv
     #pkgs.postman
