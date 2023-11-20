@@ -29,9 +29,10 @@ export PASSWORD_STORE_ENABLE_EXTENSIONS="true"
 export PASSWORD_STORE_LOGIN_PREFIX="user|email"
 
 alias cat="bat"
-alias ls="ls --color"
 alias ll="ls -lh"
-alias la="ls -a"
+alias la="ls -A"
+alias ls="lsd"
+
 alias rm="rm -i"
 alias sudo="echo Use doas! "
 alias u="date '+%s' | wl-copy"

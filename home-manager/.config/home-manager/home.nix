@@ -55,6 +55,7 @@ in
     pkgs.lm_sensors
     pkgs.nb
     pkgs.lsof
+    pkgs.lsd
     pkgs.direnv
     pkgs.nix-direnv
     #pkgs.postman
