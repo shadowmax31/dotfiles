@@ -59,7 +59,7 @@ in
     pkgs.direnv
     pkgs.nix-direnv
     #pkgs.postman
-    pkgs.yazi
+    pkgs.joshuto
     pkgs.remmina
     pkgs.taskwarrior
     pkgs.timewarrior
