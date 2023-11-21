@@ -24,6 +24,7 @@ source "$HOME/.nix-profile/etc/profile.d/hm-session-vars.sh"
 export user_color="blue"
 export EDITOR="nvim"
 export SVDIR="$HOME/.services"
+alias n="$EDITOR"
 
 export PASSWORD_STORE_ENABLE_EXTENSIONS="true"
 export PASSWORD_STORE_LOGIN_PREFIX="user|email"

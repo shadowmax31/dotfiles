@@ -369,7 +369,7 @@ local on_attach = function(_, bufnr)
 
   end
 
-  vim.lsp.inlay_hint(0)
+  vim.lsp.inlay_hint.enable(0)
 
   nmap('<leader>rn', vim.lsp.buf.rename, '[R]e[n]ame')
   -- nmap('<leader>ca', vim.lsp.buf.code_action, '[C]ode [A]ction')
@@ -418,7 +418,19 @@ local servers = {
   -- pyright = {},
   tailwindcss = {},
   rust_analyzer = {},
-  tsserver = {},
+  tsserver = {
+    typescript = {
+      inlayHints = {
+        includeInlayEnumMemberValueHints = true,
+        includeInlayFunctionLikeReturnTypeHints = true,
+        includeInlayFunctionParameterTypeHints = true,
+        includeInlayParameterNameHints = 'all',
+        includeInlayParameterNameHintsWhenArgumentMatchesName = true,
+        includeInlayPropertyDeclarationTypeHints = true,
+        includeInlayVariableTypeHints = true,
+      },
+    },
+  },
   angularls = {},
   jdtls = {},
   bashls = {},
