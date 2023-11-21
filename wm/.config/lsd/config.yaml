@@ -28,7 +28,7 @@ icons:
 # Which layout to use. "oneline" might be a bit confusing here and should be
 # called "one-per-line". It might be changed in the future.
 # Possible values: grid, tree, oneline
-layout: oneline
+layout: grid
 # == Size ==
 # Specifies the format of the size column.
 # Possible values: default, short, bytes
