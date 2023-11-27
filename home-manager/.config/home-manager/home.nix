@@ -70,6 +70,7 @@ in
     pkgs.sxiv
     pkgs.rust-script
     pkgs.zoxide
+    pkgs.trashy
 
     pkgs.tmate
     pkgs.jq

@@ -34,8 +34,10 @@ alias ll="ls -lh"
 alias la="ls -A"
 alias ls="lsd"
 
-alias rm="rm -i"
-alias sudo="echo Use doas! "
+alias rt="trash"
+
+alias rm="echo Use trashy with rt!"
+alias sudo="echo Use doas!"
 alias u="date '+%s' | wl-copy"
 
 alias e="joshuto"
