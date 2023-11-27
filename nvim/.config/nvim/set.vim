@@ -5,6 +5,7 @@ let mapleader = ","
 
 set ff=unix
 set number
+set nowrap
 set ignorecase
 set number relativenumber
 set backspace=indent,eol,start
