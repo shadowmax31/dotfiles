@@ -118,9 +118,6 @@ vim.api.nvim_create_autocmd('BufWritePost', {
 
 })
 
--- [[ Setting options ]]
--- See `:help vim.o`
-
 -- Set highlight on search
 vim.o.hlsearch = false
 
@@ -136,7 +133,6 @@ vim.o.breakindent = true
 -- Save undo history
 vim.o.undofile = true
 
-
 -- Case insensitive searching UNLESS /C or capital in search
 vim.o.ignorecase = true
 vim.o.smartcase = true
@@ -149,24 +145,13 @@ vim.wo.signcolumn = 'yes'
 -- Set completeopt to have a better completion experience
 vim.o.completeopt = 'menuone,noselect'
 
--- [[ Basic Keymaps ]]
--- Set <space> as the leader key
--- See `:help mapleader`
 --  NOTE: Must happen before plugins are required (otherwise wrong leader will be used)
 vim.g.mapleader = ','
 vim.g.maplocalleader = ','
 
--- Keymaps for better default experience
--- See `:help vim.keymap.set()`
 vim.keymap.set({ 'n', 'v' }, '<Space>', '<Nop>', { silent = true })
 
-
--- Remap for dealing with word wrap
--- vim.keymap.set('n', 'k', "v:count == 0 ? 'gk' : 'k'", { expr = true, silent = true })
--- vim.keymap.set('n', 'j', "v:count == 0 ? 'gj' : 'j'", { expr = true, silent = true })
-
 -- [[ Highlight on yank ]]
--- See `:help vim.highlight.on_yank()`
 local highlight_group = vim.api.nvim_create_augroup('YankHighlight', { clear = true })
 vim.api.nvim_create_autocmd('TextYankPost', {
   callback = function()
@@ -178,7 +163,6 @@ vim.api.nvim_create_autocmd('TextYankPost', {
 
 
 -- Set lualine as statusline
--- See `:help lualine.txt`
 require('lualine').setup {
   options = {
     icons_enabled = false,
@@ -188,21 +172,35 @@ require('lualine').setup {
   },
 }
 
+
 -- Enable Comment.nvim
 require('Comment').setup({
-  toggler = {
-    line = "gc"
-  },
-  mappings = {
-    extra = false
-  }
-
-
+    padding = true,
+    sticky = true,
+    ignore = nil,
+    toggler = {
+        line = 'gc',
+        block = 'gb',
+    },
+    opleader = {
+        line = 'gc',
+        block = 'gb',
+    },
+    extra = {
+        above = 'gcO',
+        below = 'gco',
+        eol = 'gcA',
+    },
+    mappings = {
+        basic = true,
+        extra = false,
+    },
+  pre_hook = nil,
+  post_hook = nil,
 })
 
 
 -- Gitsigns
--- See `:help gitsigns.txt`
 require('gitsigns').setup {
   signs = {
     add = { text = '+' },
@@ -214,8 +212,6 @@ require('gitsigns').setup {
 }
 
 -- [[ Configure Telescope ]]
--- See `:help telescope` and `:help telescope.setup()`
-
 require('telescope').setup {
   defaults = {
     mappings = {
@@ -238,11 +234,9 @@ pcall(require('telescope').load_extension, 'fzf')
 -- Goto init.lua
 vim.keymap.set('n', '<leader>cd', ':e '..config..'/init.lua<CR>')
 
--- See `:help telescope.builtin`
 vim.keymap.set('n', '<leader>?', require('telescope.builtin').oldfiles, { desc = '[?] Find recently opened files' })
 vim.keymap.set('n', '<leader>b', require('telescope.builtin').buffers, { desc = '[ ] Find existing buffers' })
 vim.keymap.set('n', '<leader>/', function()
-  -- You can pass additional configuration to telescope to change theme, layout, etc.
   require('telescope.builtin').current_buffer_fuzzy_find(require('telescope.themes').get_dropdown {
     winblend = 10,
     previewer = false,
@@ -265,9 +259,7 @@ vim.keymap.set('n', '<leader>f', require('telescope.builtin').live_grep, { desc 
 vim.keymap.set('n', '<leader>a', require('telescope.builtin').diagnostics, { desc = '[S]earch [D]iagnostics' })
 
 -- [[ Configure Treesitter ]]
--- See `:help nvim-treesitter`
 require('nvim-treesitter.configs').setup {
-  -- Add languages to be installed here that you want installed for treesitter
   ensure_installed = { 'c', 'cpp', 'lua', 'rust', 'typescript', 'help', 'vim', 'java', 'scss', 'bash', 'html' },
 
   highlight = { enable = true },
@@ -319,15 +311,6 @@ require('nvim-treesitter.configs').setup {
         ['[]'] = '@class.outer',
       },
     },
-    -- swap = {
-    --   enable = true,
-    --   swap_next = {
-    --     ['<leader>a'] = '@parameter.inner',
-    --   },
-    --   swap_previous = {
-    --     ['<leader>A'] = '@parameter.inner',
-    --   },
-    -- },
   },
 }
 
@@ -354,7 +337,6 @@ vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist)
 local on_attach = function(_, bufnr)
   -- NOTE: Remember that lua is a real programming language, and as such it is possible
   -- to define small helper and utility functions so you don't have to repeat yourself
-
   -- many times.
   --
   -- In this case, we create a function that lets us more easily define mappings specific
@@ -372,50 +354,23 @@ local on_attach = function(_, bufnr)
   vim.lsp.inlay_hint.enable(0)
 
   nmap('<leader>rn', vim.lsp.buf.rename, '[R]e[n]ame')
-  -- nmap('<leader>ca', vim.lsp.buf.code_action, '[C]ode [A]ction')
   nmap('<leader>.', vim.lsp.buf.code_action, '[C]ode [A]ction')
 
   nmap('gd', vim.lsp.buf.definition, '[G]oto [D]efinition')
+  nmap('gD', vim.lsp.buf.declaration, '[G]oto [D]eclaration')
 
   nmap('gr', require('telescope.builtin').lsp_references, '[G]oto [R]eferences')
   nmap('gI', vim.lsp.buf.implementation, '[G]oto [I]mplementation')
-  -- nmap('<leader>D', vim.lsp.buf.type_definition, 'Type [D]efinition')
-  -- nmap('<leader>ds', require('telescope.builtin').lsp_document_symbols, '[D]ocument [S]ymbols')
-  -- nmap('<leader>ws', require('telescope.builtin').lsp_dynamic_workspace_symbols, '[W]orkspace [S]ymbols')
-
-
-  -- See `:help K` for why this keymap
-  -- nmap('<leader><leader>', vim.lsp.buf.hover, 'Hover Documentation')
   nmap('K', vim.lsp.buf.hover, 'Hover Documentation')
-  -- nmap('<C-k>', vim.lsp.buf.signature_help, 'Signature Documentation')
 
 
-  -- Lesser used LSP functionality
-  nmap('gD', vim.lsp.buf.declaration, '[G]oto [D]eclaration')
-  -- nmap('<leader>wa', vim.lsp.buf.add_workspace_folder, '[W]orkspace [A]dd Folder')
-  -- nmap('<leader>wr', vim.lsp.buf.remove_workspace_folder, '[W]orkspace [R]emove Folder')
-
-  -- nmap('<leader>wl', function()
-  --   print(vim.inspect(vim.lsp.buf.list_workspace_folders()))
-  -- end, '[W]orkspace [L]ist Folders')
-
-  -- Create a command `:Format` local to the LSP buffer
   vim.api.nvim_buf_create_user_command(bufnr, 'Format', function(_)
     vim.lsp.buf.format()
 
   end, { desc = 'Format current buffer with LSP' })
 end
 
--- Enable the following language servers
---  Feel free to add/remove any LSPs that you want here. They will automatically be installed.
-
---
---  Add any additional override configuration in the following tables. They will be passed to
---  the `settings` field of the server config. You must look up that documentation yourself.
 local servers = {
-  clangd = {},
-  -- gopls = {},
-  -- pyright = {},
   tailwindcss = {},
   rust_analyzer = {},
   tsserver = {
@@ -434,7 +389,6 @@ local servers = {
   angularls = {},
   jdtls = {},
   bashls = {},
-
   lua_ls = {
     Lua = {
       workspace = { checkThirdParty = false },
@@ -445,9 +399,8 @@ local servers = {
 
 -- Setup neovim lua configuration
 require('neodev').setup()
---
--- nvim-cmp supports additional completion capabilities, so broadcast that to servers
 
+-- nvim-cmp supports additional completion capabilities, so broadcast that to servers
 local capabilities = vim.lsp.protocol.make_client_capabilities()
 capabilities = require('cmp_nvim_lsp').default_capabilities(capabilities)
 
@@ -456,9 +409,7 @@ require('mason').setup()
 
 
 -- Ensure the servers above are installed
-
 local mason_lspconfig = require 'mason-lspconfig'
-
 
 mason_lspconfig.setup {
   ensure_installed = vim.tbl_keys(servers),
@@ -481,7 +432,7 @@ mason_lspconfig.setup_handlers {
   ['jdtls'] = function()
     local lombok = data..'/mason/packages/jdtls/lombok.jar'
     require('lspconfig')['jdtls'].setup {
-      cmd = { 
+      cmd = {
         'jdtls',
         '--jvm-arg=-javaagent:'..lombok,
         '-configuration',
@@ -554,6 +505,3 @@ vim.cmd('source '..config..'/plug/sneak.vim')
 vim.cmd('source '..config..'/plug/nuuid.vim')
 
 require('colorizer_config')
-
--- The line beneath this is called `modeline`. See `:help modeline`
--- vim: ts=2 sts=2 sw=2 et
