@@ -63,6 +63,11 @@ gsource() {
   fi
 }
 
+gp() {
+  current=`git branch --show-current`
+  git push --set-upstream origin $current
+}
+
 # Restart Task
 tr() {
   if [ -n "$1" ]
