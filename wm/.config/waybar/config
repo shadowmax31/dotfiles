@@ -2,9 +2,9 @@
     "output": "DP-3",
     "position": "top",
     "layer": "top",
-    "modules-left": ["cpu", "memory", "temperature", "network", "river/mode"],
+    "modules-left": ["cpu", "memory", "temperature", "network", "river/mode", "tray"],
     "modules-center": ["river/tags"],
-    "modules-right": ["tray", "custom/timew", "pulseaudio", "clock"],
+    "modules-right": ["custom/weather", "custom/timew", "pulseaudio", "clock"],
     "river/tags": {
       "tag-labels": [
         "",
@@ -64,6 +64,12 @@
       "return-type": "json",
       "interval": 30,
       "format": " {}"
+    },
+    "custom/weather": {
+      "exec": "~/.config/waybar/weather.sh",
+      "return-type": "json",
+      "interval": 1000,
+      "format": "{}"
     },
     "pulseaudio": {
         "format": "{icon} {volume}%",

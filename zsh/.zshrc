@@ -53,6 +53,7 @@ alias tw="timew week"
 alias tk="timew continue"
 alias ty="timew sum :yest"
 
+alias ww="curl wttr.in"
 alias c="code ."
 
 gsource() {

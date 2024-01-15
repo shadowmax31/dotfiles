@@ -48,7 +48,7 @@ window#waybar {
     background: #bd93f9;
 }
 
-#clock, #custom-timew, #language, #pulseaudio, #network, #cpu, #memory, #temperature, #mode {
+#clock, #custom-weather, #custom-timew, #language, #pulseaudio, #network, #cpu, #memory, #temperature, #mode {
     font-weight: bold;
     color: #f8f8f2;
 
