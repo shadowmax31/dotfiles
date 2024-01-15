@@ -46,6 +46,7 @@ in
     pkgs.clang-tools
     pkgs.vscode
     pkgs.nodejs
+    pkgs.darktable
     pkgs.unzip
     pkgs.jmeter
     pkgs.azuredatastudio
