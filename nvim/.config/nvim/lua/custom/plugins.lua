@@ -13,6 +13,7 @@ return function(use)
     'christoomey/vim-tmux-navigator',
     'norcalli/nvim-colorizer.lua',
     'windwp/nvim-ts-autotag',
+    'pest-parser/pest.vim',
     { 'shortcuts/no-neck-pain.nvim', tag = '*' },
     { 'iamcco/markdown-preview.nvim', run = function() vim.fn["mkdp#util#install"]() end }
   })

@@ -388,6 +388,7 @@ local servers = {
   },
   angularls = {},
   jdtls = {},
+  pest_ls = {},
   bashls = {},
   lua_ls = {
     Lua = {
