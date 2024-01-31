@@ -82,7 +82,6 @@ in
     pkgs.swappy
 
     pkgs.ripgrep
-    pkgs.fzf
     pkgs.fd
 
     # BTRFS tools
