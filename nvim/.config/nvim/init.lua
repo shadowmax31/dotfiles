@@ -394,6 +394,10 @@ local servers = {
     Lua = {
       workspace = { checkThirdParty = false },
       telemetry = { enable = false },
+      diagnostics = {
+        -- Get the language server to recognize the `vim` global
+        globals = {'vim'},
+      },
     },
   },
 }
@@ -506,3 +510,5 @@ vim.cmd('source '..config..'/plug/sneak.vim')
 vim.cmd('source '..config..'/plug/nuuid.vim')
 
 require('colorizer_config')
+require('pr')
+
