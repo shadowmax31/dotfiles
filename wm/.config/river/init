@@ -57,6 +57,7 @@ rules() {
   riverctl rule-add tag -app-id StarUML `toTag 4`
   riverctl rule-add tag -app-id azuredatastudio `toTag 5`
   riverctl rule-add tag -app-id Brave-browser `toTag 6`
+  riverctl rule-add tag -app-id librewolf `toTag 1`
   riverctl rule-add tag -app-id Thunderbird `toTag 8`
   riverctl rule-add tag -app-id krita `toTag 9`
   riverctl rule-add tag -app-id Code `toTag 3`
