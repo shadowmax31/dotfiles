@@ -30,6 +30,7 @@ export PASSWORD_STORE_ENABLE_EXTENSIONS="true"
 export PASSWORD_STORE_LOGIN_PREFIX="user|email"
 
 source /usr/share/fzf/completion.zsh
+eval $(opam env)
 
 alias cat="bat"
 alias ll="ls -lh"
