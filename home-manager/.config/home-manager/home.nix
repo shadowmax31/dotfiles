@@ -73,6 +73,7 @@ in
     pkgs.rust-script
     pkgs.zoxide
     pkgs.trashy
+    pkgs.sqlcmd
 
     pkgs.tmate
     pkgs.jq

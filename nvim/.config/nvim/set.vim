@@ -56,3 +56,5 @@ function! s:set_transparent_bg()
 endfunction
 
 colorscheme dracula
+
+autocmd FileType sql,mysql,plsql lua require('cmp').setup.buffer({ sources = {{ name = 'vim-dadbod-completion' }} })

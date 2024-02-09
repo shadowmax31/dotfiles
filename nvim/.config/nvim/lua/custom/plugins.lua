@@ -14,6 +14,16 @@ return function(use)
     'windwp/nvim-ts-autotag',
     'pest-parser/pest.vim',
     { 'shortcuts/no-neck-pain.nvim', tag = '*' },
-    { 'iamcco/markdown-preview.nvim', run = function() vim.fn["mkdp#util#install"]() end }
+    { 'iamcco/markdown-preview.nvim', run = function() vim.fn["mkdp#util#install"]() end },
+    {
+          "tpope/vim-dadbod",
+          requires = {
+           "kristijanhusak/vim-dadbod-ui",
+           "kristijanhusak/vim-dadbod-completion"
+          },
+          config = function()
+            require("config.dadbod").setup()
+          end,
+    }
   })
 end
