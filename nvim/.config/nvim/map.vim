@@ -18,7 +18,7 @@ nnoremap <C-w>k <nop>
 nnoremap <C-w>h <nop>
 nnoremap <C-w>l <nop>
 
-noremap <Leader>x <Plug>(DBUI_ExecuteQuery)
+noremap <Leader>i <Plug>(DBUI_ExecuteQuery)
 noremap <Leader>X :DBUIToggle<CR>
 
 noremap <Leader>y "+y
