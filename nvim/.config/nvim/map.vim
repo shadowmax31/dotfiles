@@ -18,8 +18,8 @@ nnoremap <C-w>k <nop>
 nnoremap <C-w>h <nop>
 nnoremap <C-w>l <nop>
 
-noremap <Leader>x :call RunSQL(0)<CR>
-noremap <Leader>X :call RunSQL(1)<CR>
+noremap <Leader>x <Plug>(DBUI_ExecuteQuery)
+noremap <Leader>X :DBUIToggle<CR>
 
 noremap <Leader>y "+y
 noremap <Leader>Y "+Y
