@@ -9,7 +9,7 @@ vim.api.nvim_create_autocmd("FileType", {
 
     vim.lsp.start({
       name = "mylsp",
-      cmd = { p .. "/target/debug/lsp-w" },
+      cmd = { p .. "/target/debug/pw", "lsp" },
       capabilites = vim.lsp.protocol.make_client_capabilities(),
       root_dir = p,
     })
