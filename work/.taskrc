@@ -83,4 +83,3 @@ news.version=2.6.0
 context.home.read=+home
 context.home.write=+home
 context.work.read=-home
-context=work
