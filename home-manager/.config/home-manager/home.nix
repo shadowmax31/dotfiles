@@ -74,6 +74,7 @@ in
     pkgs.zoxide
     pkgs.trashy
     pkgs.sqlcmd
+    pkgs.azure-cli
 
     pkgs.tmate
     pkgs.jq
