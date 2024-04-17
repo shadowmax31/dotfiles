@@ -28,6 +28,7 @@ let g:rustfmt_autosave = 1
 
 " Force line return when reaching limit
 autocmd FileType gitcommit set textwidth=80
+autocmd FileType markdown set textwidth=80
 
 set colorcolumn+=81
 
