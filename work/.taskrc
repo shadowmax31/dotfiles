@@ -21,6 +21,7 @@ urgency.user.project.Inbox.coefficient=20
 urgency.tags.coefficient=0
 urgency.user.tag.fun.coefficient=0.25
 urgency.user.tag.boost.coefficient=1
+urgency.user.tag.lower.coefficient=-1
 urgency.blocking.coefficient=1
 urgency.blocked.coefficient=-8
 
