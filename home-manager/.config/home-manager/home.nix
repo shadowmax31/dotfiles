@@ -44,6 +44,7 @@ in
     discord
 
     pkgs.clang-tools
+    pkgs.thunderbird
     pkgs.vscode
     pkgs.nodejs
     pkgs.darktable
@@ -61,7 +62,7 @@ in
     pkgs.nix-direnv
     #pkgs.postman
     pkgs.curl
-    pkgs.joshuto
+    #pkgs.joshuto
     pkgs.remmina
     pkgs.taskwarrior
     pkgs.timewarrior
