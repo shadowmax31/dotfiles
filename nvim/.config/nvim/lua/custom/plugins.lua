@@ -21,9 +21,6 @@ return function(use)
            "kristijanhusak/vim-dadbod-ui",
            "kristijanhusak/vim-dadbod-completion"
           },
-          config = function()
-            require("config.dadbod").setup()
-          end,
     }
   })
 end
