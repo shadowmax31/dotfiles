@@ -435,6 +435,18 @@ mason_lspconfig.setup_handlers {
       on_attach = on_attach
     }
   end,
+  ['angularls'] = function()
+    require('lspconfig')['angularls'].setup {
+      on_attach = function(_, _)
+
+        local component_toggle = function()
+          require('switcher').toggle('component.ts', 'component.html')
+        end
+
+        vim.keymap.set('n', '<leader>t', component_toggle)
+      end
+    }
+  end,
   ['jdtls'] = function()
     local lombok = data..'/mason/packages/jdtls/lombok.jar'
     require('lspconfig')['jdtls'].setup {
