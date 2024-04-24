@@ -36,4 +36,35 @@ function M.toggle(suffixOne, suffixTwo)
   return navigation(path_state.path .. '/' .. path_state.prefix .. '.' .. suffix)
 end
 
+function string:endswith(suffix)
+    return self:sub(-#suffix) == suffix
+end
+
+function M.toggle2(suffixes)
+  local path_state = get_path_state()
+
+  local found_index = nil
+  for i = 1, #suffixes do
+    if path_state.file_name:endswith(suffixes[i]) then
+      found_index = i
+      break
+    end
+  end
+
+  if found_index ~= nil then
+    local next_index = 1
+    if found_index < #suffixes then
+      next_index = found_index + 1
+    end
+
+
+    local next_filename = path_state.file_name:gsub(suffixes[found_index], suffixes[next_index])
+
+    return navigation(path_state.path .. '/' .. next_filename)
+  else
+    print("Could not find a matching suffix")
+  end
+
+end
+
 return M;

@@ -458,7 +458,13 @@ mason_lspconfig.setup_handlers {
         '-data',
         home..'/.cache/jdtls/workspace'
       },
-      on_attach = on_attach,
+      on_attach = function(_, _)
+        local component_toggle = function()
+          require('switcher').toggle2({'Assembler.java', 'Service.java'})
+        end
+
+        vim.keymap.set('n', '<leader>t', component_toggle)
+      end,
     }
   end
 }
