@@ -260,7 +260,7 @@ vim.keymap.set('n', '<leader>a', require('telescope.builtin').diagnostics, { des
 
 -- [[ Configure Treesitter ]]
 require('nvim-treesitter.configs').setup {
-  ensure_installed = { 'c', 'cpp', 'lua', 'rust', 'typescript', 'help', 'vim', 'java', 'scss', 'bash', 'html', 'ocaml' },
+  ensure_installed = { 'c', 'cpp', 'lua', 'rust', 'typescript', 'help', 'vim', 'java', 'scss', 'bash', 'html' },
 
   highlight = { enable = true },
   indent = { enable = true, disable = { 'python' } },
@@ -399,7 +399,6 @@ local servers = {
   },
   angularls = {},
   jdtls = {},
-  ocamllsp= {},
   pest_ls = {},
   bashls = {},
   lua_ls = {
