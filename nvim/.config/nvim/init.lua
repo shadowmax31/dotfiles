@@ -360,8 +360,19 @@ local on_attach = function(_, bufnr)
   nmap('gD', vim.lsp.buf.declaration, '[G]oto [D]eclaration')
 
   nmap('gr', require('telescope.builtin').lsp_references, '[G]oto [R]eferences')
-  nmap('gI', vim.lsp.buf.implementation, '[G]oto [I]mplementation')
+  nmap('gI', require('telescope.builtin').lsp_implementations, '[G]oto [I]mplementation')
   nmap('K', vim.lsp.buf.hover, 'Hover Documentation')
+
+
+  local component_toggle = function()
+    local switcher = require('switcher')
+    if vim.bo.filetype == "java" then
+      switcher.toggle2({'Assembler.java', 'Service.java'})
+    else
+      switcher.toggle('component.ts', 'component.html')
+    end
+  end
+  vim.keymap.set('n', '<leader>t', component_toggle)
 
 
   vim.api.nvim_buf_create_user_command(bufnr, 'Format', function(_)
@@ -435,18 +446,6 @@ mason_lspconfig.setup_handlers {
       on_attach = on_attach
     }
   end,
-  ['angularls'] = function()
-    require('lspconfig')['angularls'].setup {
-      on_attach = function(_, _)
-
-        local component_toggle = function()
-          require('switcher').toggle('component.ts', 'component.html')
-        end
-
-        vim.keymap.set('n', '<leader>t', component_toggle)
-      end
-    }
-  end,
   ['jdtls'] = function()
     local lombok = data..'/mason/packages/jdtls/lombok.jar'
     require('lspconfig')['jdtls'].setup {
@@ -458,13 +457,7 @@ mason_lspconfig.setup_handlers {
         '-data',
         home..'/.cache/jdtls/workspace'
       },
-      on_attach = function(_, _)
-        local component_toggle = function()
-          require('switcher').toggle2({'Assembler.java', 'Service.java'})
-        end
-
-        vim.keymap.set('n', '<leader>t', component_toggle)
-      end,
+      on_attach = on_attach
     }
   end
 }
