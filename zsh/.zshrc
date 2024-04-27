@@ -32,6 +32,8 @@ export XDG_DATA_DIRS="$XDG_DATA_DIRS:$HOME/.nix-profile/share"
 export PASSWORD_STORE_ENABLE_EXTENSIONS="true"
 export PASSWORD_STORE_LOGIN_PREFIX="user|email"
 
+export VPN_FILES="$HOME/.vpn"
+
 source /usr/share/fzf/completion.zsh
 
 alias cat="bat"

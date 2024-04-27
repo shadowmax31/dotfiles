@@ -48,7 +48,7 @@ window#waybar {
     background: #bd93f9;
 }
 
-#clock, #custom-weather, #custom-timew, #language, #pulseaudio, #network, #cpu, #memory, #temperature, #mode, .normal {
+#clock, #custom-weather, #custom-timew, #language, #pulseaudio, #network, #cpu, #memory, #temperature, #mode {
     color: #f8f8f2;
 }
 
@@ -67,6 +67,10 @@ window#waybar {
 #network {
     margin-left: 0px;
     padding-left: 0px;
+}
+
+.safe {
+    color: #50FA7B
 }
 
 #network.disconnected, .red {
