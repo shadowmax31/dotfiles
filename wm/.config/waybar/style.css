@@ -48,14 +48,27 @@ window#waybar {
     background: #bd93f9;
 }
 
-#clock, #custom-weather, #custom-timew, #language, #pulseaudio, #network, #cpu, #memory, #temperature, #mode {
-    font-weight: bold;
+#clock, #custom-weather, #custom-timew, #language, #pulseaudio, #network, #cpu, #memory, #temperature, #mode, .normal {
     color: #f8f8f2;
+}
+
+#clock, #custom-weather, #custom-vpn, #custom-timew, #language, #pulseaudio, #network, #cpu, #memory, #temperature, #mode {
+    font-weight: bold;
 
     padding: 0px 10px;
     margin: 0px 2px
 }
 
-#network.disconnected {
+#custom-vpn {
+    margin-right: 0px;
+    padding-right: 0px;
+}
+
+#network {
+    margin-left: 0px;
+    padding-left: 0px;
+}
+
+#network.disconnected, .red {
     color: #f53c3c;
 }

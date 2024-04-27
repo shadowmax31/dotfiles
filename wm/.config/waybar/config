@@ -2,17 +2,17 @@
     "output": "DP-3",
     "position": "top",
     "layer": "top",
-    "modules-left": ["cpu", "memory", "temperature", "network", "river/mode", "tray"],
+    "modules-left": ["cpu", "memory", "temperature", "custom/vpn", "network", "river/mode", "tray"],
     "modules-center": ["river/tags"],
     "modules-right": ["custom/weather", "custom/timew", "pulseaudio", "clock"],
     "river/tags": {
       "tag-labels": [
         "",
         "",
-        "",
-        "",
-        "",
         "",
+        "",
+        "",
+        "",
         "",
         "",
         "",
@@ -56,8 +56,14 @@
     },
     "network": {
         "format-wifi": " {ifname}.{essid} ({signalStrength}%)",
-        "format-ethernet": " {ipaddr}/{cidr}",
+        "format-ethernet": " {ipaddr}/{cidr}",
         "format-disconnected": "⚠ Disconnected"
+    },
+    "custom/vpn": {
+      "exec": "~/.config/waybar/vpn.sh",
+      "return-type": "json",
+      "interval": 10,
+      "format": "{}"
     },
     "custom/timew": {
       "exec": "~/.config/waybar/timew.sh",
@@ -96,10 +102,10 @@
       "tag-labels": [
         "",
         "",
-        "",
-        "",
-        "",
         "",
+        "",
+        "",
+        "",
         "",
         "",
         "",
