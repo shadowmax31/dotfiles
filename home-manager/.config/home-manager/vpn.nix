@@ -29,12 +29,10 @@ pkgs.writeTextFile {
   fi
   
   doas sv stop wireguard > /dev/null
-  echo "Wireguard stopped"
   
   doas test -e "/etc/wireguard/vpn.conf" && doas rm /etc/wireguard/vpn.conf
   doas ln -s $new_config /etc/wireguard/vpn.conf
   
-  echo "Starting wareguard..."
   doas sv start wireguard > /dev/null
   '';
 }
