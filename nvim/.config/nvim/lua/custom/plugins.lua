@@ -13,6 +13,7 @@ return function(use)
     'norcalli/nvim-colorizer.lua',
     'windwp/nvim-ts-autotag',
     'pest-parser/pest.vim',
+    'nvim-lua/lsp-status.nvim',
     { 'shortcuts/no-neck-pain.nvim', tag = '*' },
     { 'iamcco/markdown-preview.nvim', run = function() vim.fn["mkdp#util#install"]() end },
     {
@@ -21,6 +22,6 @@ return function(use)
            "kristijanhusak/vim-dadbod-ui",
            "kristijanhusak/vim-dadbod-completion"
           },
-    }
+    },
   })
 end
