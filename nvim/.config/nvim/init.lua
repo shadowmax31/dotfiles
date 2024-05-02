@@ -158,15 +158,17 @@ vim.api.nvim_create_autocmd('TextYankPost', {
   pattern = '*',
 })
 
-
 -- Set lualine as statusline
 require('lualine').setup {
   options = {
-    icons_enabled = false,
+    icons_enabled = true,
     theme = 'dracula',
     component_separators = '|',
     section_separators = '',
   },
+  sections = {
+    lualine_x = { "require'lsp-status'.status()", 'encoding', 'fileformat', 'filetype' },
+  }
 }
 
 
