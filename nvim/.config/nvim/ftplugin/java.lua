@@ -17,10 +17,12 @@ end
 function BuildMavenProject()
     local pom = SearchFileBackwards("pom.xml")
     if pom ~= "" then
-        vim.uv.spawn('mvn', { args = { "-f", pom, "compile" } })
+        -- vim.uv.spawn('mvn', { args = { "-f", pom, "compile" } })
+      vim.fn.system('mvn -f ' .. pom .. ' compile')
     else
         vim.api.nvim_echo({{ "No pom.xml found.", "WarningMsg" }}, true, {})
     end
 end
 
-vim.api.nvim_command('autocmd BufWritePost *.java lua BuildMavenProject()')
+-- vim.api.nvim_command('autocmd BufWritePost *.java lua BuildMavenProject()')
+vim.api.nvim_buf_set_keymap(0, "n", "<leader>b", ":lua BuildMavenProject()<CR>", { silent = true })
