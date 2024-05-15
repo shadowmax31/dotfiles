@@ -101,11 +101,6 @@ bindings() {
   riverctl map normal $mod E spawn "$terminal --class my_joshuto -e joshuto"
   riverctl map normal None Print spawn 'grim -g "$(slurp)" - | swappy -f -'
   
-  # Password Store
-  riverctl map normal $mod P spawn 'passmenumore -p "Password:" --hf "#ff79c6"'
-  riverctl map normal $mod O spawn 'passmenumore --login -p "Login:" --hf "#ffb86c"'
-  riverctl map normal $mod I spawn 'passmenumore --otp -p "OTP:" --hf "#ff5555"'
-  
   # Position
   riverctl map normal $mod T spawn "riverctl send-layout-cmd kile 'layout tab'"
 
@@ -124,6 +119,11 @@ bindings() {
   riverctl map quick None A spawn "`exit_mode` $terminal --class my_pulsemixer -e pulsemixer"
   riverctl map quick None Escape enter-mode normal
   riverctl map normal $mod S enter-mode quick
+
+  # ScratchPad
+  scratch_tag=`toTag 20`
+  riverctl map normal $mod P toggle-focused-tags $scratch_tag
+  riverctl map normal $mod O set-view-tags $scratch_tag
 }
 
 exit_mode() {
