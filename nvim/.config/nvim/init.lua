@@ -515,3 +515,4 @@ vim.cmd('source '..config..'/plug/nuuid.vim')
 
 require('colorizer_config')
 require('pr')
+require('format')

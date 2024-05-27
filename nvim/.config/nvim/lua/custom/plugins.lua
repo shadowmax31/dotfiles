@@ -13,6 +13,7 @@ return function(use)
     'norcalli/nvim-colorizer.lua',
     'windwp/nvim-ts-autotag',
     'pest-parser/pest.vim',
+    'mhartington/formatter.nvim',
     { 'shortcuts/no-neck-pain.nvim', tag = '*' },
     { 'iamcco/markdown-preview.nvim', run = function() vim.fn["mkdp#util#install"]() end },
     {
