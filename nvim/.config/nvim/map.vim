@@ -35,3 +35,5 @@ nnoremap <Leader>w :NoNeckPain<CR>
 nnoremap QQ :qa<CR>
 
 nnoremap git<space> :Git 
+
+nnoremap <silent> <leader>e :Format<CR>
