@@ -93,7 +93,7 @@ in
     pkgs.compsize
     pkgs.btdu
 
-    pkgs.galculator
+    pkgs.libqalculate
   ];
 
 
