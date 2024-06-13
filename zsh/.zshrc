@@ -40,6 +40,7 @@ alias cat="bat"
 alias ll="ls -lh"
 alias la="ls -A"
 alias ls="lsd"
+alias q="qalc"
 
 alias rt="trash"
 
