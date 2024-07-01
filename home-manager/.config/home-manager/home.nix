@@ -52,7 +52,7 @@ in
     pkgs.darktable
     pkgs.unzip
     pkgs.jmeter
-    pkgs.azuredatastudio
+    #pkgs.azuredatastudio
     pkgs.brave
     pkgs.libreoffice
     pkgs.librewolf
