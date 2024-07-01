@@ -56,6 +56,7 @@ in
     pkgs.brave
     pkgs.libreoffice
     pkgs.librewolf
+    pkgs.firefox
     pkgs.lm_sensors
     pkgs.nb
     pkgs.lsof
