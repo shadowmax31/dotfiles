@@ -48,11 +48,11 @@ window#waybar {
     background: #bd93f9;
 }
 
-#clock, #custom-weather, #custom-timew, #language, #pulseaudio, #network, #cpu, #memory, #temperature, #mode {
+#clock, #custom-timew, #language, #pulseaudio, #network, #cpu, #memory, #temperature, #mode {
     color: #f8f8f2;
 }
 
-#clock, #custom-weather, #custom-vpn, #custom-timew, #language, #pulseaudio, #network, #cpu, #memory, #temperature, #mode {
+#clock, #custom-vpn, #custom-timew, #language, #pulseaudio, #network, #cpu, #memory, #temperature, #mode {
     font-weight: bold;
 
     padding: 0px 10px;
