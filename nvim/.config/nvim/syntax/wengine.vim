@@ -5,7 +5,7 @@ syntax case match
 syntax keyword xType dbl int str bool range intDecision strDecision rangeDecision 
 syntax keyword xBool true false
 syntax keyword xVisibility input output internal global
-syntax keyword xOther let pub fn
+syntax keyword xOther let pub fn view
 
 syntax region xComment start="//" end="$"
 syntax region xString start=/"/ skip=/\\"/ end=/"/
