@@ -79,6 +79,7 @@ in
     pkgs.trashy
     pkgs.sqlcmd
     pkgs.azure-cli
+    pkgs.pdd # Time calculator
 
     pkgs.tmate
     pkgs.jq
