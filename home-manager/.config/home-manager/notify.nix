@@ -11,6 +11,6 @@ pkgs.writeTextFile {
   msg="$1"
   on="$2"
   
-  echo "notify-send 'Custom Warning' '$msg'" | at $on
+  echo "notify-send -t 0 'Custom Warning' '$msg'" | at $on
   '';
 }
