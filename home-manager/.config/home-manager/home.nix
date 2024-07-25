@@ -6,6 +6,7 @@ let
   passmenumore = import ./passmenumore.nix { pkgs = pkgs; };
   pwolf = import ./librewolf-private.nix { pkgs = pkgs; };
   vpn = import ./vpn.nix { pkgs = pkgs; };
+  notify = import ./notify.nix { pkgs = pkgs; };
 
   steam = flatpakHelper { pkgs = pkgs; filename = "steam"; flatpakid = "com.valvesoftware.Steam"; };
   discord = flatpakHelper { pkgs = pkgs; filename = "discord"; flatpakid = "com.discordapp.Discord"; };
@@ -44,6 +45,7 @@ in
     steam
     discord
     vpn
+    notify
 
     pkgs.clang-tools
     pkgs.thunderbird
