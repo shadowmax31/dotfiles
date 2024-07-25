@@ -35,7 +35,7 @@ config() {
   
   riverctl border-width 3
 
-  riverctl attach-mode bottom
+  riverctl default-attach-mode bottom
   riverctl default-layout kile
 
   # It might fail depending on if kile is fully started or not...
