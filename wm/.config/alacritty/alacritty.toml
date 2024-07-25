@@ -16,3 +16,6 @@ lines = 50
 [window.padding]
 x = 5
 y = 5
+
+[scrolling]
+multiplier = 0

@@ -3,6 +3,7 @@ filetype plugin on
 
 let mapleader = ","
 
+set mouse=
 set ff=unix
 set number
 set nowrap
