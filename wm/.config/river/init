@@ -46,23 +46,18 @@ config() {
 rules() {
   for f in my_pulsemixer my_joshuto my_notes galculator swappy floating_terminal blueman-manager
   do
-    riverctl rule-add float -app-id $f
+    riverctl rule-add -app-id $f float
   done
   
-  for nf in StarUML
-  do
-    riverctl rule-add no-float -app-id $nf
-  done
-  
-  riverctl rule-add tag -app-id StarUML `toTag 4`
-  riverctl rule-add tag -app-id azuredatastudio `toTag 6`
-  riverctl rule-add tag -app-id Brave-browser `toTag 3`
-  riverctl rule-add tag -app-id librewolf `toTag 1`
-  riverctl rule-add tag -app-id thunderbird `toTag 8`
-  riverctl rule-add tag -app-id krita `toTag 9`
-  riverctl rule-add tag -app-id Code `toTag 5`
+  riverctl rule-add -app-id StarUML tags `toTag 4`
+  riverctl rule-add -app-id azuredatastudio tags `toTag 6`
+  riverctl rule-add -app-id Brave-browser tags `toTag 3`
+  riverctl rule-add -app-id librewolf tags `toTag 1`
+  riverctl rule-add -app-id thunderbird tags `toTag 8`
+  riverctl rule-add -app-id krita tags `toTag 9`
+  riverctl rule-add -app-id Code tags `toTag 5`
 
-  riverctl rule-add ssd -app-id '*'
+  riverctl rule-add -app-id '*' ssd
 }
 
 
