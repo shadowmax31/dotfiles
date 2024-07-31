@@ -14,6 +14,8 @@ return function(use)
     'windwp/nvim-ts-autotag',
     'pest-parser/pest.vim',
     'mhartington/formatter.nvim',
+    'David-Kunz/gen.nvim',
+    'nvim-telescope/telescope-ui-select.nvim',
     { 'shortcuts/no-neck-pain.nvim', tag = '*' },
     { 'iamcco/markdown-preview.nvim', run = function() vim.fn["mkdp#util#install"]() end },
     {

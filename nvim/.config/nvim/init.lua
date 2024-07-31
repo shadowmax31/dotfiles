@@ -218,9 +218,15 @@ require('telescope').setup {
       },
     },
   },
+  extensions = {
+    ["ui-select"] = {
+      require("telescope.themes").get_dropdown {}
+    }
+  }
 }
 
-require("telescope").load_extension "file_browser"
+require("telescope").load_extension("ui-select")
+require("telescope").load_extension("file_browser")
 vim.keymap.set('n', '<C-n>', ':Telescope file_browser path=%:p:h select_buffer=true<CR>')
 
 -- Enable telescope fzf native, if installed
@@ -515,3 +521,4 @@ vim.cmd('source '..config..'/plug/nuuid.vim')
 require('colorizer_config')
 require('pr')
 require('format')
+require('ai')
