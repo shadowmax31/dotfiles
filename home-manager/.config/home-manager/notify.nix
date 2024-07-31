@@ -11,6 +11,6 @@ pkgs.writeTextFile {
   msg="$1"
   on="$2"
   
-  echo "notify-send 'Custom Warning' '$msg'" | at $on
+  echo "notify-send 'Custom Warning' '$msg'; play -q /usr/share/sounds/freedesktop/stereo/bell.oga" | at $on
   '';
 }
