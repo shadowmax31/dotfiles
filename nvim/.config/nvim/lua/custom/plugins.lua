@@ -3,7 +3,7 @@ return function(use)
     'dracula/vim',
     'folke/tokyonight.nvim',
     'kien/rainbow_parentheses.vim',
-    'justinmk/vim-sneak',
+    'ggandor/leap.nvim',
     'gregsexton/MatchTag',
     'airblade/vim-rooter',
     'jiangmiao/auto-pairs',

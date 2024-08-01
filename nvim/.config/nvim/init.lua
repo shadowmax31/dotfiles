@@ -510,12 +510,12 @@ require("no-neck-pain").setup({
   width = 140,
 })
 
+require('leap').create_default_mappings()
 require('nvim-ts-autotag').setup()
 
 vim.cmd('source '..config..'/set.vim')
 vim.cmd('source '..config..'/map.vim')
 vim.cmd('source '..config..'/plug/rainbow.vim')
-vim.cmd('source '..config..'/plug/sneak.vim')
 vim.cmd('source '..config..'/plug/nuuid.vim')
 
 require('colorizer_config')
