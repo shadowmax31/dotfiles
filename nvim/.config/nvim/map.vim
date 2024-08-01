@@ -8,11 +8,6 @@ nnoremap <M-k> :resize +3<CR>
 nnoremap <M-h> :vertical resize -3<CR>
 nnoremap <M-l> :vertical resize +3<CR>
 
-nnoremap <C-j> <C-w>j
-nnoremap <C-k> <C-w>k
-nnoremap <C-h> <C-w>h
-nnoremap <C-l> <C-w>l
-
 nnoremap <C-w>j <nop>
 nnoremap <C-w>k <nop>
 nnoremap <C-w>h <nop>

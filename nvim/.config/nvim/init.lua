@@ -1,135 +1,167 @@
--- Install packer
-local install_path = vim.fn.stdpath 'data' .. '/site/pack/packer/start/packer.nvim'
-local is_bootstrap = false
-if vim.fn.empty(vim.fn.glob(install_path)) > 0 then
-  is_bootstrap = true
-
-  vim.fn.system { 'git', 'clone', '--depth', '1', 'https://github.com/wbthomason/packer.nvim', install_path }
-  vim.cmd [[packadd packer.nvim]]
-
+local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
+if not (vim.uv or vim.loop).fs_stat(lazypath) then
+  local lazyrepo = "https://github.com/folke/lazy.nvim.git"
+  local out = vim.fn.system({ "git", "clone", "--filter=blob:none", "--branch=stable", lazyrepo, lazypath })
+  if vim.v.shell_error ~= 0 then
+    vim.api.nvim_echo({
+      { "Failed to clone lazy.nvim:\n", "ErrorMsg" },
+      { out, "WarningMsg" },
+      { "\nPress any key to exit..." },
+    }, true, {})
+    vim.fn.getchar()
+    os.exit(1)
+  end
 end
+vim.opt.rtp:prepend(lazypath)
 
 local home = os.getenv('HOME')
 local config = vim.fn.stdpath('config')
 local data = vim.fn.stdpath('data')
 
-require('packer').startup(function(use)
+vim.g.mapleader = ','
+vim.g.maplocalleader = ','
 
-  -- Package manager
-  use 'wbthomason/packer.nvim'
-
-
-  use { -- LSP Configuration & Plugins
+require('lazy').setup({
+  {
     'neovim/nvim-lspconfig',
-    requires = {
-      -- Automatically install LSPs to stdpath for neovim
+    dependencies = {
       'williamboman/mason.nvim',
       'williamboman/mason-lspconfig.nvim',
       'mfussenegger/nvim-jdtls',
-
-      -- Additional lua configuration, makes nvim stuff amazing
-      'folke/neodev.nvim',
     },
-  }
+  },
 
 
-  use { -- Autocompletion
+  {
     'hrsh7th/nvim-cmp',
-    requires = { 'hrsh7th/cmp-nvim-lsp', 'L3MON4D3/LuaSnip', 'saadparwaiz1/cmp_luasnip' },
-  }
+    dependencies = { 'hrsh7th/cmp-nvim-lsp', 'L3MON4D3/LuaSnip', 'saadparwaiz1/cmp_luasnip' },
+  },
 
-  use { -- Highlight, edit, and navigate code
+  {
     'nvim-treesitter/nvim-treesitter',
-    run = function()
-
+    build = function()
       pcall(require('nvim-treesitter.install').update { with_sync = true })
     end,
 
-  }
-
-  use { -- Additional text objects via treesitter
-
-    'nvim-treesitter/nvim-treesitter-textobjects',
-    after = 'nvim-treesitter',
-  }
+    dependencies = {
+      'nvim-treesitter/nvim-treesitter-textobjects',
+    }
+  },
 
   -- Git related plugins
-  use 'tpope/vim-fugitive'
-  use 'tpope/vim-rhubarb'
-  use 'lewis6991/gitsigns.nvim'
+  'tpope/vim-fugitive',
+  'tpope/vim-rhubarb',
+  {
+    'lewis6991/gitsigns.nvim',
+    opts = {
+      signs = {
+        add = { text = '+' },
+        change = { text = '~' },
+        delete = { text = '_' },
+        topdelete = { text = '‾' },
+        changedelete = { text = '~' },
+      },
+    }
+  },
 
-  use 'nvim-lualine/lualine.nvim' -- Fancier statusline
-  use {
+  {
+    'nvim-lualine/lualine.nvim',
+    opts = {
+      options = {
+        icons_enabled = true,
+        theme = 'dracula',
+        component_separators = '|',
+        section_separators = '',
+      }
+    }
+  },
+  {
     'lukas-reineke/indent-blankline.nvim', -- Add indentation guides even on blank lines
     main = "ibl",
     opts = {
-      char = '┊',
-      show_trailing_blankline_indent = false
+      scope = {
+        show_start = false,
+        show_end = false,
+      }
     }
+  },
+  {
+    'numToStr/Comment.nvim',
+    opts = {
+      padding = true,
+      sticky = true,
+      ignore = nil,
+      toggler = {
+          line = 'gc',
+          block = 'gb',
+      },
+      opleader = {
+          line = 'gc',
+          block = 'gb',
+      },
+      extra = {
+          above = 'gco',
+          below = 'gco',
+          eol = 'gca',
+      },
+      mappings = {
+          basic = true,
+          extra = false,
+      },
+      pre_hook = nil,
+      post_hook = nil,
+    }
+  },
+
+  { 'nvim-telescope/telescope.nvim', branch = '0.1.x', dependencies = { 'nvim-lua/plenary.nvim' } },
+
+
+  { 'nvim-telescope/telescope-fzf-native.nvim', build = 'make', cond = vim.fn.executable 'make' == 1 },
+
+  'dracula/vim',
+  'folke/tokyonight.nvim',
+  'kien/rainbow_parentheses.vim',
+  {
+    'ggandor/leap.nvim',
+    config = function()
+      require('leap').create_default_mappings()
+    end
+  },
+  'gregsexton/MatchTag',
+  'airblade/vim-rooter',
+  'jiangmiao/auto-pairs',
+  'nvim-telescope/telescope-file-browser.nvim',
+  'ThePrimeagen/harpoon',
+  'christoomey/vim-tmux-navigator',
+  'norcalli/nvim-colorizer.lua',
+  { 'windwp/nvim-ts-autotag', opts = {} },
+  'pest-parser/pest.vim',
+  'mhartington/formatter.nvim',
+  'David-Kunz/gen.nvim',
+  'nvim-telescope/telescope-ui-select.nvim',
+  {
+    'shortcuts/no-neck-pain.nvim', version = '*',
+    opts = {
+      width = 140,
+    }
+  },
+  {
+      "iamcco/markdown-preview.nvim",
+      cmd = { "MarkdownPreviewToggle", "MarkdownPreview", "MarkdownPreviewStop" },
+      ft = { "markdown" },
+      build = function() vim.fn["mkdp#util#install"]() end,
+  },
+  {
+        "tpope/vim-dadbod",
+        dependencies = { "kristijanhusak/vim-dadbod-ui", "kristijanhusak/vim-dadbod-completion" },
   }
-  use 'numToStr/Comment.nvim' -- "gc" to comment visual regions/lines
-
-  -- Fuzzy Finder (files, lsp, etc)
-  use { 'nvim-telescope/telescope.nvim', branch = '0.1.x', requires = { 'nvim-lua/plenary.nvim' } }
-
-
-  -- Fuzzy Finder Algorithm which requires local dependencies to be built. Only load if `make` is available
-  use { 'nvim-telescope/telescope-fzf-native.nvim', run = 'make', cond = vim.fn.executable 'make' == 1 }
-
-  -- Add custom plugins to packer from ~/.config/nvim/lua/custom/plugins.lua
-  local has_plugins, plugins = pcall(require, 'custom.plugins')
-
-  if has_plugins then
-    plugins(use)
-  end
-
-  if is_bootstrap then
-    require('packer').sync()
-  end
-end)
-
-
--- When we are bootstrapping a configuration, it doesn't
--- make sense to execute the rest of the init.lua.
---
--- You'll need to restart nvim, and then it will work.
-if is_bootstrap then
-  print '=================================='
-
-  print '    Plugins are being installed'
-  print '    Wait until Packer completes,'
-  print '       then restart nvim'
-  print '=================================='
-
-  return
-end
-
--- Automatically source and re-compile packer whenever you save this init.lua
-local packer_group = vim.api.nvim_create_augroup('Packer', { clear = true })
-vim.api.nvim_create_autocmd('BufWritePost', {
-  command = 'source <afile> | silent! LspStop | silent! LspStart | PackerCompile',
-  group = packer_group,
-
-  pattern = vim.fn.expand '$MYVIMRC',
 
 })
 
--- Set highlight on search
 vim.o.hlsearch = false
-
--- Make line numbers default
 vim.wo.number = true
-
--- Enable mouse mode
-vim.o.mouse = 'a'
-
--- Enable break indent
 vim.o.breakindent = true
-
--- Save undo history
 vim.o.undofile = true
-
--- Case insensitive searching UNLESS /C or capital in search
 vim.o.ignorecase = true
 vim.o.smartcase = true
 
@@ -137,17 +169,11 @@ vim.o.smartcase = true
 vim.o.updatetime = 250
 vim.wo.signcolumn = 'yes'
 
-
 -- Set completeopt to have a better completion experience
 vim.o.completeopt = 'menuone,noselect'
 
---  NOTE: Must happen before plugins are required (otherwise wrong leader will be used)
-vim.g.mapleader = ','
-vim.g.maplocalleader = ','
-
 vim.keymap.set({ 'n', 'v' }, '<Space>', '<Nop>', { silent = true })
 
--- [[ Highlight on yank ]]
 local highlight_group = vim.api.nvim_create_augroup('YankHighlight', { clear = true })
 vim.api.nvim_create_autocmd('TextYankPost', {
   callback = function()
@@ -156,55 +182,6 @@ vim.api.nvim_create_autocmd('TextYankPost', {
   group = highlight_group,
   pattern = '*',
 })
-
--- Set lualine as statusline
-require('lualine').setup {
-  options = {
-    icons_enabled = true,
-    theme = 'dracula',
-    component_separators = '|',
-    section_separators = '',
-  }
-}
-
-
--- Enable Comment.nvim
-require('Comment').setup({
-    padding = true,
-    sticky = true,
-    ignore = nil,
-    toggler = {
-        line = 'gc',
-        block = 'gb',
-    },
-    opleader = {
-        line = 'gc',
-        block = 'gb',
-    },
-    extra = {
-        above = 'gcO',
-        below = 'gco',
-        eol = 'gcA',
-    },
-    mappings = {
-        basic = true,
-        extra = false,
-    },
-  pre_hook = nil,
-  post_hook = nil,
-})
-
-
--- Gitsigns
-require('gitsigns').setup {
-  signs = {
-    add = { text = '+' },
-    change = { text = '~' },
-    delete = { text = '_' },
-    topdelete = { text = '‾' },
-    changedelete = { text = '~' },
-  },
-}
 
 -- [[ Configure Telescope ]]
 require('telescope').setup {
@@ -414,9 +391,6 @@ local servers = {
   },
 }
 
--- Setup neovim lua configuration
-require('neodev').setup()
-
 -- nvim-cmp supports additional completion capabilities, so broadcast that to servers
 local capabilities = vim.lsp.protocol.make_client_capabilities()
 capabilities = require('cmp_nvim_lsp').default_capabilities(capabilities)
@@ -462,7 +436,6 @@ mason_lspconfig.setup_handlers {
   end
 }
 
--- nvim-cmp setup
 local cmp = require 'cmp'
 local luasnip = require 'luasnip'
 
@@ -505,13 +478,6 @@ cmp.setup {
     { name = 'luasnip' },
   },
 }
-
-require("no-neck-pain").setup({
-  width = 140,
-})
-
-require('leap').create_default_mappings()
-require('nvim-ts-autotag').setup()
 
 vim.cmd('source '..config..'/set.vim')
 vim.cmd('source '..config..'/map.vim')
