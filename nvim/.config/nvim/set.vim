@@ -23,7 +23,6 @@ set guioptions-=r
 set guioptions-=L
 set guioptions-=T
 set guioptions-=m
-set termguicolors
 
 let g:rustfmt_autosave = 1
 
