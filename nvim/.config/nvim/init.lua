@@ -261,7 +261,7 @@ vim.keymap.set('n', '<leader>a', require('telescope.builtin').diagnostics, { des
 
 -- [[ Configure Treesitter ]]
 require('nvim-treesitter.configs').setup {
-  ensure_installed = { 'c', 'cpp', 'lua', 'rust', 'typescript', 'help', 'vim', 'java', 'scss', 'bash', 'html' },
+  ensure_installed = { 'c', 'cpp', 'lua', 'rust', 'typescript', 'vimdoc', 'vim', 'java', 'scss', 'bash', 'html' },
 
   highlight = { enable = true },
   indent = { enable = true, disable = { 'python' } },
@@ -352,7 +352,7 @@ local on_attach = function(_, bufnr)
 
   end
 
-  vim.lsp.inlay_hint.enable(0)
+  vim.lsp.inlay_hint.enable(true)
 
   nmap('<leader>rn', vim.lsp.buf.rename, '[R]e[n]ame')
   nmap('<leader>.', vim.lsp.buf.code_action, '[C]ode [A]ction')
