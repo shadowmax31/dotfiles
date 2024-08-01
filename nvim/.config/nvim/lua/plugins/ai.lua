@@ -21,8 +21,7 @@ return {
     }
 
     vim.keymap.set({ 'n', 'v' }, '<Leader>o', ':Gen <CR>')
-    vim.keymap.set({ 'n', 'v' }, '<Leader>l', ':Gen Complete<CR>')
-    vim.keymap.set({ 'n', 'v' }, '<Leader>k', ':Gen Chat<CR>')
+    vim.keymap.set({ 'n', 'v' }, '<Leader><CR>', ':Gen Chat<CR>')
   end
 }
   

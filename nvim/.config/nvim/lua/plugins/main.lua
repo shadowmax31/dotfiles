@@ -1,33 +1,5 @@
 return {
   {
-    'neovim/nvim-lspconfig',
-    dependencies = {
-      'williamboman/mason.nvim',
-      'williamboman/mason-lspconfig.nvim',
-      'mfussenegger/nvim-jdtls',
-    },
-  },
-
-  {
-    'hrsh7th/nvim-cmp',
-    dependencies = { 'hrsh7th/cmp-nvim-lsp', 'L3MON4D3/LuaSnip', 'saadparwaiz1/cmp_luasnip' },
-  },
-
-  {
-    'nvim-treesitter/nvim-treesitter',
-    build = function()
-      pcall(require('nvim-treesitter.install').update { with_sync = true })
-    end,
-
-    dependencies = {
-      'nvim-treesitter/nvim-treesitter-textobjects',
-    }
-  },
-
-  -- Git related plugins
-  'tpope/vim-fugitive',
-  'tpope/vim-rhubarb',
-  {
     'lewis6991/gitsigns.nvim',
     opts = {
       signs = {
@@ -51,8 +23,9 @@ return {
       }
     }
   },
+
   {
-    'lukas-reineke/indent-blankline.nvim', -- Add indentation guides even on blank lines
+    'lukas-reineke/indent-blankline.nvim',
     main = "ibl",
     opts = {
       scope = {
@@ -61,6 +34,7 @@ return {
       }
     }
   },
+
   {
     'numToStr/Comment.nvim',
     opts = {
@@ -89,26 +63,13 @@ return {
     }
   },
 
-  { 'nvim-telescope/telescope.nvim',            branch = '0.1.x', dependencies = { 'nvim-lua/plenary.nvim' } },
-
-
-  { 'nvim-telescope/telescope-fzf-native.nvim', build = 'make',   cond = vim.fn.executable 'make' == 1 },
-
-  'dracula/vim',
-  'folke/tokyonight.nvim',
-  'kien/rainbow_parentheses.vim',
   {
     'ggandor/leap.nvim',
     config = function()
       require('leap').create_default_mappings()
     end
   },
-  'gregsexton/MatchTag',
-  'airblade/vim-rooter',
-  'jiangmiao/auto-pairs',
-  'nvim-telescope/telescope-file-browser.nvim',
-  'ThePrimeagen/harpoon',
-  'christoomey/vim-tmux-navigator',
+
   {
     'norcalli/nvim-colorizer.lua',
     opts = {
@@ -117,8 +78,9 @@ return {
       'scss',
     }
   },
+
   { 'windwp/nvim-ts-autotag', opts = {} },
-  'pest-parser/pest.vim',
+
   {
     'mhartington/formatter.nvim',
     opts = {
@@ -137,7 +99,7 @@ return {
       }
     }
   },
-  'nvim-telescope/telescope-ui-select.nvim',
+
   {
     'shortcuts/no-neck-pain.nvim',
     version = '*',
@@ -145,14 +107,32 @@ return {
       width = 140,
     }
   },
-  {
-    "iamcco/markdown-preview.nvim",
-    cmd = { "MarkdownPreviewToggle", "MarkdownPreview", "MarkdownPreviewStop" },
-    ft = { "markdown" },
-    build = function() vim.fn["mkdp#util#install"]() end,
-  },
+
   {
     "tpope/vim-dadbod",
     dependencies = { "kristijanhusak/vim-dadbod-ui", "kristijanhusak/vim-dadbod-completion" },
-  }
+  },
+
+  {
+    'stevearc/oil.nvim',
+    opts = {
+      default_file_explorer = true,
+      delete_to_trash = true,
+      keymaps = {
+        ["q"] = "actions.close",
+        ["<C-c>"] = false,
+        ["<BS>"] = "actions.parent",
+      }
+    },
+    dependencies = { { "echasnovski/mini.icons", opts = {} } }
+  },
+
+  'dracula/vim',
+  'gregsexton/MatchTag',
+  'airblade/vim-rooter',
+  'jiangmiao/auto-pairs',
+  'christoomey/vim-tmux-navigator',
+  'pest-parser/pest.vim',
+  'tpope/vim-fugitive',
+  'tpope/vim-rhubarb',
 }
