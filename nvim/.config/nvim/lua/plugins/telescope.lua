@@ -21,15 +21,15 @@ return {
       }
     },
     config = function()
-      require("telescope").load_extension("ui-select")
-      require("telescope").load_extension("fzf")
+      local telescope = require("telescope")
+      telescope.load_extension("ui-select")
+      telescope.load_extension("fzf")
+      telescope.load_extension("neoclip")
 
       local builtin = require('telescope.builtin')
-
-
-      vim.keymap.set('n', 'gh', builtin.resume, { desc = '[ ] Open the last search' })
-      vim.keymap.set('n', '<leader>?', builtin.oldfiles, { desc = '[?] Find recently opened files' })
-      vim.keymap.set('n', '<leader>d', builtin.buffers, { desc = '[ ] Find existing buffers' })
+      vim.keymap.set('n', 'gh', builtin.resume, { desc = '[gh] Open the last search' })
+      vim.keymap.set('n', '<leader>?', ':Telescope neoclip<CR>', { desc = '[?] Clipboard history' })
+      vim.keymap.set('n', '<leader>d', builtin.buffers, { desc = '[d] Find existing buffers' })
       vim.keymap.set('n', '<leader>/', function()
         builtin.current_buffer_fuzzy_find(require('telescope.themes').get_dropdown {
           previewer = false,
@@ -51,6 +51,20 @@ return {
       vim.keymap.set('n', '<leader>a', builtin.diagnostics, { desc = '[S]earch [D]iagnostics' })
     end
   },
-  { 'nvim-telescope/telescope-fzf-native.nvim', build = 'make', cond = vim.fn.executable 'make' == 1 },
+
+  {
+    'nvim-telescope/telescope-fzf-native.nvim',
+    build = 'make',
+    cond = vim.fn.executable 'make' == 1
+  },
+
+  {
+    "AckslD/nvim-neoclip.lua",
+    opts = {},
+    dependencies = {
+      {'nvim-telescope/telescope.nvim'},
+    },
+  },
+
   'nvim-telescope/telescope-ui-select.nvim',
 }
