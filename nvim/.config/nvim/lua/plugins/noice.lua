@@ -36,6 +36,7 @@ return {
         stages = "static",
       })
       vim.notify = require("notify")
+      vim.keymap.set('n', '<leader>cc', '<cmd>NoiceDismiss<CR>')
     end,
   }
 }
