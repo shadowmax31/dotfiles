@@ -17,8 +17,7 @@ return {
       vim.keymap.set('n', 'J', vim.diagnostic.open_float)
       vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist)
 
-      local on_attach = function(client, bufnr)
-
+      local on_attach = function(_, bufnr)
         local nmap = function(keys, func, desc)
           if desc then
             desc = 'LSP: ' .. desc
@@ -28,7 +27,6 @@ return {
           vim.keymap.set('n', keys, func, { buffer = bufnr, desc = desc })
         end
 
-        client.server_capabilities.semanticTokensProvider = nil
         vim.lsp.inlay_hint.enable(true)
 
         nmap('<leader>rn', vim.lsp.buf.rename, '[R]e[n]ame')
@@ -91,6 +89,12 @@ return {
         },
       }
 
+      local on_init = function(client, _)
+        if client.server_capabilities then
+          client.server_capabilities.semanticTokensProvider = false
+        end
+      end
+
       local capabilities = vim.lsp.protocol.make_client_capabilities()
       capabilities = require('cmp_nvim_lsp').default_capabilities(capabilities)
 
@@ -105,12 +109,14 @@ return {
           require('lspconfig')[server_name].setup {
             capabilities = capabilities,
             on_attach = on_attach,
+            on_init = on_init,
             settings = servers[server_name],
           }
         end,
         ['clangd'] = function()
           require('lspconfig')['clangd'].setup {
             cmd = { 'clangd', "--query-driver='/usr/local/bin/g++'" },
+            on_init = on_init,
             on_attach = on_attach
           }
         end,
@@ -125,6 +131,7 @@ return {
               '-data',
               home..'/.cache/jdtls/workspace'
             },
+            on_init = on_init,
             on_attach = on_attach
           }
         end
