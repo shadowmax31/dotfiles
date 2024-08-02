@@ -24,5 +24,3 @@ return {
     vim.keymap.set({ 'n', 'v' }, '<Leader><CR>', ':Gen Chat<CR>')
   end
 }
-  
-

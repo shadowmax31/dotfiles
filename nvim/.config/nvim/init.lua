@@ -48,7 +48,6 @@ vim.api.nvim_create_autocmd('TextYankPost', {
   pattern = '*',
 })
 
-
 vim.keymap.set('n', '<leader>cd', ':e '..config..'/init.lua<CR>')
 
 vim.cmd('source '..config..'/set.vim')

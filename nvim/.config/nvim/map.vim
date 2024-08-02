@@ -25,10 +25,6 @@ noremap Y yy
 
 nnoremap <Leader><Backspace> :bd<CR>
 
-nnoremap <Leader>w :NoNeckPain<CR>
-
-nnoremap QQ :qa<CR>
-
 nnoremap git<space> :Git 
 
 nnoremap <silent> <leader>e :Format<CR>

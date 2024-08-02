@@ -20,7 +20,7 @@ return {
         theme = 'dracula',
         component_separators = '|',
         section_separators = '',
-      }
+      },
     }
   },
 
@@ -103,9 +103,15 @@ return {
   {
     'shortcuts/no-neck-pain.nvim',
     version = '*',
-    opts = {
-      width = 140,
-    }
+    config = function()
+      require('no-neck-pain').setup({
+        width = 140,
+      })
+
+      vim.keymap.set('n', '<leader>w', function()
+        require('no-neck-pain').toggle()
+      end)
+    end,
   },
 
   {

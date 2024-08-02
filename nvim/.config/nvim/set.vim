@@ -35,17 +35,7 @@ set colorcolumn+=81
 autocmd BufNewFile,BufRead *.sw set syntax=swayconfig
 autocmd BufNewFile,BufRead *.hbs set syntax=html
 
-" MarkdownPreview
-let g:mkdp_auto_start = 1
-let g:mkdp_browser = 'librewolf'
-let g:mkdp_theme = 'dark'
-let g:mkdp_preview_options = {
-    \ 'disable_sync_scroll': 0,
-    \ 'sync_scroll_type': 'relative',
-    \ }
-
 " Color scheme
-
 autocmd! ColorScheme * call s:set_transparent_bg()
 function! s:set_transparent_bg()
     highlight Normal guibg=none
