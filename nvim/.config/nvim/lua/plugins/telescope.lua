@@ -3,25 +3,25 @@ return {
     'nvim-telescope/telescope.nvim',
     branch = '0.1.x',
     dependencies = { 'nvim-lua/plenary.nvim' },
-    opts = {
-      defaults = {
-        mappings = {
-          i = {
-            ["<C-p>"] = false,
-            ["<C-n>"] = false,
-            ["<C-j>"] = require('telescope.actions').move_selection_next,
-            ["<C-k>"] = require('telescope.actions').move_selection_previous,
-          },
-        },
-      },
-      extensions = {
-        ["ui-select"] = {
-          require("telescope.themes").get_dropdown {}
-        }
-      }
-    },
     config = function()
       local telescope = require("telescope")
+      telescope.setup({
+      	defaults = {
+      	  mappings = {
+      	    i = {
+      	      ["<C-p>"] = false,
+      	      ["<C-n>"] = false,
+      	      ["<C-j>"] = require('telescope.actions').move_selection_next,
+      	      ["<C-k>"] = require('telescope.actions').move_selection_previous,
+      	    },
+      	  },
+      	},
+      	extensions = {
+      	  ["ui-select"] = {
+      	    require("telescope.themes").get_dropdown {}
+      	  }
+      	}
+      })
       telescope.load_extension("ui-select")
       telescope.load_extension("fzf")
       telescope.load_extension("neoclip")
