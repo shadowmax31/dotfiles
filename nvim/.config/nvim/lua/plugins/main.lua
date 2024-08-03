@@ -121,25 +121,50 @@ return {
       vim.keymap.set('n', '<leader>w', function()
         require('no-neck-pain').toggle()
       end)
+
+      require('no-neck-pain').toggle()
     end,
   },
 
   {
     "tpope/vim-dadbod",
-    dependencies = { "kristijanhusak/vim-dadbod-ui", "kristijanhusak/vim-dadbod-completion" },
+    dependencies = {
+      { "kristijanhusak/vim-dadbod-ui",         lazy = true },
+      { "kristijanhusak/vim-dadbod-completion", ft = { 'sql', 'mysql', 'plsql' }, lazy = true },
+      { 'shortcuts/no-neck-pain.nvim' },
+    },
+    cmd = {
+      'DBUI',
+      'DBUIToggle',
+      'DBUIAddConnection',
+      'DBUIFindBuffer',
+    },
+    init = function()
+      vim.g.db_ui_execute_on_save = 0
+      vim.keymap.set('n', '<leader>i', '<Plug>(DBUI_ExecuteQuery)')
+      vim.keymap.set('n', '<leader>X', function()
+        vim.cmd(':DBUIToggle')
+      end)
+    end,
   },
 
   {
     'stevearc/oil.nvim',
     opts = {
-      default_file_explorer = true,
-      delete_to_trash = true,
-      keymaps = {
-        ["q"] = "actions.close",
-        ["<C-c>"] = false,
-        ["<BS>"] = "actions.parent",
-      }
     },
+    config = function()
+      require('oil').setup({
+        default_file_explorer = true,
+        delete_to_trash = true,
+        keymaps = {
+          ["q"] = "actions.close",
+          ["<C-c>"] = false,
+          ["<BS>"] = "actions.parent",
+        }
+      })
+
+      vim.keymap.set('n', '<C-n>', ':Oil<CR>')
+    end,
     dependencies = { { "echasnovski/mini.icons", opts = {} } }
   },
 

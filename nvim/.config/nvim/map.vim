@@ -1,5 +1,5 @@
-" Permet de faire fonctionner le mode normal avec le clavier français
 nmap é /
+nmap É ?
 nmap È "
 nmap è '
 
@@ -8,14 +8,6 @@ nnoremap <M-k> :resize +3<CR>
 nnoremap <M-h> :vertical resize -3<CR>
 nnoremap <M-l> :vertical resize +3<CR>
 
-nnoremap <C-w>j <nop>
-nnoremap <C-w>k <nop>
-nnoremap <C-w>h <nop>
-nnoremap <C-w>l <nop>
-
-noremap <Leader>i <Plug>(DBUI_ExecuteQuery)
-noremap <Leader>X :DBUIToggle<CR>
-
 noremap <Leader>y "+y
 noremap <Leader>Y "+Y
 noremap <Leader>p "+p
@@ -23,11 +15,5 @@ noremap <Leader>P "+P
 
 noremap Y yy
 
-nnoremap <Leader><Backspace> :bd<CR>
-
 nnoremap git<space> :Git 
-
 nnoremap <silent> <leader>e :Format<CR>
-
-nnoremap <C-n> :Oil<CR>
-
