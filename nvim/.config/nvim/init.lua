@@ -40,6 +40,10 @@ vim.o.completeopt = 'menuone,noselect'
 vim.keymap.set({ 'n', 'v' }, '<Space>', '<Nop>', { silent = true })
 vim.keymap.set('n', 'QQ', '<cmd>qa<CR>', { silent = true })
 
+vim.keymap.set({ 'n', 'v' }, '<leader>g', function()
+  require('uuid').insert_at_cursor()
+end)
+
 local highlight_group = vim.api.nvim_create_augroup('YankHighlight', { clear = true })
 vim.api.nvim_create_autocmd('TextYankPost', {
   callback = function()
@@ -53,6 +57,6 @@ vim.keymap.set('n', '<leader>cd', ':e '..config..'/init.lua<CR>')
 
 vim.cmd('source '..config..'/set.vim')
 vim.cmd('source '..config..'/map.vim')
-vim.cmd('source '..config..'/plug/nuuid.vim')
 
 require('pr')
+

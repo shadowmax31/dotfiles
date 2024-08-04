@@ -42,7 +42,7 @@ return {
         local component_toggle = function()
           local switcher = require('switcher')
           if vim.bo.filetype == "java" then
-            switcher.toggle2({'Assembler.java', 'Service.java'})
+            switcher.toggle2({ 'Assembler.java', 'Service.java' })
           else
             switcher.toggle('component.ts', 'component.html')
           end
@@ -77,11 +77,20 @@ return {
         bashls = {},
         lua_ls = {
           Lua = {
-            workspace = { checkThirdParty = false },
+            runtime = {
+              version = 'LuaJIT',
+              path = runtime_path,
+            },
+            workspace = {
+              library = vim.api.nvim_get_runtime_file('', true),
+              maxPreload = 10000,
+              preloadFileSize = 10000,
+              checkThirdParty = false
+            },
             telemetry = { enable = false },
             diagnostics = {
               -- Get the language server to recognize the `vim` global
-              globals = {'vim'},
+              globals = { 'vim', 'use' },
             },
           },
         },
@@ -97,7 +106,7 @@ return {
       capabilities = require('cmp_nvim_lsp').default_capabilities(capabilities)
 
       require('mason').setup()
-      local mason_lspconfig = require ('mason-lspconfig')
+      local mason_lspconfig = require('mason-lspconfig')
       mason_lspconfig.setup {
         ensure_installed = vim.tbl_keys(servers),
       }
@@ -119,15 +128,15 @@ return {
           }
         end,
         ['jdtls'] = function()
-          local lombok = data..'/mason/packages/jdtls/lombok.jar'
+          local lombok = data .. '/mason/packages/jdtls/lombok.jar'
           require('lspconfig')['jdtls'].setup {
             cmd = {
               'jdtls',
-              '--jvm-arg=-javaagent:'..lombok,
+              '--jvm-arg=-javaagent:' .. lombok,
               '-configuration',
-              home..'/.cache/jdtls/config',
+              home .. '/.cache/jdtls/config',
               '-data',
-              home..'/.cache/jdtls/workspace'
+              home .. '/.cache/jdtls/workspace'
             },
             on_init = on_init,
             on_attach = on_attach
@@ -177,7 +186,6 @@ return {
           { name = 'luasnip' },
         },
       }
-
     end
   },
 
