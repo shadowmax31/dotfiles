@@ -5,7 +5,7 @@ if not (vim.uv or vim.loop).fs_stat(lazypath) then
   if vim.v.shell_error ~= 0 then
     vim.api.nvim_echo({
       { "Failed to clone lazy.nvim:\n", "ErrorMsg" },
-      { out, "WarningMsg" },
+      { out,                            "WarningMsg" },
       { "\nPress any key to exit..." },
     }, true, {})
     vim.fn.getchar()
@@ -53,10 +53,9 @@ vim.api.nvim_create_autocmd('TextYankPost', {
   pattern = '*',
 })
 
-vim.keymap.set('n', '<leader>cd', ':e '..config..'/init.lua<CR>')
+vim.keymap.set('n', '<leader>cd', ':e ' .. config .. '/init.lua<CR>')
 
-vim.cmd('source '..config..'/set.vim')
-vim.cmd('source '..config..'/map.vim')
+vim.cmd('source ' .. config .. '/set.vim')
+vim.cmd('source ' .. config .. '/map.vim')
 
 require('pr')
-
