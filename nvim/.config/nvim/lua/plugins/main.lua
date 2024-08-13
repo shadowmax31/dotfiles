@@ -118,10 +118,6 @@ return {
         width = 140,
       })
 
-      vim.keymap.set('n', '<leader>w', function()
-        require('no-neck-pain').toggle()
-      end)
-
       require('no-neck-pain').toggle()
     end,
   },
@@ -165,6 +161,21 @@ return {
       vim.keymap.set('n', '<C-n>', ':Oil<CR>')
     end,
     dependencies = { { "echasnovski/mini.icons", opts = {} } }
+  },
+
+  {
+    'stevearc/aerial.nvim',
+    config = function()
+      require('aerial').setup({
+        backends = { "treesitter", "lsp", "markdown", "asciidoc", "man" },
+      })
+
+      vim.keymap.set("n", "<leader>w", "<cmd>AerialToggle float<CR>")
+    end,
+    dependencies = {
+      "nvim-treesitter/nvim-treesitter",
+      "nvim-tree/nvim-web-devicons"
+    },
   },
 
   'dracula/vim',
