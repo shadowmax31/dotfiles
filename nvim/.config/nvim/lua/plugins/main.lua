@@ -136,7 +136,7 @@ return {
     },
     init = function()
       vim.g.db_ui_execute_on_save = 0
-      vim.keymap.set('n', '<leader>i', '<Plug>(DBUI_ExecuteQuery)')
+      vim.keymap.set({ 'n', 'v' }, '<leader>i', '<Plug>(DBUI_ExecuteQuery)')
       vim.keymap.set('n', '<leader>X', function()
         vim.cmd(':DBUIToggle')
       end)
@@ -170,7 +170,7 @@ return {
         backends = { "treesitter", "lsp", "markdown", "asciidoc", "man" },
       })
 
-      vim.keymap.set("n", "<leader>w", "<cmd>AerialToggle float<CR>")
+      vim.keymap.set("n", "<leader>s", "<cmd>AerialToggle float<CR>")
     end,
     dependencies = {
       "nvim-treesitter/nvim-treesitter",
