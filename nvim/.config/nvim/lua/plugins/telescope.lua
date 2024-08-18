@@ -41,7 +41,9 @@ return {
         local ext = vim.fn.expand('%:e')
 
         if ext == 'md' and #filename == 7 then
-          -- This is a bit stupid this should only match ZK files (X2xa.md)
+          -- This is a bit stupid, but it should only match ZK files (X2xa.md)
+          -- I can't think of a better way to identify ZK files...maybe with the
+          -- base path. But this works
           vim.cmd('ZkNotes')
         else
           builtin.find_files({
