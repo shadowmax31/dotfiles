@@ -1,11 +1,19 @@
 return {
   {
+    "zk-org/zk-nvim",
+    config = function()
+      vim.keymap.set('n', 'zn', '<cmd>ZkNew<CR>')
+      vim.keymap.set('v', 'zn', ":'<,'>ZkNewFromTitleSelection<CR>")
+    end
+  },
+  {
     'neovim/nvim-lspconfig',
     dependencies = {
       'williamboman/mason.nvim',
       'williamboman/mason-lspconfig.nvim',
       'mfussenegger/nvim-jdtls',
       'hrsh7th/nvim-cmp',
+      'zk-org/zk-nvim',
     },
     config = function()
       local home = os.getenv('HOME')
@@ -54,6 +62,24 @@ return {
           vim.lsp.buf.format()
         end, { desc = 'Format current buffer with LSP' })
       end
+
+
+      require("zk").setup({
+        picker = "telescope",
+
+        lsp = {
+          config = {
+            cmd = { "zk", "lsp" },
+            name = "zk",
+            on_attach = on_attach
+          },
+
+          auto_attach = {
+            enabled = true,
+            filetypes = { "markdown" },
+          },
+        },
+      })
 
       local servers = {
         tailwindcss = {},

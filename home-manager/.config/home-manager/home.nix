@@ -73,6 +73,7 @@ in
     pkgs.timewarrior
     pkgs.htop
     pkgs.tmux
+    pkgs.zk
     pkgs.stow
     pkgs.bat
     pkgs.sxiv

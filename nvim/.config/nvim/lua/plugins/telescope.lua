@@ -6,21 +6,21 @@ return {
     config = function()
       local telescope = require("telescope")
       telescope.setup({
-      	defaults = {
-      	  mappings = {
-      	    i = {
-      	      ["<C-p>"] = false,
-      	      ["<C-n>"] = false,
-      	      ["<C-j>"] = require('telescope.actions').move_selection_next,
-      	      ["<C-k>"] = require('telescope.actions').move_selection_previous,
-      	    },
-      	  },
-      	},
-      	extensions = {
-      	  ["ui-select"] = {
-      	    require("telescope.themes").get_dropdown {}
-      	  }
-      	}
+        defaults = {
+          mappings = {
+            i = {
+              ["<C-p>"] = false,
+              ["<C-n>"] = false,
+              ["<C-j>"] = require('telescope.actions').move_selection_next,
+              ["<C-k>"] = require('telescope.actions').move_selection_previous,
+            },
+          },
+        },
+        extensions = {
+          ["ui-select"] = {
+            require("telescope.themes").get_dropdown {}
+          }
+        }
       })
       telescope.load_extension("ui-select")
       telescope.load_extension("fzf")
@@ -37,15 +37,23 @@ return {
       end, { desc = '[/] Fuzzily search in current buffer]' })
 
       vim.keymap.set('n', '<C-p>', function()
-        builtin.find_files({
-          find_command = {
-            'rg',
-            '--files',
-            '--hidden',
-            '-g',
-            '!.git',
-          }
-        })
+        local filename = vim.fn.expand('%:t')
+        local ext = vim.fn.expand('%:e')
+
+        if ext == 'md' and #filename == 7 then
+          -- This is a bit stupid this should only match ZK files (X2xa.md)
+          vim.cmd('ZkNotes')
+        else
+          builtin.find_files({
+            find_command = {
+              'rg',
+              '--files',
+              '--hidden',
+              '-g',
+              '!.git',
+            }
+          })
+        end
       end, { desc = '[S]earch [F]iles' })
       vim.keymap.set('n', '<leader>f', builtin.live_grep, { desc = '[S]earch by [G]rep' })
       vim.keymap.set('n', '<leader>a', builtin.diagnostics, { desc = '[S]earch [D]iagnostics' })
@@ -62,7 +70,7 @@ return {
     "AckslD/nvim-neoclip.lua",
     opts = {},
     dependencies = {
-      {'nvim-telescope/telescope.nvim'},
+      { 'nvim-telescope/telescope.nvim' },
     },
   },
 
