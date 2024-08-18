@@ -178,6 +178,14 @@ return {
     },
   },
 
+  {
+    'MeanderingProgrammer/render-markdown.nvim',
+    opts = {
+      render_modes = { 'n', 'v', 'V', 'i', 'c' }
+    },
+    dependencies = { 'nvim-treesitter/nvim-treesitter', 'nvim-tree/nvim-web-devicons' }
+  },
+
   'dracula/vim',
   'gregsexton/MatchTag',
   'airblade/vim-rooter',
