@@ -2,4 +2,4 @@
 
 {{content}}
 
-## References
+---
