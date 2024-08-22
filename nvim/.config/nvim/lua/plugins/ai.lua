@@ -6,7 +6,7 @@ return {
     -- docker run -e  HSA_OVERRIDE_GFX_VERSION=10.3.0 -d --device /dev/kfd --device /dev/dri -v ollama:/root/.ollama -p 11434:11434 --name ollama --restart always ollama/ollama:rocm
 
     require('gen').setup({
-      model = "codeqwen",
+      model = "llama3.1",
       host = "localhost",
       port = "11434",
       display_mode = "horizontal-split",
