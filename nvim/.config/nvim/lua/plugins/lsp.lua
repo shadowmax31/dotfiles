@@ -84,7 +84,7 @@ return {
       local servers = {
         tailwindcss = {},
         rust_analyzer = {},
-        tsserver = {
+        ts_ls = {
           typescript = {
             inlayHints = {
               includeInlayEnumMemberValueHints = true,
