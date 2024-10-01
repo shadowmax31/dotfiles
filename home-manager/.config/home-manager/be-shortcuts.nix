@@ -8,8 +8,6 @@ pkgs.writeTextFile {
   text = ''
   #!/bin/bash
   
-  p=`dirname "$0"`
-  
   # TITLE     |command
   # ^^ .shortcuts format 
   selected=$(cat "$HOME/.shortcuts" | awk NF | awk '{split($0,i,"|"); print i[1]}' | sort | bemenu -p 'Open:' --hf '#bd93f9')
