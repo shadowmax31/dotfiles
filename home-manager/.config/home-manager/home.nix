@@ -7,6 +7,7 @@ let
   pwolf = import ./librewolf-private.nix { pkgs = pkgs; };
   vpn = import ./vpn.nix { pkgs = pkgs; };
   notify = import ./notify.nix { pkgs = pkgs; };
+  beshortcuts = import ./be-shortcuts.nix { pkgs = pkgs; };
 
   steam = flatpakHelper { pkgs = pkgs; filename = "steam"; flatpakid = "com.valvesoftware.Steam"; };
   discord = flatpakHelper { pkgs = pkgs; filename = "discord"; flatpakid = "com.discordapp.Discord"; };
@@ -46,6 +47,7 @@ in
     discord
     vpn
     notify
+    beshortcuts
 
     pkgs.clang-tools
     pkgs.thunderbird
