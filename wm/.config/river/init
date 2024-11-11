@@ -112,7 +112,6 @@ bindings() {
   # Quick 
   riverctl declare-mode quick
   riverctl map quick None Return spawn "`exit_mode` $terminal --class floating_terminal"
-  riverctl map quick None S spawn "`exit_mode` export EDITOR="nvim"; $terminal --class my_notes -e nb edit notes.md"
   riverctl map quick None A spawn "`exit_mode` $terminal --class my_pulsemixer -e pulsemixer"
   riverctl map quick None Escape enter-mode normal
   riverctl map normal $mod S enter-mode quick
