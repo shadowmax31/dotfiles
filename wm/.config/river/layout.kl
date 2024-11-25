@@ -5,10 +5,10 @@ const masterH ( Horizontal | Vertical Vertical )
 const stackingH (Horizontal | Deck Deck)
 const tab Deck
 
-const left ( 5 > stackingV ? masterV )
+const left ( 3 > stackingV ? masterV )
 const right ( [ - 1 - ] left )
 
-const top ( 5 > stackingH ? masterH )
+const top ( 3 > stackingH ? masterH )
 const bottom ([ - 1 - ] top)
 
 const default left
