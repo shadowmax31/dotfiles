@@ -114,6 +114,9 @@ bindings() {
   riverctl map quick None Return spawn "`exit_mode` $terminal --class floating_terminal"
   riverctl map quick None A spawn "`exit_mode` $terminal --class my_pulsemixer -e pulsemixer"
   riverctl map quick None Escape enter-mode normal
+
+  # Delayed screenshot
+  riverctl map quick None Print spawn ' selection="$(slurp)"; sleep 2; grim -g "$selection" - | swappy -f -'
   riverctl map normal $mod S enter-mode quick
 
   # ScratchPad
