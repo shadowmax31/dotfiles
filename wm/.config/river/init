@@ -116,7 +116,8 @@ bindings() {
   riverctl map quick None Escape enter-mode normal
 
   # Delayed screenshot
-  riverctl map quick None Print spawn 'selection="$(slurp)"; sleep 2; grim -g "$selection" - | swappy -f -'
+  delayed_screenshot=`exit_mode`'selection="$(slurp)"; sleep 2; grim -g "$selection" - | swappy -f -'
+  riverctl map quick None Print spawn "$delayed_screenshot"
   riverctl map normal $mod S enter-mode quick
 
   # ScratchPad
