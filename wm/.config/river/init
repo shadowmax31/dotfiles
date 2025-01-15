@@ -75,12 +75,12 @@ bindings() {
   riverctl map normal $mod W zoom
 
   # Layout
-  riverctl map normal $mod+Shift H focus-output left
-  riverctl map normal $mod+Shift L focus-output right
+  riverctl map normal $mod H focus-output left
+  riverctl map normal $mod L focus-output right
   riverctl map normal $alt H spawn "riverctl send-to-output -current-tags left; riverctl focus-output left"
   riverctl map normal $alt L spawn "riverctl send-to-output -current-tags right; riverctl focus-output right"
-  riverctl map normal $mod H send-layout-cmd kile "main-ratio 0.5"
-  riverctl map normal $mod L send-layout-cmd kile "main-ratio $defMasterRatio"
+  riverctl map normal $mod+Shift H send-layout-cmd kile "main-ratio 0.5"
+  riverctl map normal $mod+Shift L send-layout-cmd kile "main-ratio $defMasterRatio"
 
   # System
   riverctl map normal $mod Q close
