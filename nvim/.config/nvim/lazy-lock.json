@@ -43,6 +43,8 @@
   "vim-fugitive": { "branch": "master", "commit": "d4877e54cef67f5af4f950935b1ade19ed6b7370" },
   "vim-rhubarb": { "branch": "master", "commit": "ee69335de176d9325267b0fd2597a22901d927b1" },
   "vim-rooter": { "branch": "master", "commit": "4a0df2f1b0f3d69e8f7e19afe464a7c3a7af89a2" },
+  "vim-test": { "branch": "master", "commit": "ade33384bd8ca8555853cf5d7dd26a293fcb332e" },
   "vim-tmux-navigator": { "branch": "master", "commit": "a9b52e7d36114d40350099f254b5f299a35df978" },
+  "vimux": { "branch": "master", "commit": "7db6b2f79d432ee3820668b1d4625311dbe1d0ad" },
   "zk-nvim": { "branch": "main", "commit": "8942fcc7ba2477e3e0d8097c806eec41cd844fd1" }
 }

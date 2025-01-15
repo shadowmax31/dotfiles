@@ -179,6 +179,21 @@ return {
   },
 
   {
+    'vim-test/vim-test',
+    dependencies = {
+      'preservim/vimux'
+    },
+    config = function()
+      vim.g["test#strategy"] = "vimux"
+      vim.g["VimuxHeight"] = "20"
+      vim.g["VimuxUseNearest"] = 0
+
+      vim.keymap.set("n", "<leader>u", "<cmd>TestNearest<CR>")
+      vim.keymap.set("n", "<leader>U", "<cmd>TestFile<CR>")
+    end
+  },
+
+  {
     'MeanderingProgrammer/render-markdown.nvim',
     opts = {
       render_modes = { 'n', 'v', 'V', 'i', 'c' }
