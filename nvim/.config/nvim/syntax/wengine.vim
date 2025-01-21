@@ -2,7 +2,7 @@ syntax clear
 
 syntax case match 
 
-syntax keyword xType dbl int str bool range intDecision strDecision rangeDecision 
+syntax keyword xType dbl int str bool range intDecision strDecision rangeDecision boolDecision
 syntax keyword xBool true false
 syntax keyword xVisibility input output internal global
 syntax keyword xOther let pub fn view
