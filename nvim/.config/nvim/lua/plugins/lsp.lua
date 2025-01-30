@@ -23,7 +23,6 @@ return {
       vim.keymap.set('n', ']d', vim.diagnostic.goto_next)
 
       vim.keymap.set('n', 'J', vim.diagnostic.open_float)
-      vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist)
 
       local on_attach = function(_, bufnr)
         local nmap = function(keys, func, desc)
@@ -79,6 +78,10 @@ return {
             filetypes = { "markdown" },
           },
         },
+      })
+
+      require("pr").setup({
+        on_attach = on_attach
       })
 
       local servers = {

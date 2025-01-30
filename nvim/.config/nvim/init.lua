@@ -57,5 +57,3 @@ vim.keymap.set('n', '<leader>cd', ':e ' .. config .. '/init.lua<CR>')
 
 vim.cmd('source ' .. config .. '/set.vim')
 vim.cmd('source ' .. config .. '/map.vim')
-
-require('pr')
