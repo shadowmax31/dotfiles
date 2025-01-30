@@ -44,7 +44,6 @@ alias q="qalc"
 
 alias rt="trash"
 
-alias rm="echo Use trashy with rt!"
 alias sudo="echo Use doas!"
 alias u="date '+%s' | wl-copy"
 
