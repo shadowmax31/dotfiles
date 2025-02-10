@@ -20,7 +20,7 @@ return {
       extract = "```$filetype\n(.-)```"
     }
 
-    vim.keymap.set({ 'n', 'v' }, '<Leader>o', ':Gen <CR>')
-    vim.keymap.set({ 'n', 'v' }, '<Leader><CR>', ':Gen Chat<CR>')
+    vim.keymap.set({ 'n', 'v' }, '<Leader>o', '<cmd>Gen <CR>')
+    vim.keymap.set({ 'n', 'v' }, '<Leader><CR>', '<cmd>Gen Chat<CR>')
   end
 }

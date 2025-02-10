@@ -35,7 +35,7 @@ return {
 
       local builtin = require('telescope.builtin')
       vim.keymap.set('n', 'gh', builtin.resume, { desc = '[gh] Open the last search' })
-      vim.keymap.set('n', '<leader>?', ':Telescope neoclip<CR>', { desc = '[?] Clipboard history' })
+      vim.keymap.set('n', '<leader>?', '<cmd>Telescope neoclip<CR>', { desc = '[?] Clipboard history' })
       vim.keymap.set('n', '<leader>d', builtin.buffers, { desc = '[d] Find existing buffers' })
       vim.keymap.set('n', '<leader>/', function()
         builtin.current_buffer_fuzzy_find(require('telescope.themes').get_dropdown {

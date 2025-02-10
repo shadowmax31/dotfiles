@@ -158,7 +158,7 @@ return {
         }
       })
 
-      vim.keymap.set('n', '<C-n>', ':Oil<CR>')
+      vim.keymap.set('n', '<C-n>', '<cmd>Oil<CR>')
     end,
     dependencies = { { "echasnovski/mini.icons", opts = {} } }
   },
