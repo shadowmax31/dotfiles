@@ -2,7 +2,13 @@ return {
   {
     'nvim-telescope/telescope.nvim',
     branch = '0.1.x',
-    dependencies = { 'nvim-lua/plenary.nvim' },
+    dependencies = {
+      'nvim-lua/plenary.nvim',
+      {
+        "nvim-telescope/telescope-live-grep-args.nvim",
+        version = "^1.0.0",
+      },
+    },
     config = function()
       local telescope = require("telescope")
       telescope.setup({
@@ -25,6 +31,7 @@ return {
       telescope.load_extension("ui-select")
       telescope.load_extension("fzf")
       telescope.load_extension("neoclip")
+      telescope.load_extension("live_grep_args")
 
       local builtin = require('telescope.builtin')
       vim.keymap.set('n', 'gh', builtin.resume, { desc = '[gh] Open the last search' })
@@ -57,7 +64,9 @@ return {
           })
         end
       end, { desc = '[S]earch [F]iles' })
-      vim.keymap.set('n', '<leader>f', builtin.live_grep, { desc = '[S]earch by [G]rep' })
+
+      vim.keymap.set('n', '<leader>f', telescope.extensions.live_grep_args.live_grep_args,
+        { desc = '[S]earch by [G]rep' })
       vim.keymap.set('n', '<leader>a', builtin.diagnostics, { desc = '[S]earch [D]iagnostics' })
     end
   },
