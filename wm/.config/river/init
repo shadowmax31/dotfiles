@@ -39,7 +39,7 @@ config() {
   riverctl default-layout kile
 
   # It might fail depending on if kile is fully started or not...
-  riverctl send-layout-cmd kile "default-padding 6"
+  riverctl send-layout-cmd kile "default-padding 12"
   riverctl send-layout-cmd kile "main-ratio $defMasterRatio"
 }
 
