@@ -1,8 +1,8 @@
 { pkgs }:
 
 pkgs.writeTextFile {
-  name = "notify-date";
-  destination = "/bin/notify-date";
+  name = "system-information";
+  destination = "/bin/system-information";
   executable = true;
   
   text = ''
@@ -14,6 +14,6 @@ pkgs.writeTextFile {
     time_warrior=`timew sum | tail -n2 | head -n1 | xargs | rev | cut -c4- | rev`
   fi
   
-  notify-send "Info" " $(date '+%Y-%m-%d %R:%S')\n $time_warrior"
+  notify-send -i /usr/share/void-artwork/void-transparent.png "System Information" " $(date '+%Y-%m-%d %R:%S')\n $time_warrior"
   '';
 }

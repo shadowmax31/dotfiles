@@ -8,7 +8,7 @@ let
   vpn = import ./vpn.nix { pkgs = pkgs; };
   notify = import ./notify.nix { pkgs = pkgs; };
   beshortcuts = import ./be-shortcuts.nix { pkgs = pkgs; };
-  notifyDate = import ./date.nix { pkgs = pkgs; };
+  systemInformation = import ./system-information.nix { pkgs = pkgs; };
 
   steam = flatpakHelper { pkgs = pkgs; filename = "steam"; flatpakid = "com.valvesoftware.Steam"; };
   discord = flatpakHelper { pkgs = pkgs; filename = "discord"; flatpakid = "com.discordapp.Discord"; };
@@ -48,7 +48,7 @@ in
     discord
     vpn
     notify
-    notifyDate
+    systemInformation
     beshortcuts
 
     pkgs.clang-tools
