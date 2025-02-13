@@ -29,7 +29,7 @@ config() {
   riverctl focus-follows-cursor disabled
   riverctl set-cursor-warp on-output-change
   
-  riverctl keyboard-layout "us"
+  riverctl keyboard-layout -options "grp:sclk_toggle" "us,ca(multix)"
   riverctl border-color-focused 0xbd93f9 
   riverctl border-color-unfocused 0x44475aaa
   
@@ -88,16 +88,6 @@ bindings() {
   # Mouse 
   riverctl map-pointer normal $mod BTN_LEFT move-view
   riverctl map-pointer normal $mod BTN_RIGHT resize-view
-
-  # Keyboard
-  riverctl map normal $mod slash spawn "wtype é"
-  riverctl map normal $mod+Shift slash spawn "wtype É"
-  riverctl map normal $mod backslash spawn "wtype à"
-  riverctl map normal $mod+Shift backslash spawn "wtype À"
-  riverctl map normal $mod apostrophe spawn "wtype è"
-  riverctl map normal $mod+Shift apostrophe spawn "wtype È"
-  riverctl map normal $mod I spawn "wtype ç"
-  riverctl map normal $mod+Shift I spawn "wtype Ç"
   
   ## Launch apps
   riverctl map normal $mod R spawn "bemenu-run -p 'Run:' --hf '#bd93f9'"
