@@ -194,6 +194,30 @@ return {
     dependencies = { 'nvim-treesitter/nvim-treesitter', 'nvim-tree/nvim-web-devicons' }
   },
 
+  {
+    'nvim-pack/nvim-spectre',
+    dependencies = {
+      'nvim-lua/plenary.nvim'
+    },
+    keys = {
+      { '<leader>f', function() require("spectre").toggle() end, desc = 'Toggle Spectre' }
+    },
+    opts = {
+      mapping = {
+        ['run_current_replace'] = {
+          map = "<leader>w",
+          cmd = "<cmd>lua require('spectre.actions').run_current_replace()<CR>",
+          desc = "replace current line"
+        },
+        ['run_replace'] = {
+          map = "<leader>W",
+          cmd = "<cmd>lua require('spectre.actions').run_replace()<CR>",
+          desc = "replace all"
+        },
+      }
+    }
+  },
+
   'dracula/vim',
   'gregsexton/MatchTag',
   'airblade/vim-rooter',
