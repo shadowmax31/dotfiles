@@ -84,6 +84,7 @@ bindings() {
   riverctl map normal $mod Q close
   riverctl map normal $mod+Shift A spawn "swaylock -f -i $mainOutput:~/.config/wallpapers/w2.jpg -i $sideOutput:~/.config/wallpapers/w1.jpg"
   riverctl map normal $mod E spawn "system-information"
+  riverctl map normal $mod+Shift E spawn "system-information cal"
 
   # Mouse 
   riverctl map-pointer normal $mod BTN_LEFT move-view
