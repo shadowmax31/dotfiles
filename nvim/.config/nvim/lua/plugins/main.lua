@@ -203,6 +203,7 @@ return {
       { '<leader>f', function() require("spectre").toggle() end, desc = 'Toggle Spectre' }
     },
     opts = {
+      is_insert_mode = true,
       mapping = {
         ['run_current_replace'] = {
           map = "<leader>w",
