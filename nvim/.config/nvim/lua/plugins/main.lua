@@ -204,6 +204,7 @@ return {
     },
     opts = {
       is_insert_mode = true,
+      live_update = true,
       mapping = {
         ['run_current_replace'] = {
           map = "<leader>w",
