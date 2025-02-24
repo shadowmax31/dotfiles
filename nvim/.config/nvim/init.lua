@@ -20,6 +20,7 @@ vim.g.mapleader = ','
 vim.g.maplocalleader = ','
 
 vim.cmd('set termguicolors')
+vim.cmd('set list') -- Display extra white spaces
 
 require('lazy').setup('plugins')
 
