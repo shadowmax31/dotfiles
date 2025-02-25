@@ -104,6 +104,7 @@ return {
         jdtls = {},
         pest_ls = {},
         bashls = {},
+        html = {},
         lua_ls = {
           Lua = {
             runtime = {
