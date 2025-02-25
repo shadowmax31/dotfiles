@@ -86,6 +86,9 @@ return {
 
   {
     'mhartington/formatter.nvim',
+    keys = {
+      { '<leader>e', '<cmd>Format<CR>', desc = 'Format' }
+    },
     opts = {
       logging = true,
       log_level = vim.log.levels.WARN,

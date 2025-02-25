@@ -16,4 +16,3 @@ noremap <Leader>P "+P
 noremap Y yy
 
 nnoremap git<space> :Git 
-nnoremap <silent> <leader>e :Format<CR>
