@@ -156,7 +156,6 @@ config
 
 if [ "$autostart" = "true" ]; then
   riverctl spawn "runsvdir ~/.services/"
-  riverctl spawn "corectrl"
   
   riverctl spawn "dbus-update-activation-environment DISPLAY WAYLAND_DISPLAY XDG_CURRENT_DESKTOP=river"
   riverctl spawn "wlr-randr --output '$mainOutput' --preferred --pos 1080,780"
