@@ -55,10 +55,8 @@ in
     pkgs.thunderbird
     pkgs.vscode
     pkgs.nodejs
-    pkgs.darktable
     pkgs.unzip
     pkgs.jmeter
-    #pkgs.azuredatastudio
     pkgs.brave
     pkgs.libreoffice
     pkgs.librewolf
@@ -69,11 +67,8 @@ in
     pkgs.lsd
     pkgs.direnv
     pkgs.nix-direnv
-    #pkgs.postman
     pkgs.curl
-    #pkgs.joshuto
     pkgs.remmina
-    pkgs.taskwarrior
     pkgs.timewarrior
     pkgs.htop
     pkgs.tmux
