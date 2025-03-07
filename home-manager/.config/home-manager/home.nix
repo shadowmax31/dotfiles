@@ -82,6 +82,7 @@ in
     pkgs.sqlcmd
     pkgs.azure-cli
     pkgs.pdd # Time calculator
+    pkgs.sox # play command (for sounds)
 
     pkgs.tmate
     pkgs.jq

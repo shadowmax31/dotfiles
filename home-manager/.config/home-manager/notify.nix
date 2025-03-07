@@ -10,7 +10,7 @@ pkgs.writeTextFile {
 
   msg="$1"
   on="$2"
-  
-  echo "notify-send 'Custom Warning' '$msg'; play -q /usr/share/sounds/freedesktop/stereo/bell.oga" | at $on
+ 
+  echo "notify-send -i /usr/share/icons/Adwaita/scalable/devices/camera-web.svg 'Custom Warning' '$msg'; play -q /usr/share/sounds/freedesktop/stereo/bell.oga" | at $on
   '';
 }
