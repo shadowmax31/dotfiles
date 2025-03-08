@@ -30,8 +30,6 @@ export FPATH="$FPATH:$HOME/.nix-profile/share/zsh/site-functions"
 export XDG_DATA_DIRS="$XDG_DATA_DIRS:$HOME/.nix-profile/share"
 export PATH="$PATH:/opt/compiled/bin"
 
-export RUSTICL_ENABLE=radeonsi
-
 export PASSWORD_STORE_ENABLE_EXTENSIONS="true"
 export PASSWORD_STORE_LOGIN_PREFIX="user|email"
 

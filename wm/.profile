@@ -18,3 +18,5 @@ export BEMENU_OPTS="
   --sf '#50fa7b' \
   --scb '#282a36' \
   --scf '#ff79c6'"
+
+export RUSTICL_ENABLE=radeonsi
