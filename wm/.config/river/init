@@ -109,7 +109,7 @@ bindings() {
 
   # Quick 
   riverctl declare-mode quick
-  riverctl map quick None Return spawn "`exit_mode` $terminal --class floating_terminal"
+  riverctl map quick None Return spawn "`exit_mode` $terminal"
   riverctl map quick None A spawn "`exit_mode` $terminal --class my_pulsemixer -e pulsemixer"
   riverctl map quick None Escape enter-mode normal
 
