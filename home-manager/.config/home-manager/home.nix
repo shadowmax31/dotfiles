@@ -53,7 +53,6 @@ in
 
     pkgs.clang-tools
     pkgs.thunderbird
-    pkgs.vscode
     pkgs.nodejs
     pkgs.unzip
     pkgs.jmeter
