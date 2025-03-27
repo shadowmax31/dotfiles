@@ -53,7 +53,6 @@ rules() {
   riverctl rule-add -app-id Brave-browser tags `toTag 3`
   riverctl rule-add -app-id librewolf tags `toTag 1`
   riverctl rule-add -app-id thunderbird tags `toTag 10`
-  riverctl rule-add -app-id Code tags `toTag 5`
 
   riverctl rule-add -app-id '*' ssd
 }
