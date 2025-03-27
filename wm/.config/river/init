@@ -53,6 +53,7 @@ rules() {
   riverctl rule-add -app-id Brave-browser tags `toTag 3`
   riverctl rule-add -app-id librewolf tags `toTag 1`
   riverctl rule-add -app-id thunderbird tags `toTag 10`
+  riverctl rule-add -app-id gimp tags `toTag 5`
 
   riverctl rule-add -app-id '*' ssd
 }
@@ -94,7 +95,7 @@ bindings() {
   riverctl map normal $mod G spawn "be-shortcuts"
   riverctl map normal $mod Return spawn "$terminal --class floating_terminal"
   riverctl map normal $mod R spawn "bemenu-run -p 'Run:' --hf '#bd93f9'"
-  riverctl map normal None Print spawn 'grim -g "$(slurp)" - | swappy -f -'
+  riverctl map normal None Print spawn 'f=$(mktemp); grim -g "$(slurp)" - > $f; gimp $f'
   
   # Position
   riverctl map normal $mod T spawn "riverctl send-layout-cmd kile 'layout tab'"
@@ -114,7 +115,7 @@ bindings() {
   riverctl map quick None Escape enter-mode normal
 
   # Delayed screenshot
-  delayed_screenshot=`exit_mode`'selection="$(slurp)"; sleep 2; grim -g "$selection" - | swappy -f -'
+  delayed_screenshot=`exit_mode`'selection="$(slurp)"; sleep 2; f=$(mktemp); grim -g "$selection" - > $f; gimp $f'
   riverctl map quick None Print spawn "$delayed_screenshot"
   riverctl map normal $mod S enter-mode quick
 

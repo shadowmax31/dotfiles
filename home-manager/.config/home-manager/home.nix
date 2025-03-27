@@ -88,7 +88,6 @@ in
 
     # Screenshot
     pkgs.grim
-    pkgs.swappy
 
     pkgs.ripgrep
     pkgs.fd
