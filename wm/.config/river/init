@@ -62,8 +62,8 @@ rules() {
 bindings() {
   # Sounds
   riverctl map normal None XF86AudioMute spawn "pactl set-sink-mute @DEFAULT_SINK@ toggle"
-  riverctl map normal None XF86AudioRaiseVolume spawn "pactl set-sink-volume @DEFAULT_SINK@ +5%"
-  riverctl map normal None XF86AudioLowerVolume spawn "pactl set-sink-volume @DEFAULT_SINK@ -5%"
+  riverctl map normal None XF86AudioRaiseVolume spawn "pactl set-sink-volume @DEFAULT_SINK@ +5%; play -q /usr/share/sounds/freedesktop/stereo/audio-volume-change.oga"
+  riverctl map normal None XF86AudioLowerVolume spawn "pactl set-sink-volume @DEFAULT_SINK@ -5%; play -q /usr/share/sounds/freedesktop/stereo/audio-volume-change.oga"
 
   # Windows
   riverctl map normal $mod A toggle-float
@@ -115,7 +115,7 @@ bindings() {
   riverctl map quick None Escape enter-mode normal
 
   # Delayed screenshot
-  delayed_screenshot=`exit_mode`'selection="$(slurp)"; sleep 2; f=$(mktemp); grim -g "$selection" - > $f; gimp $f'
+  delayed_screenshot=`exit_mode`'selection="$(slurp)"; sleep 2; f=$(mktemp); grim -g "$selection" - > $f; gimp $f; notify-send "Delayed screenshot taken"; play -q /usr/share/sounds/freedesktop/stereo/camera-shutter.oga'
   riverctl map quick None Print spawn "$delayed_screenshot"
   riverctl map normal $mod S enter-mode quick
 
