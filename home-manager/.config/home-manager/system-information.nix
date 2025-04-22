@@ -16,10 +16,10 @@ pkgs.writeTextFile {
 	  body=$(cal | tail -n7 | sed -z "s|$today|<u><b>$today</b></u>|1")
 
   else
-    if [ "`timew`" = "There is no active time tracking." ]; then
+    if [ "`/opt/compiled/bin/timew`" = "There is no active time tracking." ]; then
       time_warrior="inactive"
     else
-      time_warrior=`timew sum | tail -n2 | head -n1 | xargs | rev | cut -c4- | rev`
+      time_warrior=`/opt/compiled/bin/timew sum | tail -n2 | head -n1 | xargs | rev | cut -c4- | rev`
     fi
 
     title="System Information"

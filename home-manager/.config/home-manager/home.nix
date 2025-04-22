@@ -72,7 +72,6 @@ in
     pkgs.nix-direnv
     pkgs.curl
     pkgs.remmina
-    pkgs.timewarrior
     pkgs.htop
     pkgs.tmux
     pkgs.zk
