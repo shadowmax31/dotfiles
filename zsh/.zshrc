@@ -77,6 +77,12 @@ gp() {
   git push --set-upstream origin $current
 }
 
+vram() {
+  used=`cat /sys/class/drm/card0/device/mem_info_vram_used`
+  total=`cat /sys/class/drm/card0/device/mem_info_vram_total`
+  echo $(($used*100/$total))%
+}
+
 # Restart Task
 tr() {
   if [ -n "$1" ]
