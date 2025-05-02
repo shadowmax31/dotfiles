@@ -61,6 +61,7 @@ in
     pkgs.unzip
     pkgs.jmeter
     pkgs.brave
+    pkgs.ungoogled-chromium
     pkgs.libreoffice
     pkgs.librewolf
     pkgs.firefox
