@@ -132,6 +132,7 @@ return {
     },
     init = function()
       vim.g.db_ui_execute_on_save = 0
+      vim.g.db_ui_save_location = vim.fn.expand('$HOME/Documents/dadbod')
       vim.keymap.set({ 'n', 'v' }, '<leader>i', '<Plug>(DBUI_ExecuteQuery)')
       vim.keymap.set('n', '<leader>X', function()
         vim.cmd(':DBUIToggle')
