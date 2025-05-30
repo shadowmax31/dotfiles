@@ -22,7 +22,14 @@ function M.insert_at_cursor()
   local uuid = M.generate()
 
   local row, col = unpack(vim.api.nvim_win_get_cursor(0))
-  vim.api.nvim_buf_set_text(0, row - 1, col, row - 1, col, { uuid })
+  local line = vim.api.nvim_get_current_line()
+
+  local set_text_from = col
+  if (line ~= '') then
+    set_text_from = col + 1
+  end
+  vim.api.nvim_buf_set_text(0, row - 1, set_text_from, row - 1, set_text_from, { uuid })
+  vim.api.nvim_win_set_cursor(0, { row, col + string.len(uuid) })
 end
 
 return M
