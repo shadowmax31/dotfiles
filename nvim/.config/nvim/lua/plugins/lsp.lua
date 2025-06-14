@@ -103,6 +103,15 @@ return {
         angularls = {},
         jdtls = {},
         pest_ls = {},
+        pylsp = {
+          pylsp = {
+            plugins = {
+              pycodestyle = {
+                enabled = false
+              }
+            }
+          }
+        },
         bashls = {},
         html = {},
         lua_ls = {
