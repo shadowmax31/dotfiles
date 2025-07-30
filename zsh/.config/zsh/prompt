@@ -5,8 +5,15 @@ precmd_vcs_info() { vcs_info }
 precmd_functions+=( precmd_vcs_info )
 setopt prompt_subst
 
+u="$user_color"
+extra_text=""
+if [ ! -z $CONTAINER_ID ]; then
+  u="red"
+  extra_text=" ($CONTAINER_ID)"
+fi
+
 #PS1='%D{%H:%M} %~ ${vcs_info_msg_0_}> '
 autoload -U colors && colors
-PS1='%D{%H:%M} %{$fg[$user_color]%}%n %{$fg[yellow]%}%~ %{$fg[green]%}${vcs_info_msg_0_}%{$reset_color%}> '
+PS1='%D{%H:%M} %{$fg[$u]%}%n$extra_text %{$fg[yellow]%}%~ %{$fg[green]%}${vcs_info_msg_0_}%{$reset_color%}> '
 
 zstyle ':vcs_info:git:*' formats '%b'

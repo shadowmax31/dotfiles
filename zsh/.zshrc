@@ -18,10 +18,10 @@ bindkey -v
 
 # ************ Custom Config ************
 #
+export user_color="blue"
 source ~/.config/zsh/prompt
 source "$HOME/.nix-profile/etc/profile.d/hm-session-vars.sh"
 
-export user_color="blue"
 export EDITOR="nvim"
 export SVDIR="$HOME/.services"
 alias n="$EDITOR"
@@ -35,7 +35,9 @@ export PASSWORD_STORE_LOGIN_PREFIX="user|email"
 
 export VPN_FILES="$HOME/.vpn"
 
-source /usr/share/fzf/completion.zsh
+if [ -f /usr/share/fzf/completion.zsh ]; then
+  source /usr/share/fzf/completion.zsh
+fi
 
 alias cat="bat"
 alias ll="ls -lh"
@@ -48,7 +50,6 @@ alias jc="jira issue create -t Task"
 
 alias rt="trash"
 
-alias sudo="echo Use doas!"
 alias u="date '+%s' | wl-copy"
 
 alias e="joshuto"
