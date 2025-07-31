@@ -83,6 +83,7 @@ in
     pkgs.zoxide
     pkgs.trashy
     pkgs.sqlcmd
+    pkgs.postgresql
     pkgs.azure-cli
     pkgs.pdd # Time calculator
     pkgs.sox # play command (for sounds)
