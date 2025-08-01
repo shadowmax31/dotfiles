@@ -14,6 +14,6 @@ fi
 
 #PS1='%D{%H:%M} %~ ${vcs_info_msg_0_}> '
 autoload -U colors && colors
-PS1='%D{%H:%M} %{$fg[$u]%}%n$extra_text %{$fg[yellow]%}%~ %{$fg[green]%}${vcs_info_msg_0_}%{$reset_color%}> '
+PS1='%D{%H:%M} %{$fg[$u]%}%n%{$reset_color%}$extra_text %{$fg[yellow]%}%~ %{$fg[green]%}${vcs_info_msg_0_}%{$reset_color%}> '
 
 zstyle ':vcs_info:git:*' formats '%b'

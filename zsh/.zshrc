@@ -26,8 +26,12 @@ export EDITOR="nvim"
 export SVDIR="$HOME/.services"
 alias n="$EDITOR"
 
-export FPATH="$FPATH:$HOME/.nix-profile/share/zsh/site-functions"
+if [ -z "$CONTAINER_ID" ]; then
+  # In a distrobox, using nix-profile causes a warning with compinit
+  export FPATH="$FPATH:$HOME/.nix-profile/share/zsh/site-functions"
+fi
 export XDG_DATA_DIRS="$XDG_DATA_DIRS:$HOME/.nix-profile/share"
+
 export PATH="$PATH:/opt/compiled/bin"
 
 export PASSWORD_STORE_ENABLE_EXTENSIONS="true"
