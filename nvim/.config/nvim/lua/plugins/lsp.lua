@@ -19,12 +19,16 @@ return {
       local home = os.getenv('HOME')
       local data = vim.fn.stdpath('data')
 
-      vim.keymap.set('n', '[d', vim.diagnostic.goto_prev)
-      vim.keymap.set('n', ']d', vim.diagnostic.goto_next)
+      vim.keymap.set('n', '_', function() vim.diagnostic.jump({ count = -1 }) end)
+      vim.keymap.set('n', '+', function() vim.diagnostic.jump({ count = 1 }) end)
 
       vim.keymap.set('n', 'J', vim.diagnostic.open_float)
 
-      local on_attach = function(_, bufnr)
+      local on_attach = function(client, bufnr)
+        if client.server_capabilities then
+          client.server_capabilities.semanticTokensProvider = false
+        end
+
         local nmap = function(keys, func, desc)
           if desc then
             desc = 'LSP: ' .. desc
@@ -62,6 +66,13 @@ return {
         end, { desc = 'Format current buffer with LSP' })
       end
 
+      vim.api.nvim_create_autocmd('LspAttach', {
+        group = vim.api.nvim_create_augroup('custom-lsp-attach', { clear = true }),
+        callback = function(event)
+          local client = vim.lsp.get_client_by_id(event.data.client_id)
+          on_attach(client, event.buf)
+        end
+      })
 
       require("zk").setup({
         picker = "telescope",
@@ -101,7 +112,16 @@ return {
           },
         },
         angularls = {},
-        jdtls = {},
+        jdtls = {
+          cmd = {
+            'jdtls',
+            '--jvm-arg=-javaagent:' .. data .. '/mason/packages/jdtls/lombok.jar',
+            '-configuration',
+            home .. '/.cache/jdtls/config',
+            '-data',
+            home .. '/.cache/jdtls/workspace'
+          },
+        },
         pest_ls = {},
         pylsp = {
           pylsp = {
@@ -115,73 +135,36 @@ return {
         bashls = {},
         html = {},
         lua_ls = {
-          Lua = {
-            runtime = {
-              version = 'LuaJIT',
-              path = runtime_path,
+          settings = {
+            Lua = {
+              runtime = {
+                version = 'LuaJIT',
+              },
+              workspace = {
+                library = vim.api.nvim_get_runtime_file('', true),
+                maxPreload = 10000,
+                preloadFileSize = 10000,
+                checkThirdParty = false
+              },
+              telemetry = { enable = false },
             },
-            workspace = {
-              library = vim.api.nvim_get_runtime_file('', true),
-              maxPreload = 10000,
-              preloadFileSize = 10000,
-              checkThirdParty = false
-            },
-            telemetry = { enable = false },
-            diagnostics = {
-              -- Get the language server to recognize the `vim` global
-              globals = { 'vim', 'use' },
-            },
-          },
+          }
         },
       }
 
-      local on_init = function(client, _)
-        if client.server_capabilities then
-          client.server_capabilities.semanticTokensProvider = false
-        end
-      end
+      require('mason').setup()
+      require('mason-lspconfig').setup {
+        ensure_installed = vim.tbl_keys(servers),
+        automatic_enable = true
+      }
 
       local capabilities = vim.lsp.protocol.make_client_capabilities()
       capabilities = require('cmp_nvim_lsp').default_capabilities(capabilities)
-
-      require('mason').setup()
-      local mason_lspconfig = require('mason-lspconfig')
-      mason_lspconfig.setup {
-        ensure_installed = vim.tbl_keys(servers),
-      }
-
-      mason_lspconfig.setup_handlers {
-        function(server_name)
-          require('lspconfig')[server_name].setup {
-            capabilities = capabilities,
-            on_attach = on_attach,
-            on_init = on_init,
-            settings = servers[server_name],
-          }
-        end,
-        ['clangd'] = function()
-          require('lspconfig')['clangd'].setup {
-            cmd = { 'clangd', "--query-driver='/usr/local/bin/g++'" },
-            on_init = on_init,
-            on_attach = on_attach
-          }
-        end,
-        ['jdtls'] = function()
-          local lombok = data .. '/mason/packages/jdtls/lombok.jar'
-          require('lspconfig')['jdtls'].setup {
-            cmd = {
-              'jdtls',
-              '--jvm-arg=-javaagent:' .. lombok,
-              '-configuration',
-              home .. '/.cache/jdtls/config',
-              '-data',
-              home .. '/.cache/jdtls/workspace'
-            },
-            on_init = on_init,
-            on_attach = on_attach
-          }
-        end
-      }
+      for _, server_name in ipairs(vim.tbl_keys(servers)) do
+        local server = servers[server_name] or {}
+        server.capabilities = vim.tbl_deep_extend('force', {}, capabilities, server.capabilities or {})
+        vim.lsp.config(server_name, server)
+      end
 
       local cmp = require 'cmp'
       local luasnip = require 'luasnip'
