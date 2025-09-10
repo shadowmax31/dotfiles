@@ -224,9 +224,17 @@ return {
     }
   },
 
+  {
+    'airblade/vim-rooter',
+    config = function()
+      local x = vim.g.rooter_patterns
+      table.insert(x, ".project")
+      vim.g.rooter_patterns = x
+    end
+  },
+
   'dracula/vim',
   'gregsexton/MatchTag',
-  'airblade/vim-rooter',
   'jiangmiao/auto-pairs',
   'christoomey/vim-tmux-navigator',
   'pest-parser/pest.vim',
