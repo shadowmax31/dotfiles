@@ -81,6 +81,7 @@ in
     pkgs.sxiv
     pkgs.rust-script
     pkgs.zoxide
+    pkgs.atuin
     pkgs.trashy
     pkgs.sqlcmd
     pkgs.postgresql

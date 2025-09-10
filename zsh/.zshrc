@@ -118,4 +118,7 @@ antigen bundle z-shell/F-Sy-H --branch=main
 
 antigen apply
 
+bindkey -a K atuin-search
+eval "$(atuin init zsh)"
+
 eval "$(zoxide init --cmd f zsh)"
