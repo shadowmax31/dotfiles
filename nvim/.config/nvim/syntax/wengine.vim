@@ -4,7 +4,7 @@ syntax case match
 
 syntax keyword xType dbl int str bool range intDecision strDecision rangeDecision boolDecision enumDecision
 syntax keyword xBool true false
-syntax keyword xVisibility input output internal global
+syntax keyword xVisibility input output internal global rotate to
 syntax keyword xOther let pub fn view enum cc
 
 syntax region xComment start="//" end="$"
