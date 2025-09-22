@@ -49,8 +49,9 @@ rules() {
     riverctl rule-add -app-id $f float
   done
   
+  # Use lswt to list app-id
   riverctl rule-add -app-id StarUML tags `toTag 4`
-  riverctl rule-add -app-id Brave-browser tags `toTag 3`
+  riverctl rule-add -app-id brave-browser tags `toTag 3`
   riverctl rule-add -app-id librewolf tags `toTag 1`
   riverctl rule-add -app-id thunderbird tags `toTag 10`
   riverctl rule-add -app-id gimp tags `toTag 5`

@@ -89,6 +89,7 @@ in
     pkgs.pdd # Time calculator
     pkgs.sox # play command (for sounds)
     pkgs.jira-cli-go
+    pkgs.lswt
 
     pkgs.tmate
     pkgs.jq
