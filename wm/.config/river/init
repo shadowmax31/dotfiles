@@ -44,7 +44,7 @@ config() {
 }
 
 rules() {
-  for f in my_pulsemixer my_joshuto my_notes galculator swappy floating_terminal blueman-manager
+  for f in my_pulsemixer my_joshuto my_notes galculator swappy floating_terminal blueman-manager Signal
   do
     riverctl rule-add -app-id $f float
   done
