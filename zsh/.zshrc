@@ -56,8 +56,6 @@ alias rt="trash"
 
 alias u="date '+%s' | wl-copy"
 
-alias e="joshuto"
-
 alias t="task"
 alias tt="task context"
 alias ssh="TERM='xterm-256color' ssh"
