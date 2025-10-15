@@ -116,7 +116,7 @@ bindings() {
   riverctl map quick None Escape enter-mode normal
 
   # Delayed screenshot
-  delayed_screenshot=`exit_mode`'selection="$(slurp)" || exit; sleep 2; f=$(mktemp); grim -g "$selection" - > $f; gimp $f; notify-send "Delayed screenshot taken"; play -q /usr/share/sounds/freedesktop/stereo/camera-shutter.oga'
+  delayed_screenshot=`exit_mode`'selection="$(slurp)" || exit; sleep 2; f=$(mktemp); grim -g "$selection" - > $f; gimp $f &; notify-send "Delayed screenshot taken"; play -q /usr/share/sounds/freedesktop/stereo/camera-shutter.oga'
   riverctl map quick None Print spawn "$delayed_screenshot"
   riverctl map normal $mod S enter-mode quick
 
