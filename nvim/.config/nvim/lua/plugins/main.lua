@@ -1,18 +1,5 @@
 return {
   {
-    'lewis6991/gitsigns.nvim',
-    opts = {
-      signs = {
-        add = { text = '+' },
-        change = { text = '~' },
-        delete = { text = '_' },
-        topdelete = { text = '‾' },
-        changedelete = { text = '~' },
-      },
-    }
-  },
-
-  {
     'nvim-lualine/lualine.nvim',
     opts = {
       options = {
@@ -233,11 +220,21 @@ return {
     end
   },
 
+  {
+    "julienvincent/hunk.nvim",
+    cmd = { "DiffEditor" },
+    dependencies = {
+      'MunifTanjim/nui.nvim',
+    },
+    config = function()
+      require("hunk").setup()
+    end,
+  },
+
   'dracula/vim',
   'gregsexton/MatchTag',
   'jiangmiao/auto-pairs',
   'christoomey/vim-tmux-navigator',
   'pest-parser/pest.vim',
-  'tpope/vim-fugitive',
   'tpope/vim-rhubarb',
 }
