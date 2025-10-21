@@ -214,9 +214,7 @@ return {
   {
     'airblade/vim-rooter',
     config = function()
-      local x = vim.g.rooter_patterns
-      table.insert(x, ".project")
-      vim.g.rooter_patterns = x
+      vim.g.rooter_patterns = { ".project", ".git" }
     end
   },
 
