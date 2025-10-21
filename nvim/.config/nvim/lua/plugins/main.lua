@@ -220,17 +220,6 @@ return {
     end
   },
 
-  {
-    "julienvincent/hunk.nvim",
-    cmd = { "DiffEditor" },
-    dependencies = {
-      'MunifTanjim/nui.nvim',
-    },
-    config = function()
-      require("hunk").setup()
-    end,
-  },
-
   'dracula/vim',
   'gregsexton/MatchTag',
   'jiangmiao/auto-pairs',
