@@ -214,7 +214,7 @@ return {
   {
     'airblade/vim-rooter',
     config = function()
-      vim.g.rooter_patterns = { ".project", ".git" }
+      vim.g.rooter_patterns = { ".project", ".git", ".jj" }
     end
   },
 
