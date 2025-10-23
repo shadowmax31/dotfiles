@@ -66,7 +66,6 @@ in
     pkgs.librewolf
     pkgs.firefox
     pkgs.lm_sensors
-    pkgs.nb
     pkgs.lsof
     pkgs.lsd
     pkgs.direnv
@@ -88,7 +87,6 @@ in
     pkgs.azure-cli
     pkgs.pdd # Time calculator
     pkgs.sox # play command (for sounds)
-    pkgs.jira-cli-go
     pkgs.lswt
 
     pkgs.tmate
