@@ -49,9 +49,6 @@ alias ll="ls -lh"
 alias la="ls -A"
 alias ls="lsd"
 alias q="qalc"
-alias j="jira"
-alias jl="jira issue list"
-alias jc="jira issue create -t Task"
 
 alias rt="trash"
 
