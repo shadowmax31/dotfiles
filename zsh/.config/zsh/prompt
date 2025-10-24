@@ -9,14 +9,6 @@ precmd_vcs_info() { vcs_info }
 precmd_functions+=( precmd_vcs_info )
 setopt prompt_subst
 
-u="$user_color"
-extra_text=""
-if [ ! -z $CONTAINER_ID ]; then
-  u="red"
-  extra_text=" ($CONTAINER_ID)"
-fi
+zstyle ':vcs_info:*:*' formats " %{$fg[magenta]%}%b%{$reset_color%}"
 
-zstyle ':vcs_info:*:*' formats "%{$fg[magenta]%}%b%{$reset_color%}"
-
-PROMPT='%D{%H:%M} %{$fg[$u]%}%n%{$reset_color%}$extra_text %{$fg[yellow]%}%~ %{$fg[green]%}${vcs_info_msg_0_}%{$reset_color%}> '
-
+PROMPT="%B%{$fg[yellow]%}⚡% %(?:%{$fg_bold[green]%}➜ :%{$fg_bold[red]%}➜ )%{$fg[cyan]%}%~%{$reset_color%}\${vcs_info_msg_0_} "
