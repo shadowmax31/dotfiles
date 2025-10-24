@@ -30,6 +30,7 @@ if [ -z "$CONTAINER_ID" ]; then
   # In a distrobox, using nix-profile causes a warning with compinit
   export FPATH="$FPATH:$HOME/.nix-profile/share/zsh/site-functions"
 fi
+export FPATH="$FPATH:$HOME/.config/zsh/functions"
 export XDG_DATA_DIRS="$XDG_DATA_DIRS:$HOME/.nix-profile/share"
 
 export PATH="$PATH:/opt/compiled/bin:$HOME/.local/bin"

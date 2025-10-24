@@ -1,6 +1,10 @@
 #!/bin/sh
 
 autoload -Uz vcs_info
+autoload -U colors && colors
+
+zstyle ':vcs_info:*' enable jj
+
 precmd_vcs_info() { vcs_info }
 precmd_functions+=( precmd_vcs_info )
 setopt prompt_subst
@@ -12,7 +16,7 @@ if [ ! -z $CONTAINER_ID ]; then
   extra_text=" ($CONTAINER_ID)"
 fi
 
-autoload -U colors && colors
-PS1='%D{%H:%M} %{$fg[$u]%}%n%{$reset_color%}$extra_text %{$fg[yellow]%}%~> '
+zstyle ':vcs_info:*:*' formats "%{$fg[magenta]%}%b%{$reset_color%}"
 
-zstyle ':vcs_info:git:*' formats '%b'
+PROMPT='%D{%H:%M} %{$fg[$u]%}%n%{$reset_color%}$extra_text %{$fg[yellow]%}%~ %{$fg[green]%}${vcs_info_msg_0_}%{$reset_color%}> '
+
