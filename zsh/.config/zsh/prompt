@@ -9,6 +9,6 @@ precmd_vcs_info() { vcs_info }
 precmd_functions+=( precmd_vcs_info )
 setopt prompt_subst
 
-zstyle ':vcs_info:*:*' formats " %{$fg[magenta]%}%b%{$reset_color%}"
+zstyle ':vcs_info:*:*' formats " (%{$fg[magenta]%}%b%{$reset_color%})"
 
-PROMPT="%B%{$fg[yellow]%}⚡% %(?:%{$fg_bold[green]%}➜ :%{$fg_bold[red]%}➜ )%{$fg[cyan]%}%~%{$reset_color%}\${vcs_info_msg_0_} "
+PROMPT="%{$fg[cyan]%}%c%{$reset_color%}\${vcs_info_msg_0_} %(?:%{$fg_bold[green]%}➜ :%{$fg_bold[red]%}➜ )"
