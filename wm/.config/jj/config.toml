@@ -1,0 +1,32 @@
+#:schema https://jj-vcs.github.io/jj/latest/config-schema.json
+
+[user]
+name = "Etienne Beaulieu"
+email = "etienne.beaulieu@praxar.com"
+
+[ui]
+default-command = "l"
+movement.edit = true
+
+[working-copy]
+eol-conversion = "input"
+
+[templates]
+log = "builtin_log_detailed"
+
+[signing]
+behavior = "drop"
+backend = "gpg"
+
+[aliases]
+l = ["log", "--template", "builtin_log_comfortable", "-n", "10"]
+ll = ["log", "--template", "builtin_log_comfortable", "-n", "20"]
+lll = ["log", "--template", "builtin_log_comfortable", "-n", "30"]
+current_branch = [ "log", "--no-graph", "-r", "heads(::@ & bookmarks())", "-T", "stringify(bookmarks.join(\"\\n\")).first_line()"]
+
+[git]
+sign-on-push = true
+push-new-bookmarks = true
+
+[revset-aliases]
+immutable_heads = "builtin_immutable_heads() | (trunk().. & ~mine())"

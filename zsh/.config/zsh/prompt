@@ -12,7 +12,6 @@ if [ ! -z $CONTAINER_ID ]; then
   extra_text=" ($CONTAINER_ID)"
 fi
 
-#PS1='%D{%H:%M} %~ ${vcs_info_msg_0_}> '
 autoload -U colors && colors
 PS1='%D{%H:%M} %{$fg[$u]%}%n%{$reset_color%}$extra_text %{$fg[yellow]%}%~> '
 
