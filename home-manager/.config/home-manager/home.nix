@@ -12,6 +12,7 @@ let
 
   steam = flatpakHelper { pkgs = pkgs; filename = "steam"; flatpakid = "com.valvesoftware.Steam"; };
   discord = flatpakHelper { pkgs = pkgs; filename = "discord"; flatpakid = "com.discordapp.Discord"; };
+  zen = flatpakHelper { pkgs = pkgs; filename = "zen-browser"; flatpakid = "app.zen_browser.zen"; };
 in
 {
   nixpkgs.overlays = [ (final: prev: {
@@ -49,6 +50,7 @@ in
     pwolf
     passmenumore
     steam
+    zen
     discord
     vpn
     notify
